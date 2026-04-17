@@ -26,31 +26,50 @@ Or open `index.html` with any static host (`python3 -m http.server`, etc.).
 
 ## Refreshing data
 
-The app reads three JSON files from `data/`:
+There are three ways to get live data in. All three write to the same JSON
+files the UI reads (`data/bootstrap.json`, `data/fixtures.json`,
+`data/meta.json`).
 
-- `bootstrap.json` – teams, players, gameweek events
-- `fixtures.json` – all season fixtures
-- `meta.json` – `fetched_at` timestamp and source URLs
+### 1. In-browser refresh (recommended)
 
-The repo ships with **sample** team/fixture data so the UI works out of the
-box. To pull live prices and official fixtures:
+Run `npm start`, then click **↻ Oppdater priser** in the top bar. The dev
+server ships with a CORS-bypassing proxy (`/proxy/api/*`) that forwards
+the allow-listed paths to `fantasy.tv2.no` (or `fantasy.eliteserien.no`
+as a fallback).
+
+### 2. Import your team by ID
+
+Paste your TV 2 team ID and hit **Importer** – the app calls
+`/proxy/api/entry/{id}/event/{gw}/picks` and replaces the on-pitch squad
+with your actual 15 players.
+
+### 3. Command-line fetch
 
 ```bash
 npm run fetch
 ```
 
-This script tries these endpoints in order (first that responds wins):
+Writes the three JSON files to disk so the UI loads live data even
+without the dev server running. Tries these endpoints in order:
 
-1. `https://fantasy.tv2.no/api/bootstrap-static/`
-2. `https://fantasy.eliteserien.no/api/bootstrap-static/`
+| Purpose   | Primary                                      | Fallback                                         |
+| --------- | -------------------------------------------- | ------------------------------------------------ |
+| Bootstrap | `https://fantasy.tv2.no/api/bootstrap-static/` | `https://fantasy.eliteserien.no/api/bootstrap-static/` |
+| Fixtures  | `https://fantasy.tv2.no/api/fixtures/`         | `https://fantasy.eliteserien.no/api/fixtures/`         |
 
-Both follow the Fantasy Premier League schema that TV 2's Eliteserien
-Fantasy is based on, so the response normalises to the same shape.
+Both hosts run the same FPL-clone platform, so the response shape
+matches `fantasy.premierleague.com/api/bootstrap-static/` exactly.
+Endpoints were verified against the open-source reference clients
+[esf-planner](https://github.com/ViktorAlsos/esf-planner),
+[fantasybotes](https://github.com/galku/fantasybotes), and
+[viewfantasystats](https://github.com/olemabo/viewfantasystats).
 
-If you're on a network where those APIs are blocked, you can export the
-JSON manually from your browser (DevTools → Network → filter
-`bootstrap-static`) and drop it into `data/bootstrap.json`. The fetcher
-script shows you the expected shape.
+### Manual fallback
+
+If those hosts are blocked on your network, open
+<https://fantasy.tv2.no/api/bootstrap-static> in a browser, save the
+JSON, and drop it in at `data/bootstrap.json` (same for
+`data/fixtures.json`).
 
 ### Regenerating sample fixtures
 

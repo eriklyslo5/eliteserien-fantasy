@@ -66,6 +66,10 @@ async function loadData() {
     fetch("data/fixtures.json").then((r) => r.json()),
     fetch("data/meta.json").then((r) => r.json()).catch(() => null),
   ]);
+  applyData(boot, fix, meta);
+}
+
+function applyData(boot, fix, meta) {
   state.bootstrap = boot;
   state.fixtures = fix;
   state.meta = meta;
@@ -90,6 +94,128 @@ async function loadData() {
     const events = boot.events ?? [];
     const next = events.find((e) => e.is_next) ?? events.find((e) => e.is_current) ?? events[0];
     state.gameweek = next?.id ?? null;
+  }
+}
+
+// ---------- live refresh ----------
+
+function normalizeBootstrapRaw(raw) {
+  const etMap = new Map(
+    (raw.element_types ?? []).map((et) => [
+      et.id,
+      et.singular_name_short ?? et.singular_name ?? String(et.id),
+    ]),
+  );
+  const teams = (raw.teams ?? []).map((t) => ({
+    id: t.id,
+    code: t.code ?? t.id,
+    name: t.name,
+    short_name: t.short_name ?? "",
+    strength: t.strength ?? null,
+  }));
+  const players = (raw.elements ?? []).map((p) => ({
+    id: p.id,
+    first_name: p.first_name,
+    second_name: p.second_name,
+    web_name: p.web_name,
+    team: p.team,
+    position: etMap.get(p.element_type) ?? p.element_type,
+    position_id: p.element_type,
+    now_cost: p.now_cost,
+    total_points: p.total_points ?? 0,
+    form: p.form ?? "0",
+    selected_by_percent: p.selected_by_percent ?? "0",
+    status: p.status ?? "a",
+    news: p.news ?? "",
+    chance_of_playing_next_round: p.chance_of_playing_next_round ?? null,
+    photo: p.photo ?? null,
+  }));
+  const events = (raw.events ?? []).map((e) => ({
+    id: e.id,
+    name: e.name,
+    deadline_time: e.deadline_time,
+    is_current: !!e.is_current,
+    is_next: !!e.is_next,
+    finished: !!e.finished,
+  }));
+  return { teams, players, events, element_types: [...etMap].map(([id, s]) => ({ id, singular: s })) };
+}
+
+function normalizeFixturesRaw(raw) {
+  return (raw ?? []).map((f) => ({
+    id: f.id,
+    event: f.event,
+    kickoff_time: f.kickoff_time,
+    team_h: f.team_h,
+    team_a: f.team_a,
+    team_h_difficulty: f.team_h_difficulty ?? null,
+    team_a_difficulty: f.team_a_difficulty ?? null,
+    finished: !!f.finished,
+    team_h_score: f.team_h_score ?? null,
+    team_a_score: f.team_a_score ?? null,
+  }));
+}
+
+async function refreshLive() {
+  const btn = qs("#refresh-live");
+  btn.classList.add("busy");
+  try {
+    const [bootRaw, fixRaw] = await Promise.all([
+      fetch("/proxy/api/bootstrap-static").then(requireOk),
+      fetch("/proxy/api/fixtures").then(requireOk),
+    ]);
+    const boot = normalizeBootstrapRaw(bootRaw);
+    const fix = normalizeFixturesRaw(fixRaw);
+    const meta = {
+      fetched_at: new Date().toISOString(),
+      bootstrap_source: "fantasy.tv2.no (via proxy)",
+      fixtures_source: "fantasy.tv2.no (via proxy)",
+      is_sample: false,
+    };
+    applyData(boot, fix, meta);
+    renderGwSelect();
+    renderTeamFilter();
+    renderAll();
+    toast(`Oppdatert – ${boot.players.length} spillere`);
+  } catch (err) {
+    console.error(err);
+    toast("Kunne ikke oppdatere. Kjører du via `npm start`?", true);
+  } finally {
+    btn.classList.remove("busy");
+  }
+}
+
+async function requireOk(res) {
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+async function importTeam(teamId) {
+  const btn = qs("#import-team");
+  btn.classList.add("busy");
+  try {
+    if (!teamId || teamId < 1) throw new Error("Ugyldig lag-ID");
+    // Pick the current/previous gameweek's picks.
+    const events = state.bootstrap?.events ?? [];
+    const current =
+      events.find((e) => e.is_current) ??
+      [...events].reverse().find((e) => e.finished) ??
+      events[0];
+    if (!current) throw new Error("Mangler runde-info. Last data først.");
+    const picks = await fetch(`/proxy/api/entry/${teamId}/event/${current.id}/picks`).then(requireOk);
+    const picked = (picks.picks ?? []).map((p) => p.element);
+    if (picked.length === 0) throw new Error("Fant ingen spillere i laget");
+    // Validate against loaded players; silently drop unknown IDs.
+    const valid = picked.filter((id) => state.players.has(id));
+    state.squad = valid;
+    saveStored();
+    renderAll();
+    toast(`Importerte ${valid.length} spillere (Runde ${current.id})`);
+  } catch (err) {
+    console.error(err);
+    toast(err.message || "Import feilet", true);
+  } finally {
+    btn.classList.remove("busy");
   }
 }
 
@@ -404,6 +530,14 @@ function bind() {
     state.horizon = Number(e.target.value);
     saveStored();
     renderPitch();
+  });
+  qs("#refresh-live").addEventListener("click", () => refreshLive());
+  qs("#import-team").addEventListener("click", () => {
+    const val = Number(qs("#team-id").value);
+    importTeam(val);
+  });
+  qs("#team-id").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") qs("#import-team").click();
   });
   qs("#clear-team").addEventListener("click", () => {
     if (state.squad.length === 0) return;

@@ -1,8 +1,16 @@
 #!/usr/bin/env node
 // Refresh player prices + fixtures for the planner.
 //
-// Primary source: fantasy.tv2.no (FPL-style API).
-// Fixture fallback: fbref CSV scrape.
+// Endpoints (verified against ViktorAlsos/esf-planner, galku/fantasybotes,
+// olemabo/viewfantasystats – all publicly hit the TV 2 / Eliteserien APIs):
+//
+//   https://fantasy.tv2.no/api/bootstrap-static          -> teams, players, events
+//   https://fantasy.tv2.no/api/fixtures/                 -> all fixtures
+//   https://fantasy.eliteserien.no/api/element-summary/X -> per-player fixtures (fallback)
+//
+// The bootstrap response is the FPL schema (TV 2 and fantasy.eliteserien.no run the
+// same Premier League Fantasy clone). We can usually reach the JSON anonymously; no
+// login needed.
 //
 // Usage:
 //   node scripts/fetch-data.mjs
@@ -10,7 +18,7 @@
 // Output:
 //   data/bootstrap.json   - teams, players, events (gameweeks)
 //   data/fixtures.json    - all fixtures for the season
-//   data/meta.json        - fetched_at, season label, source URLs
+//   data/meta.json        - fetched_at, source URLs
 
 import { writeFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
@@ -22,32 +30,58 @@ const DATA_DIR = resolve(__dirname, "..", "data");
 const SOURCES = {
   bootstrap: [
     "https://fantasy.tv2.no/api/bootstrap-static/",
+    "https://fantasy.tv2.no/api/bootstrap-static",
     "https://fantasy.eliteserien.no/api/bootstrap-static/",
   ],
   fixtures: [
     "https://fantasy.tv2.no/api/fixtures/",
+    "https://fantasy.tv2.no/api/fixtures",
     "https://fantasy.eliteserien.no/api/fixtures/",
   ],
 };
 
-const UA = {
+// Browser-like headers. TV 2's edge sometimes rejects generic HTTP clients.
+const HEADERS = {
   "User-Agent":
-    "Mozilla/5.0 (eliteserien-fantasy-planner; +https://github.com/eriklyslo5/eliteserien-fantasy)",
-  Accept: "application/json,*/*;q=0.8",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
+    "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+  Accept: "application/json, text/plain, */*",
+  "Accept-Language": "nb-NO,nb;q=0.9,en;q=0.8",
+  Referer: "https://fantasy.tv2.no/",
+  Origin: "https://fantasy.tv2.no",
 };
+
+async function fetchJson(url, { timeoutMs = 15000 } = {}) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { headers: HEADERS, signal: ctrl.signal });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const ct = res.headers.get("content-type") ?? "";
+    const text = await res.text();
+    if (!ct.includes("json")) {
+      // Some CDNs mis-label content-type; try parsing anyway.
+      try {
+        return JSON.parse(text);
+      } catch {
+        throw new Error(`non-JSON response (${ct || "unknown"})`);
+      }
+    }
+    return JSON.parse(text);
+  } finally {
+    clearTimeout(t);
+  }
+}
 
 async function fetchFirstOk(urls) {
   const errors = [];
   for (const url of urls) {
     try {
-      const res = await fetch(url, { headers: UA });
-      if (!res.ok) {
-        errors.push(`${url} -> HTTP ${res.status}`);
-        continue;
-      }
-      const data = await res.json();
+      const data = await fetchJson(url);
+      console.log(`  ok ${url}`);
       return { url, data };
     } catch (err) {
+      console.log(`  skip ${url} (${err.message})`);
       errors.push(`${url} -> ${err.message}`);
     }
   }
@@ -59,7 +93,7 @@ function normalizeBootstrap(raw) {
     id: t.id,
     code: t.code ?? t.id,
     name: t.name,
-    short_name: t.short_name ?? t.name?.slice(0, 3).toUpperCase(),
+    short_name: t.short_name ?? (t.name ? t.name.slice(0, 3).toUpperCase() : ""),
     strength: t.strength ?? null,
     strength_overall_home: t.strength_overall_home ?? null,
     strength_overall_away: t.strength_overall_away ?? null,
@@ -84,7 +118,7 @@ function normalizeBootstrap(raw) {
     team: p.team,
     position: elementTypes.get(p.element_type)?.singular ?? p.element_type,
     position_id: p.element_type,
-    now_cost: p.now_cost, // in tenths (55 -> 5.5m)
+    now_cost: p.now_cost,
     total_points: p.total_points ?? 0,
     form: p.form ?? "0",
     selected_by_percent: p.selected_by_percent ?? "0",
@@ -129,14 +163,14 @@ async function writeJson(name, data) {
 }
 
 async function main() {
-  console.log("Fetching bootstrap (teams, players, events)...");
+  console.log("Fetching bootstrap (teams, players, events) …");
   const bootstrap = await fetchFirstOk(SOURCES.bootstrap);
   const normBoot = normalizeBootstrap(bootstrap.data);
   console.log(
     `  ${normBoot.teams.length} teams, ${normBoot.players.length} players, ${normBoot.events.length} gameweeks`,
   );
 
-  console.log("Fetching fixtures...");
+  console.log("Fetching fixtures …");
   const fixtures = await fetchFirstOk(SOURCES.fixtures);
   const normFix = normalizeFixtures(fixtures.data);
   console.log(`  ${normFix.length} fixtures`);
@@ -147,12 +181,19 @@ async function main() {
     fetched_at: new Date().toISOString(),
     bootstrap_source: bootstrap.url,
     fixtures_source: fixtures.url,
+    is_sample: false,
   });
 
   console.log("Done.");
 }
 
 main().catch((err) => {
-  console.error("Failed:", err.message);
+  console.error("\nFailed:", err.message);
+  console.error(
+    "\nIf TV 2 or fantasy.eliteserien.no is blocking your network, try:\n" +
+      "  1. Open https://fantasy.tv2.no/api/bootstrap-static in a browser\n" +
+      "  2. Right-click the JSON → Save As → data/bootstrap.json\n" +
+      "  3. Do the same for https://fantasy.tv2.no/api/fixtures/ → data/fixtures.json\n",
+  );
   process.exit(1);
 });

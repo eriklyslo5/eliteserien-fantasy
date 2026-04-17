@@ -30,6 +30,13 @@
           <div><span class="label">Igjen</span><span id="team-remaining">100.0</span></div>
           <div><span class="label">Spillere</span><span id="team-count">0/15</span></div>
         </div>
+        <div class="live-controls">
+          <button id="refresh-live" class="ghost-btn" title="Hent ferske priser og kampoppsett fra fantasy.tv2.no">↻ Oppdater priser</button>
+          <div class="import-team">
+            <input id="team-id" type="number" inputmode="numeric" min="1" placeholder="Lag-ID" autocomplete="off" />
+            <button id="import-team" class="ghost-btn" title="Importer laget fra fantasy.tv2.no">Importer</button>
+          </div>
+        </div>
       </div>
     </header>
 

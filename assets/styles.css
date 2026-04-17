@@ -88,6 +88,23 @@ a { color: var(--accent); }
 .budget span:not(.label) { font-weight: 700; font-size: 15px; }
 .budget.over span#team-remaining { color: var(--bad); }
 
+.live-controls { display: flex; gap: 8px; align-items: center; }
+.import-team { display: flex; gap: 4px; }
+.import-team input {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  width: 110px;
+}
+.import-team input::-webkit-outer-spin-button,
+.import-team input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.import-team input { -moz-appearance: textfield; }
+
+.ghost-btn.busy { opacity: 0.6; pointer-events: none; }
+
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 400px;
