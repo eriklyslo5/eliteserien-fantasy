@@ -164,8 +164,8 @@ async function refreshLive() {
   btn.classList.add("busy");
   try {
     const [bootRaw, fixRaw] = await Promise.all([
-      fetch("/proxy/api/bootstrap-static").then(requireOk),
-      fetch("/proxy/api/fixtures").then(requireOk),
+      apiFetch("/api/bootstrap-static"),
+      apiFetch("/api/fixtures"),
     ]);
     const boot = normalizeBootstrapRaw(bootRaw);
     const fix = normalizeFixturesRaw(fixRaw);
@@ -193,6 +193,19 @@ async function requireOk(res) {
   return res.json();
 }
 
+const TV2_HOSTS = ["https://fantasy.tv2.no", "https://fantasy.eliteserien.no"];
+
+async function apiFetch(path) {
+  for (const host of TV2_HOSTS) {
+    try {
+      const res = await fetch(`${host}${path}`, { signal: AbortSignal.timeout(10000) });
+      if (res.ok) return res.json();
+    } catch (_) {}
+  }
+  // Last resort: local proxy (only works with `npm start`)
+  return fetch(`/proxy${path}`).then(requireOk);
+}
+
 async function importTeam(teamId) {
   const btn = qs("#import-team");
   btn.classList.add("busy");
@@ -205,7 +218,7 @@ async function importTeam(teamId) {
       [...events].reverse().find((e) => e.finished) ??
       events[0];
     if (!current) throw new Error("Mangler runde-info. Last data først.");
-    const picks = await fetch(`/proxy/api/entry/${teamId}/event/${current.id}/picks`).then(requireOk);
+    const picks = await apiFetch(`/api/entry/${teamId}/event/${current.id}/picks`);
     const picked = (picks.picks ?? []).map((p) => p.element);
     if (picked.length === 0) throw new Error("Fant ingen spillere i laget");
     // Validate against loaded players; silently drop unknown IDs.
