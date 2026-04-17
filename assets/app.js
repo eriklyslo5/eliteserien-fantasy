@@ -28,7 +28,7 @@ const state = {
   formation: "4-4-2",
   horizon: 5,
   gameweek: null, // selected event id
-  filters: { search: "", position: "", team: "", sort: "now_cost_desc" },
+  filters: { search: "", position: "", team: "", sort: "now_cost_desc", minOwnership: 0 },
 };
 
 // ---------- storage ----------
@@ -267,9 +267,6 @@ function canAdd(player) {
   if (countByClub(player.team) >= MAX_PER_CLUB) {
     return { ok: false, reason: `Maks ${MAX_PER_CLUB} fra hver klubb` };
   }
-  if (squadCost() + player.now_cost > BUDGET_TENTHS) {
-    return { ok: false, reason: "Over budsjett" };
-  }
   return { ok: true };
 }
 
@@ -439,6 +436,7 @@ function matchesFilters(player) {
   const f = state.filters;
   if (f.position && player.position !== f.position) return false;
   if (f.team && player.team !== Number(f.team)) return false;
+  if (f.minOwnership > 0 && parseFloat(player.selected_by_percent ?? 0) < f.minOwnership) return false;
   if (f.search) {
     const needle = f.search.toLowerCase();
     const team = state.teams.get(player.team);
@@ -576,6 +574,11 @@ function bind() {
   });
   qs("#sort-by").addEventListener("change", (e) => {
     state.filters.sort = e.target.value;
+    renderPlayerList();
+  });
+
+  qs("#filter-ownership").addEventListener("change", (e) => {
+    state.filters.minOwnership = Number(e.target.value);
     renderPlayerList();
   });
 
