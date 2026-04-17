@@ -1,0 +1,5 @@
+{
+  "fetched_at": null,
+  "is_sample": true,
+  "note": "Sample data. Run `npm run fetch` to replace with live data from fantasy.tv2.no."
+}

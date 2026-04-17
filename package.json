@@ -1,0 +1,16 @@
+{
+  "name": "eliteplan",
+  "version": "0.1.0",
+  "description": "Eliteserien Fantasy planner – preview your team for upcoming gameweeks.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-default-type=module scripts/serve.mjs",
+    "serve": "node scripts/serve.mjs",
+    "fetch": "node scripts/fetch-data.mjs",
+    "sample-fixtures": "node scripts/generate-sample-fixtures.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

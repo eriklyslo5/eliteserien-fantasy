@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Eliteplan – Eliteserien Fantasy planner</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='14' font-size='14'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">⚽</span>
+        <div>
+          <h1>Eliteplan</h1>
+          <p class="tagline">Planlegg laget ditt for kommende runder</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <div class="gw-nav">
+          <button id="gw-prev" class="icon-btn" aria-label="Forrige runde">‹</button>
+          <select id="gw-select" aria-label="Velg runde"></select>
+          <button id="gw-next" class="icon-btn" aria-label="Neste runde">›</button>
+        </div>
+        <div class="budget" id="budget-panel">
+          <div><span class="label">Kostnad</span><span id="team-cost">0.0</span></div>
+          <div><span class="label">Igjen</span><span id="team-remaining">100.0</span></div>
+          <div><span class="label">Spillere</span><span id="team-count">0/15</span></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="pitch-column">
+        <div class="pitch-tools">
+          <label>
+            Formasjon
+            <select id="formation">
+              <option value="3-4-3">3-4-3</option>
+              <option value="3-5-2">3-5-2</option>
+              <option value="4-3-3">4-3-3</option>
+              <option value="4-4-2" selected>4-4-2</option>
+              <option value="4-5-1">4-5-1</option>
+              <option value="5-3-2">5-3-2</option>
+              <option value="5-4-1">5-4-1</option>
+            </select>
+          </label>
+          <label>
+            Runder fremover
+            <select id="horizon">
+              <option value="3">3</option>
+              <option value="5" selected>5</option>
+              <option value="8">8</option>
+            </select>
+          </label>
+          <button id="clear-team" class="ghost-btn">Tøm laget</button>
+        </div>
+
+        <div id="pitch" class="pitch"></div>
+
+        <div class="bench">
+          <h3>Benken</h3>
+          <div id="bench-slots" class="bench-slots"></div>
+        </div>
+
+        <div class="fixtures-summary">
+          <h3>Kampoversikt – <span id="fixtures-gw-label">Runde</span></h3>
+          <div id="fixtures-grid" class="fixtures-grid"></div>
+        </div>
+      </section>
+
+      <aside class="players-column">
+        <div class="players-header">
+          <h2>Spillere</h2>
+          <span class="muted" id="players-source"></span>
+        </div>
+        <div class="filters">
+          <input
+            id="search"
+            type="search"
+            placeholder="Søk spiller eller klubb…"
+            autocomplete="off"
+          />
+          <select id="filter-position">
+            <option value="">Alle posisjoner</option>
+            <option value="GK">Keeper</option>
+            <option value="DEF">Forsvar</option>
+            <option value="MID">Midtbane</option>
+            <option value="FWD">Angrep</option>
+          </select>
+          <select id="filter-team">
+            <option value="">Alle klubber</option>
+          </select>
+          <select id="sort-by">
+            <option value="now_cost_desc">Pris ↓</option>
+            <option value="now_cost_asc">Pris ↑</option>
+            <option value="total_points_desc">Poeng ↓</option>
+            <option value="form_desc">Form ↓</option>
+            <option value="selected_by_percent_desc">Valgt % ↓</option>
+          </select>
+        </div>
+        <div id="players-list" class="players-list" role="list"></div>
+      </aside>
+    </main>
+
+    <div id="empty-players" class="empty-state" hidden>
+      <h3>Ingen spillerdata funnet</h3>
+      <p>
+        Kjør <code>npm run fetch</code> i prosjektmappen for å hente priser og
+        spillere fra <a href="https://fantasy.tv2.no/transfers" target="_blank" rel="noopener">fantasy.tv2.no</a>.
+        Lagoversikten og kampprogrammet fungerer uten spillere.
+      </p>
+    </div>
+
+    <script src="assets/app.js" type="module"></script>
+  </body>
+</html>
