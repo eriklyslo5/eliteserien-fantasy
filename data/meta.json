@@ -1,5 +1,6 @@
 {
-  "fetched_at": null,
-  "is_sample": true,
-  "note": "Sample data. Run `npm run fetch` to replace with live data from fantasy.tv2.no."
+  "fetched_at": "2026-04-17T14:41:55.908Z",
+  "bootstrap_source": "https://fantasy.tv2.no/api/bootstrap-static/",
+  "fixtures_source": "https://fantasy.tv2.no/api/fixtures/",
+  "is_sample": false
 }
