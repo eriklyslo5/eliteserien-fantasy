@@ -103,7 +103,7 @@ function normalizeBootstrapRaw(raw) {
   const etMap = new Map(
     (raw.element_types ?? []).map((et) => [
       et.id,
-      et.singular_name_short ?? et.singular_name ?? String(et.id),
+      et.singular_name_short ?? et.singular_name ?? et.singular ?? String(et.id),
     ]),
   );
   const teams = (raw.teams ?? []).map((t) => ({
@@ -113,14 +113,14 @@ function normalizeBootstrapRaw(raw) {
     short_name: t.short_name ?? "",
     strength: t.strength ?? null,
   }));
-  const players = (raw.elements ?? []).map((p) => ({
+  const players = (raw.elements ?? raw.players ?? []).map((p) => ({
     id: p.id,
     first_name: p.first_name,
     second_name: p.second_name,
     web_name: p.web_name,
     team: p.team,
-    position: etMap.get(p.element_type) ?? p.element_type,
-    position_id: p.element_type,
+    position: etMap.get(p.element_type ?? p.position_id) ?? p.position ?? String(p.element_type ?? p.position_id),
+    position_id: p.element_type ?? p.position_id,
     now_cost: p.now_cost,
     total_points: p.total_points ?? 0,
     form: p.form ?? "0",
