@@ -4,6 +4,7 @@
 const BUDGET_TENTHS = 1000; // 100.0m
 const SQUAD_SIZE = 15;
 const SQUAD_BY_POS = { GK: 2, DEF: 5, MID: 5, FWD: 3 };
+const POS_MAP = { KPR: "GK", FOR: "DEF", MID: "MID", ANG: "FWD" };
 const MAX_PER_CLUB = 3;
 const FORMATIONS = {
   "3-4-3": { DEF: 3, MID: 4, FWD: 3 },
@@ -74,7 +75,9 @@ function applyData(boot, fix, meta) {
   state.fixtures = fix;
   state.meta = meta;
   state.teams = new Map(boot.teams.map((t) => [t.id, t]));
-  state.players = new Map(boot.players.map((p) => [p.id, p]));
+  state.players = new Map(
+    (boot.players ?? []).map((p) => [p.id, { ...p, position: POS_MAP[p.position] ?? p.position }])
+  );
 
   state.fixturesByTeam = new Map();
   state.fixturesByEvent = new Map();
