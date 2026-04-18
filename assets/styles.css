@@ -189,7 +189,8 @@ a { color: var(--accent); }
   transition: transform 0.08s;
 }
 .slot:hover { transform: translateY(-2px); }
-.slot.filled { border-style: solid; background: rgba(0, 0, 0, 0.45); }
+.slot.filled { border-style: solid; background: rgba(0, 0, 0, 0.45); cursor: pointer; }
+.slot.swap-selected { outline: 2px solid var(--accent); box-shadow: 0 0 10px var(--accent); }
 .slot .slot-role {
   color: rgba(255, 255, 255, 0.7);
   font-size: 10px;

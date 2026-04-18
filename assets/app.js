@@ -25,6 +25,7 @@ const state = {
   fixturesByTeam: new Map(),
   fixturesByEvent: new Map(),
   squad: [], // player ids, ordered by pick
+  swapId: null, // id of slot selected for swapping
   formation: "4-4-2",
   horizon: 5,
   gameweek: null, // selected event id
@@ -358,7 +359,8 @@ function playerSlotHtml(player, role) {
       return `<span class="fx ${fdrClass(lbl.difficulty)} ${lbl.home ? "h" : "a"}" title="Runde ${f.event} – ${lbl.home ? "Hjemme" : "Borte"}">${lbl.text}${lbl.home ? " (H)" : " (B)"}</span>`;
     })
     .join("");
-  return `<div class="slot filled" data-player="${player.id}" data-role="${role}">
+  const swapping = state.swapId === player.id ? " swap-selected" : "";
+  return `<div class="slot filled${swapping}" data-player="${player.id}" data-role="${role}">
     <button class="remove" title="Fjern" data-remove="${player.id}">×</button>
     <div class="slot-role">${role}</div>
     <div class="player-name">${escapeHtml(player.web_name || player.second_name || "")}</div>
@@ -366,6 +368,27 @@ function playerSlotHtml(player, role) {
     <div class="player-price">${fmtPrice(player.now_cost)}</div>
     <div class="fx-row">${fxHtml}</div>
   </div>`;
+}
+
+function handleSlotClick(playerId) {
+  if (state.swapId === null) {
+    state.swapId = playerId;
+    renderPitch();
+    return;
+  }
+  if (state.swapId === playerId) {
+    state.swapId = null;
+    renderPitch();
+    return;
+  }
+  const i = state.squad.indexOf(state.swapId);
+  const j = state.squad.indexOf(playerId);
+  if (i !== -1 && j !== -1) {
+    [state.squad[i], state.squad[j]] = [state.squad[j], state.squad[i]];
+    saveStored();
+  }
+  state.swapId = null;
+  renderAll();
 }
 
 function renderPitch() {
@@ -587,6 +610,15 @@ function bind() {
     if (!row) return;
     togglePlayer(Number(row.dataset.player));
   });
+
+  function pitchClickHandler(e) {
+    if (e.target.closest("[data-remove]")) return;
+    const slot = e.target.closest(".slot.filled[data-player]");
+    if (!slot) return;
+    handleSlotClick(Number(slot.dataset.player));
+  }
+  qs("#pitch").addEventListener("click", pitchClickHandler);
+  qs("#bench-slots").addEventListener("click", pitchClickHandler);
 
   document.addEventListener("click", (e) => {
     const removeBtn = e.target.closest("[data-remove]");
