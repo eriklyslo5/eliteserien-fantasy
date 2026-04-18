@@ -199,14 +199,23 @@ async function requireOk(res) {
 const TV2_HOSTS = ["https://fantasy.tv2.no", "https://fantasy.eliteserien.no"];
 
 async function apiFetch(path) {
+  let lastStatus = null;
   for (const host of TV2_HOSTS) {
-    try {
-      const res = await fetch(`${host}${path}`, { signal: AbortSignal.timeout(10000) });
-      if (res.ok) return res.json();
-    } catch (_) {}
+    for (const variant of [path, path.endsWith("/") ? path.slice(0, -1) : path + "/"]) {
+      try {
+        const res = await fetch(`${host}${variant}`, { signal: AbortSignal.timeout(10000) });
+        if (res.ok) return res.json();
+        lastStatus = res.status;
+      } catch (_) {}
+    }
   }
   // Last resort: local proxy (only works with `npm start`)
-  return fetch(`/proxy${path}`).then(requireOk);
+  try {
+    const res = await fetch(`/proxy${path}`);
+    if (res.ok) return res.json();
+    lastStatus = res.status;
+  } catch (_) {}
+  throw new Error(`HTTP ${lastStatus ?? "?"}`);
 }
 
 async function importTeam(teamId) {
@@ -214,22 +223,31 @@ async function importTeam(teamId) {
   btn.classList.add("busy");
   try {
     if (!teamId || teamId < 1) throw new Error("Ugyldig lag-ID");
-    // Pick the current/previous gameweek's picks.
     const events = state.bootstrap?.events ?? [];
-    const current =
-      events.find((e) => e.is_current) ??
-      [...events].reverse().find((e) => e.finished) ??
-      events[0];
-    if (!current) throw new Error("Mangler runde-info. Last data først.");
-    const picks = await apiFetch(`/api/entry/${teamId}/event/${current.id}/picks`);
+    if (events.length === 0) throw new Error("Mangler runde-info. Last data først.");
+    // Build candidate gameweeks: current first, then most recent finished going backwards.
+    const finished = events.filter((e) => e.finished).map((e) => e.id).sort((a, b) => b - a);
+    const candidates = [...new Set(finished.concat([events.find((e) => e.is_current)?.id, events[0].id].filter(Boolean)))];
+    let picks = null;
+    let usedGw = null;
+    let lastErr = null;
+    for (const gw of candidates) {
+      try {
+        picks = await apiFetch(`/api/entry/${teamId}/event/${gw}/picks`);
+        usedGw = gw;
+        break;
+      } catch (err) {
+        lastErr = err;
+      }
+    }
+    if (!picks) throw new Error(`Fant ingen lagdata (${lastErr?.message ?? "?"})`);
     const picked = (picks.picks ?? []).map((p) => p.element);
     if (picked.length === 0) throw new Error("Fant ingen spillere i laget");
-    // Validate against loaded players; silently drop unknown IDs.
     const valid = picked.filter((id) => state.players.has(id));
     state.squad = valid;
     saveStored();
     renderAll();
-    toast(`Importerte ${valid.length} spillere (Runde ${current.id})`);
+    toast(`Importerte ${valid.length} spillere (Runde ${usedGw})`);
   } catch (err) {
     console.error(err);
     toast(err.message || "Import feilet", true);
