@@ -99,6 +99,8 @@ function applyData(boot, fix, meta) {
     const next = events.find((e) => e.is_next) ?? events.find((e) => e.is_current) ?? events[0];
     state.gameweek = next?.id ?? null;
   }
+
+  state.teamFdr = computeTeamFdr();
 }
 
 // ---------- live refresh ----------
@@ -283,16 +285,37 @@ function nextFixtures(teamId, fromEventId, count) {
   return out;
 }
 
+function computeTeamFdr() {
+  const points = new Map();
+  for (const p of state.players.values()) {
+    points.set(p.team, (points.get(p.team) ?? 0) + (p.total_points ?? 0));
+  }
+  const teamsWithPoints = [...points.entries()].filter(([, pts]) => pts > 0);
+  if (teamsWithPoints.length === 0) return new Map();
+  teamsWithPoints.sort((a, b) => b[1] - a[1]); // strongest first
+  const tiers = new Map();
+  const n = teamsWithPoints.length;
+  teamsWithPoints.forEach(([teamId], idx) => {
+    // strongest 20% → tier 5 (hardest), weakest 20% → tier 1 (easiest)
+    const tier = 5 - Math.floor((idx / n) * 5);
+    tiers.set(teamId, Math.max(1, Math.min(5, tier)));
+  });
+  return tiers;
+}
+
 function fixtureLabel(fixture, teamId) {
   const oppId = fixture.team_h === teamId ? fixture.team_a : fixture.team_h;
   const opp = state.teams.get(oppId);
   const home = fixture.team_h === teamId;
-  return {
-    text: `${opp?.short_name ?? "?"}${home ? "" : ""}`,
-    home,
-    difficulty:
-      (home ? fixture.team_h_difficulty : fixture.team_a_difficulty) ?? null,
-  };
+  const apiDiff = (home ? fixture.team_h_difficulty : fixture.team_a_difficulty) ?? null;
+  let difficulty = apiDiff;
+  if (difficulty == null) {
+    const oppTier = state.teamFdr?.get(oppId) ?? null;
+    if (oppTier != null) {
+      difficulty = home ? Math.max(1, oppTier - 1) : oppTier;
+    }
+  }
+  return { text: `${opp?.short_name ?? "?"}`, home, difficulty };
 }
 
 // ---------- rendering ----------
