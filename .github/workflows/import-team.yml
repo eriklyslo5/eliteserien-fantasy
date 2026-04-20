@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       team_id:
-        description: 'Ditt lag-ID (finnes på fantasy.tv2.no/transfers – se URL-en, f.eks. 123456)'
+        description: 'Your team ID from fantasy.tv2.no/transfers URL (e.g. 123456)'
         required: true
         type: string
 
