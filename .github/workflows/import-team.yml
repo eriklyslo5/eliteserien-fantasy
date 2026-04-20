@@ -1,0 +1,34 @@
+name: Import Team
+
+on:
+  workflow_dispatch:
+    inputs:
+      team_id:
+        description: 'Ditt lag-ID (finnes på fantasy.tv2.no/transfers – se URL-en)'
+        required: true
+        type: number
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Fetch team picks
+        run: node scripts/fetch-team.mjs ${{ inputs.team_id }}
+
+      - name: Commit team data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/my-team.json
+          git diff --staged --quiet && echo "No changes." && exit 0
+          git commit -m "chore: import team ${{ inputs.team_id }}"
+          git push

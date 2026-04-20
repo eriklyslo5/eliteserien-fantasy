@@ -63,12 +63,21 @@ function saveStored() {
 // ---------- data loading ----------
 
 async function loadData() {
-  const [boot, fix, meta] = await Promise.all([
+  const [boot, fix, meta, myTeam] = await Promise.all([
     fetch("data/bootstrap.json").then((r) => r.json()),
     fetch("data/fixtures.json").then((r) => r.json()),
     fetch("data/meta.json").then((r) => r.json()).catch(() => null),
+    fetch("data/my-team.json").then((r) => r.json()).catch(() => null),
   ]);
   applyData(boot, fix, meta);
+  if (myTeam?.picks?.length && state.squad.length === 0) {
+    const ids = myTeam.picks.map((p) => p.element).filter((id) => state.players.has(id));
+    if (ids.length > 0) {
+      state.squad = ids;
+      saveStored();
+      toast(`Lastet inn laget ditt (Runde ${myTeam.gameweek})`);
+    }
+  }
 }
 
 function applyData(boot, fix, meta) {
@@ -614,13 +623,6 @@ function bind() {
     renderPitch();
   });
   qs("#refresh-live").addEventListener("click", () => refreshLive());
-  qs("#import-team").addEventListener("click", () => {
-    const val = Number(qs("#team-id").value);
-    importTeam(val);
-  });
-  qs("#team-id").addEventListener("keydown", (e) => {
-    if (e.key === "Enter") qs("#import-team").click();
-  });
   qs("#clear-team").addEventListener("click", () => {
     if (state.squad.length === 0) return;
     if (!confirm("Tømme laget?")) return;
