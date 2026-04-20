@@ -291,16 +291,19 @@ function canAdd(player) {
   return { ok: true };
 }
 
-function nextFixtures(teamId, fromEventId, count) {
+function nextFixturesByGw(teamId, fromEventId, gwCount) {
   const list = state.fixturesByTeam.get(teamId) ?? [];
-  const out = [];
+  const byGw = new Map();
   for (const f of list) {
     if (f.event == null) continue;
     if (fromEventId != null && f.event < fromEventId) continue;
-    out.push(f);
-    if (out.length >= count) break;
+    if (!byGw.has(f.event)) byGw.set(f.event, []);
+    byGw.get(f.event).push(f);
   }
-  return out;
+  return [...byGw.entries()]
+    .sort((a, b) => a[0] - b[0])
+    .slice(0, gwCount)
+    .map(([, fixtures]) => fixtures);
 }
 
 function computeTeamFdr() {
@@ -393,13 +396,14 @@ function playerSlotHtml(player, role) {
     </div>`;
   }
   const team = state.teams.get(player.team);
-  const fxs = nextFixtures(player.team, state.gameweek, state.horizon);
-  const fxHtml = fxs
-    .map((f) => {
+  const gwGroups = nextFixturesByGw(player.team, state.gameweek, state.horizon);
+  const fxHtml = gwGroups.map((fixtures) => {
+    const pills = fixtures.map((f) => {
       const lbl = fixtureLabel(f, player.team);
-      return `<span class="fx ${fdrClass(lbl.difficulty)} ${lbl.home ? "h" : "a"}" title="Runde ${f.event} – ${lbl.home ? "Hjemme" : "Borte"}">${lbl.text}${lbl.home ? " (H)" : " (B)"}</span>`;
-    })
-    .join("");
+      return `<span class="fx ${fdrClass(lbl.difficulty)} ${lbl.home ? "h" : "a"}" title="Runde ${f.event} – ${lbl.home ? "Hjemme" : "Borte"}">${lbl.text}</span>`;
+    }).join("");
+    return fixtures.length > 1 ? `<span class="fx-dgw">${pills}</span>` : pills;
+  }).join("");
   const swapping = state.swapId === player.id ? " swap-selected" : "";
   return `<div class="slot filled${swapping}" data-player="${player.id}" data-role="${role}">
     <button class="remove" title="Fjern" data-remove="${player.id}">×</button>

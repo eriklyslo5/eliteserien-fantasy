@@ -217,9 +217,17 @@ a { color: var(--accent); }
 }
 .slot .fx-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 2px;
   justify-content: center;
   margin-top: 6px;
+}
+.slot .fx-dgw {
+  display: inline-flex;
+  gap: 1px;
+  outline: 2px solid rgba(255,255,255,0.5);
+  border-radius: 3px;
+  padding: 1px;
 }
 .slot .fx {
   font-size: 9px;
