@@ -6,6 +6,7 @@ const SQUAD_SIZE = 15;
 const SQUAD_BY_POS = { GK: 2, DEF: 5, MID: 5, FWD: 3 };
 const POS_MAP = { KPR: "GK", FOR: "DEF", MID: "MID", ANG: "FWD" };
 const MAX_PER_CLUB = 3;
+const MAX_FREE_TRANSFERS = 5;
 const FORMATIONS = {
   "3-4-3": { DEF: 3, MID: 4, FWD: 3 },
   "3-5-2": { DEF: 3, MID: 5, FWD: 2 },
@@ -24,40 +25,118 @@ const state = {
   players: new Map(),
   fixturesByTeam: new Map(),
   fixturesByEvent: new Map(),
-  squad: [], // player ids, ordered by pick
-  swapId: null, // id of slot selected for swapping
+  squadsByGw: {},        // { [gwId]: [playerId, ...] }
+  baseFreeTransfers: 1,  // free transfers available at the earliest GW with data
+  swapId: null,
   formation: "4-4-2",
   horizon: 5,
-  gameweek: null, // selected event id
+  gameweek: null,
   filters: { search: "", position: "", team: "", sort: "now_cost_desc", minOwnership: 0 },
 };
 
+// ---------- squad accessors ----------
+
+function getSquad() {
+  const gw = state.gameweek;
+  if (gw == null) return [];
+  if (state.squadsByGw[gw]) return state.squadsByGw[gw];
+  // Fall back to most recent prior GW that has data
+  const prior = priorGwWithData(gw);
+  return prior != null ? state.squadsByGw[prior] : [];
+}
+
+// Commit ids to current GW and persist
+function setSquad(ids) {
+  if (state.gameweek == null) return;
+  state.squadsByGw[state.gameweek] = [...ids];
+  saveStored();
+}
+
+// Read effective squad, apply mutation fn, write back to current GW
+function mutateSquad(fn) {
+  const arr = [...getSquad()];
+  fn(arr);
+  setSquad(arr);
+}
+
+// ---------- transfer helpers ----------
+
+function sortedGws() {
+  return Object.keys(state.squadsByGw).map(Number).sort((a, b) => a - b);
+}
+
+function baselineGw() {
+  const gws = sortedGws();
+  return gws.length ? gws[0] : null;
+}
+
+function priorGwWithData(gw) {
+  const gws = sortedGws().filter((g) => g < gw);
+  return gws.length ? gws[gws.length - 1] : null;
+}
+
+function transfersUsed(gw) {
+  const prev = priorGwWithData(gw);
+  if (prev == null || !state.squadsByGw[gw]) return 0;
+  const prevSet = new Set(state.squadsByGw[prev]);
+  return state.squadsByGw[gw].filter((id) => !prevSet.has(id)).length;
+}
+
+function freeTransfersAvailable(gw) {
+  const base = baselineGw();
+  if (base == null) return state.baseFreeTransfers;
+  if (gw === base) return state.baseFreeTransfers;
+  // Walk forward from baseline
+  const gws = sortedGws();
+  let free = state.baseFreeTransfers;
+  for (const g of gws) {
+    if (g >= gw) break;
+    const used = transfersUsed(g);
+    free = Math.min(MAX_FREE_TRANSFERS, Math.max(0, free - used) + 1);
+  }
+  return free;
+}
+
 // ---------- storage ----------
 
-const STORAGE_KEY = "eliteplan.v1";
+const STORAGE_KEY = "eliteplan.v2";
 
 function loadStored() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return;
-    const s = JSON.parse(raw);
-    if (Array.isArray(s.squad)) state.squad = s.squad;
-    if (typeof s.formation === "string" && FORMATIONS[s.formation]) state.formation = s.formation;
-    if (typeof s.horizon === "number") state.horizon = s.horizon;
-    if (typeof s.gameweek === "number") state.gameweek = s.gameweek;
+    if (raw) {
+      const s = JSON.parse(raw);
+      if (s.squadsByGw && typeof s.squadsByGw === "object") state.squadsByGw = s.squadsByGw;
+      if (typeof s.baseFreeTransfers === "number") state.baseFreeTransfers = s.baseFreeTransfers;
+      if (typeof s.formation === "string" && FORMATIONS[s.formation]) state.formation = s.formation;
+      if (typeof s.horizon === "number") state.horizon = s.horizon;
+      if (typeof s.gameweek === "number") state.gameweek = s.gameweek;
+      return;
+    }
+    // Migrate from old v1 format
+    const old = localStorage.getItem("eliteplan.v1");
+    if (old) {
+      const s = JSON.parse(old);
+      if (typeof s.formation === "string" && FORMATIONS[s.formation]) state.formation = s.formation;
+      if (typeof s.horizon === "number") state.horizon = s.horizon;
+      if (typeof s.gameweek === "number") state.gameweek = s.gameweek;
+      if (Array.isArray(s.squad) && s.squad.length > 0 && s.gameweek) {
+        state.squadsByGw[s.gameweek] = s.squad;
+      }
+    }
   } catch (err) {
     console.warn("Couldn't restore state:", err);
   }
 }
 
 function saveStored() {
-  const snap = {
-    squad: state.squad,
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    squadsByGw: state.squadsByGw,
+    baseFreeTransfers: state.baseFreeTransfers,
     formation: state.formation,
     horizon: state.horizon,
     gameweek: state.gameweek,
-  };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(snap));
+  }));
 }
 
 // ---------- data loading ----------
@@ -70,12 +149,13 @@ async function loadData() {
     fetch("data/my-team.json").then((r) => r.json()).catch(() => null),
   ]);
   applyData(boot, fix, meta);
-  if (myTeam?.picks?.length && state.squad.length === 0) {
+  if (myTeam?.picks?.length && Object.keys(state.squadsByGw).length === 0) {
     const ids = myTeam.picks.map((p) => p.element).filter((id) => state.players.has(id));
-    if (ids.length > 0) {
-      state.squad = ids;
+    const importGw = myTeam.gameweek ?? state.gameweek;
+    if (ids.length > 0 && importGw != null) {
+      state.squadsByGw[importGw] = ids;
       saveStored();
-      toast(`Lastet inn laget ditt (Runde ${myTeam.gameweek})`);
+      toast(`Lastet inn laget ditt (Runde ${importGw})`);
     }
   }
 }
@@ -218,7 +298,6 @@ async function apiFetch(path) {
       } catch (_) {}
     }
   }
-  // Last resort: local proxy (only works with `npm start`)
   try {
     const res = await fetch(`/proxy${path}`);
     if (res.ok) return res.json();
@@ -234,7 +313,6 @@ async function importTeam(teamId) {
     if (!teamId || teamId < 1) throw new Error("Ugyldig lag-ID");
     const events = state.bootstrap?.events ?? [];
     if (events.length === 0) throw new Error("Mangler runde-info. Last data først.");
-    // Build candidate gameweeks: current first, then most recent finished going backwards.
     const finished = events.filter((e) => e.finished).map((e) => e.id).sort((a, b) => b - a);
     const candidates = [...new Set(finished.concat([events.find((e) => e.is_current)?.id, events[0].id].filter(Boolean)))];
     let picks = null;
@@ -253,7 +331,7 @@ async function importTeam(teamId) {
     const picked = (picks.picks ?? []).map((p) => p.element);
     if (picked.length === 0) throw new Error("Fant ingen spillere i laget");
     const valid = picked.filter((id) => state.players.has(id));
-    state.squad = valid;
+    state.squadsByGw[usedGw] = valid;
     saveStored();
     renderAll();
     toast(`Importerte ${valid.length} spillere (Runde ${usedGw})`);
@@ -270,12 +348,12 @@ async function importTeam(teamId) {
 const fmtPrice = (tenths) => (tenths / 10).toFixed(1);
 
 function squadCost() {
-  return state.squad.reduce((sum, id) => sum + (state.players.get(id)?.now_cost ?? 0), 0);
+  return getSquad().reduce((sum, id) => sum + (state.players.get(id)?.now_cost ?? 0), 0);
 }
 
 function squadByPos() {
   const by = { GK: [], DEF: [], MID: [], FWD: [] };
-  for (const id of state.squad) {
+  for (const id of getSquad()) {
     const p = state.players.get(id);
     if (!p) continue;
     if (by[p.position]) by[p.position].push(p);
@@ -284,12 +362,13 @@ function squadByPos() {
 }
 
 function countByClub(teamId) {
-  return state.squad.filter((id) => state.players.get(id)?.team === teamId).length;
+  return getSquad().filter((id) => state.players.get(id)?.team === teamId).length;
 }
 
 function canAdd(player) {
-  if (state.squad.includes(player.id)) return { ok: false, reason: "Allerede valgt" };
-  if (state.squad.length >= SQUAD_SIZE) return { ok: false, reason: "Laget er fullt" };
+  const squad = getSquad();
+  if (squad.includes(player.id)) return { ok: false, reason: "Allerede valgt" };
+  if (squad.length >= SQUAD_SIZE) return { ok: false, reason: "Laget er fullt" };
   const by = squadByPos();
   if ((by[player.position]?.length ?? 0) >= (SQUAD_BY_POS[player.position] ?? 0)) {
     return { ok: false, reason: `Maks ${SQUAD_BY_POS[player.position]} ${player.position}` };
@@ -322,11 +401,10 @@ function computeTeamFdr() {
   }
   const teamsWithPoints = [...points.entries()].filter(([, pts]) => pts > 0);
   if (teamsWithPoints.length === 0) return new Map();
-  teamsWithPoints.sort((a, b) => b[1] - a[1]); // strongest first
+  teamsWithPoints.sort((a, b) => b[1] - a[1]);
   const tiers = new Map();
   const n = teamsWithPoints.length;
   teamsWithPoints.forEach(([teamId], idx) => {
-    // strongest 20% → tier 5 (hardest), weakest 20% → tier 1 (easiest)
     const tier = 5 - Math.floor((idx / n) * 5);
     tiers.set(teamId, Math.max(1, Math.min(5, tier)));
   });
@@ -384,12 +462,27 @@ function renderTeamFilter() {
 }
 
 function renderBudget() {
-  const cost = squadCost();
+  const squad = getSquad();
+  const cost = squad.reduce((sum, id) => sum + (state.players.get(id)?.now_cost ?? 0), 0);
   const remaining = BUDGET_TENTHS - cost;
   qs("#team-cost").textContent = fmtPrice(cost);
   qs("#team-remaining").textContent = fmtPrice(remaining);
-  qs("#team-count").textContent = `${state.squad.length}/${SQUAD_SIZE}`;
+  qs("#team-count").textContent = `${squad.length}/${SQUAD_SIZE}`;
   qs("#budget-panel").classList.toggle("over", remaining < 0);
+
+  const gw = state.gameweek;
+  const hasSnapshot = gw != null && !!state.squadsByGw[gw];
+  const used = hasSnapshot ? transfersUsed(gw) : 0;
+  const avail = gw != null ? freeTransfersAvailable(gw) : state.baseFreeTransfers;
+  const isBaseline = gw != null && gw === baselineGw();
+  qs("#team-transfers").textContent = isBaseline ? `${avail} (base)` : `${used}/${avail}`;
+  qs("#budget-panel").classList.toggle("transfers-over", !isBaseline && used > avail);
+
+  // Keep base-ft input in sync
+  const ftInput = qs("#base-ft");
+  if (ftInput && ftInput !== document.activeElement) {
+    ftInput.value = String(state.baseFreeTransfers);
+  }
 }
 
 function fdrClass(d) {
@@ -414,7 +507,12 @@ function playerSlotHtml(player, role) {
     return fixtures.length > 1 ? `<span class="fx-dgw">${pills}</span>` : pills;
   }).join("");
   const swapping = state.swapId === player.id ? " swap-selected" : "";
-  return `<div class="slot filled${swapping}" data-player="${player.id}" data-role="${role}">
+
+  // Mark as transferred-in if not in prior GW squad
+  const prior = priorGwWithData(state.gameweek);
+  const isNew = prior != null && state.squadsByGw[state.gameweek]
+    && !state.squadsByGw[prior]?.includes(player.id);
+  return `<div class="slot filled${swapping}${isNew ? " transferred-in" : ""}" data-player="${player.id}" data-role="${role}">
     <button class="remove" title="Fjern" data-remove="${player.id}">×</button>
     <div class="slot-role">${role}</div>
     <div class="player-name">${escapeHtml(player.web_name || player.second_name || "")}</div>
@@ -435,12 +533,11 @@ function handleSlotClick(playerId) {
     renderPitch();
     return;
   }
-  const i = state.squad.indexOf(state.swapId);
-  const j = state.squad.indexOf(playerId);
-  if (i !== -1 && j !== -1) {
-    [state.squad[i], state.squad[j]] = [state.squad[j], state.squad[i]];
-    saveStored();
-  }
+  mutateSquad((arr) => {
+    const i = arr.indexOf(state.swapId);
+    const j = arr.indexOf(playerId);
+    if (i !== -1 && j !== -1) [arr[i], arr[j]] = [arr[j], arr[i]];
+  });
   state.swapId = null;
   renderAll();
 }
@@ -542,12 +639,13 @@ function renderPlayerList() {
   const players = [...state.players.values()];
   empty.hidden = players.length > 0;
 
+  const squad = getSquad();
   const filtered = sortPlayers(players.filter(matchesFilters));
   list.innerHTML = filtered
     .slice(0, 400)
     .map((p) => {
       const team = state.teams.get(p.team);
-      const picked = state.squad.includes(p.id);
+      const picked = squad.includes(p.id);
       const addable = picked ? { ok: true } : canAdd(p);
       return `<div class="player-row ${picked ? "picked" : ""} ${addable.ok ? "" : "disabled"}" data-player="${p.id}" title="${picked ? "Klikk for å fjerne" : addable.ok ? "Klikk for å legge til" : addable.reason}">
         <span class="pos-badge pos-${p.position}">${p.position}</span>
@@ -587,10 +685,10 @@ function escapeHtml(s) {
 function togglePlayer(id) {
   const p = state.players.get(id);
   if (!p) return;
-  const idx = state.squad.indexOf(id);
+  const squad = getSquad();
+  const idx = squad.indexOf(id);
   if (idx >= 0) {
-    state.squad.splice(idx, 1);
-    saveStored();
+    mutateSquad((arr) => arr.splice(arr.indexOf(id), 1));
     renderAll();
     return;
   }
@@ -599,8 +697,7 @@ function togglePlayer(id) {
     toast(check.reason, true);
     return;
   }
-  state.squad.push(id);
-  saveStored();
+  mutateSquad((arr) => arr.push(id));
   renderAll();
 }
 
@@ -624,11 +721,19 @@ function bind() {
   });
   qs("#refresh-live").addEventListener("click", () => refreshLive());
   qs("#clear-team").addEventListener("click", () => {
-    if (state.squad.length === 0) return;
-    if (!confirm("Tømme laget?")) return;
-    state.squad = [];
-    saveStored();
+    const squad = getSquad();
+    if (squad.length === 0) return;
+    if (!confirm("Tømme laget for denne runden?")) return;
+    setSquad([]);
     renderAll();
+  });
+  qs("#base-ft").addEventListener("change", (e) => {
+    const v = parseInt(e.target.value, 10);
+    if (!isNaN(v) && v >= 0 && v <= MAX_FREE_TRANSFERS) {
+      state.baseFreeTransfers = v;
+      saveStored();
+      renderBudget();
+    }
   });
   qs("#search").addEventListener("input", (e) => {
     state.filters.search = e.target.value.trim();
@@ -646,7 +751,6 @@ function bind() {
     state.filters.sort = e.target.value;
     renderPlayerList();
   });
-
   qs("#filter-ownership").addEventListener("change", (e) => {
     state.filters.minOwnership = Number(e.target.value);
     renderPlayerList();
@@ -675,7 +779,6 @@ function bind() {
     }
   });
 
-  // Restore form selections
   qs("#formation").value = state.formation;
   qs("#horizon").value = String(state.horizon);
 }

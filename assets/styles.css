@@ -87,6 +87,7 @@ a { color: var(--accent); }
 .budget .label { font-size: 11px; color: var(--muted); }
 .budget span:not(.label) { font-weight: 700; font-size: 15px; }
 .budget.over span#team-remaining { color: var(--bad); }
+.budget.transfers-over span#team-transfers { color: var(--bad); }
 
 .live-controls { display: flex; gap: 8px; align-items: center; }
 .import-team { display: flex; gap: 4px; }
@@ -136,13 +137,15 @@ a { color: var(--accent); }
   color: var(--muted);
   gap: 4px;
 }
-.pitch-tools select {
+.pitch-tools select,
+.pitch-tools input[type="number"] {
   background: var(--surface-2);
   color: var(--text);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 6px 10px;
 }
+.pitch-tools input[type="number"] { width: 64px; }
 .ghost-btn {
   background: transparent;
   color: var(--muted);
@@ -191,6 +194,7 @@ a { color: var(--accent); }
 .slot:hover { transform: translateY(-2px); }
 .slot.filled { border-style: solid; background: rgba(0, 0, 0, 0.45); cursor: pointer; }
 .slot.swap-selected { outline: 2px solid var(--accent); box-shadow: 0 0 10px var(--accent); }
+.slot.transferred-in { border-color: var(--warn); box-shadow: 0 0 8px rgba(255,180,76,0.4); }
 .slot .slot-role {
   color: rgba(255, 255, 255, 0.7);
   font-size: 10px;

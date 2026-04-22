@@ -29,6 +29,7 @@
           <div><span class="label">Kostnad</span><span id="team-cost">0.0</span></div>
           <div><span class="label">Igjen</span><span id="team-remaining">100.0</span></div>
           <div><span class="label">Spillere</span><span id="team-count">0/15</span></div>
+          <div><span class="label">Bytter</span><span id="team-transfers">–</span></div>
         </div>
         <div class="live-controls">
           <button id="refresh-live" class="ghost-btn" title="Hent ferske priser og kampoppsett fra fantasy.tv2.no">↻ Oppdater priser</button>
@@ -61,6 +62,10 @@
               <option value="5" selected>5</option>
               <option value="8">8</option>
             </select>
+          </label>
+          <label>
+            Frie bytter (base)
+            <input id="base-ft" type="number" min="0" max="5" value="1" />
           </label>
           <button id="clear-team" class="ghost-btn">Tøm laget</button>
         </div>
