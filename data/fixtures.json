@@ -572,8 +572,8 @@
     "team_h_difficulty": null,
     "team_a_difficulty": null,
     "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
+    "team_h_score": 0,
+    "team_a_score": 5
   },
   {
     "id": 51,
@@ -756,18 +756,6 @@
     "team_a_score": null
   },
   {
-    "id": 67,
-    "event": 8,
-    "kickoff_time": "2026-05-10T17:15:00Z",
-    "team_h": 1,
-    "team_a": 3,
-    "team_h_difficulty": null,
-    "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
-  },
-  {
     "id": 68,
     "event": 9,
     "kickoff_time": "2026-05-16T12:00:00Z",
@@ -881,6 +869,18 @@
     "kickoff_time": "2026-05-20T17:00:00Z",
     "team_h": 8,
     "team_a": 7,
+    "team_h_difficulty": null,
+    "team_a_difficulty": null,
+    "finished": false,
+    "team_h_score": null,
+    "team_a_score": null
+  },
+  {
+    "id": 67,
+    "event": 9,
+    "kickoff_time": "2026-05-20T18:00:00Z",
+    "team_h": 1,
+    "team_a": 3,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
     "finished": false,
@@ -1020,6 +1020,18 @@
     "team_a_score": null
   },
   {
+    "id": 87,
+    "event": 11,
+    "kickoff_time": "2026-05-29T17:00:00Z",
+    "team_h": 10,
+    "team_a": 2,
+    "team_h_difficulty": null,
+    "team_a_difficulty": null,
+    "finished": false,
+    "team_h_score": null,
+    "team_a_score": null
+  },
+  {
     "id": 84,
     "event": 11,
     "kickoff_time": "2026-05-29T17:00:00Z",
@@ -1046,21 +1058,9 @@
   {
     "id": 90,
     "event": 11,
-    "kickoff_time": "2026-05-30T16:00:00Z",
+    "kickoff_time": "2026-05-30T14:00:00Z",
     "team_h": 9,
     "team_a": 11,
-    "team_h_difficulty": null,
-    "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
-  },
-  {
-    "id": 87,
-    "event": 11,
-    "kickoff_time": "2026-05-31T15:00:00Z",
-    "team_h": 10,
-    "team_a": 2,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
     "finished": false,
