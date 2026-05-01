@@ -23,6 +23,7 @@
 import { writeFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = resolve(__dirname, "..", "data");
@@ -52,24 +53,36 @@ const HEADERS = {
 };
 
 async function fetchJson(url, { timeoutMs = 15000 } = {}) {
-  const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), timeoutMs);
+  // Try Node.js fetch first
   try {
-    const res = await fetch(url, { headers: HEADERS, signal: ctrl.signal });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const ct = res.headers.get("content-type") ?? "";
-    const text = await res.text();
-    if (!ct.includes("json")) {
-      // Some CDNs mis-label content-type; try parsing anyway.
-      try {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, { headers: HEADERS, signal: ctrl.signal });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const ct = res.headers.get("content-type") ?? "";
+      const text = await res.text();
+      if (!ct.includes("json")) {
         return JSON.parse(text);
-      } catch {
-        throw new Error(`non-JSON response (${ct || "unknown"})`);
       }
+      return JSON.parse(text);
+    } finally {
+      clearTimeout(t);
     }
-    return JSON.parse(text);
-  } finally {
-    clearTimeout(t);
+  } catch (fetchErr) {
+    // Fallback: curl (different TLS/IP fingerprint, often bypasses CDN blocks)
+    try {
+      const out = execFileSync("curl", [
+        "-sf", "--max-time", "20",
+        "-H", `User-Agent: ${HEADERS["User-Agent"]}`,
+        "-H", "Accept: application/json",
+        "-H", "Accept-Language: nb-NO,nb;q=0.9,en;q=0.8",
+        url,
+      ], { timeout: 25000 });
+      return JSON.parse(out.toString());
+    } catch (curlErr) {
+      throw new Error(`fetch: ${fetchErr.message} | curl: ${curlErr.message}`);
+    }
   }
 }
 
