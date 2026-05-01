@@ -1,7 +1,7 @@
 {
   "team_id": 25667,
-  "gameweek": 5,
-  "fetched_at": "2026-04-20T09:45:03.753Z",
+  "gameweek": 7,
+  "fetched_at": "2026-05-01T18:58:07.772Z",
   "picks": [
     {
       "element": 160,
@@ -24,7 +24,7 @@
       "position": 3,
       "multiplier": 1,
       "is_captain": false,
-      "is_vice_captain": true,
+      "is_vice_captain": false,
       "element_type": 2
     },
     {
@@ -36,7 +36,7 @@
       "element_type": 2
     },
     {
-      "element": 29,
+      "element": 1,
       "position": 5,
       "multiplier": 1,
       "is_captain": false,
@@ -44,15 +44,15 @@
       "element_type": 2
     },
     {
-      "element": 193,
+      "element": 360,
       "position": 6,
-      "multiplier": 1,
-      "is_captain": false,
+      "multiplier": 2,
+      "is_captain": true,
       "is_vice_captain": false,
       "element_type": 3
     },
     {
-      "element": 260,
+      "element": 193,
       "position": 7,
       "multiplier": 1,
       "is_captain": false,
@@ -68,23 +68,23 @@
       "element_type": 3
     },
     {
-      "element": 8,
+      "element": 171,
       "position": 9,
-      "multiplier": 2,
-      "is_captain": true,
+      "multiplier": 1,
+      "is_captain": false,
       "is_vice_captain": false,
-      "element_type": 4
+      "element_type": 3
     },
     {
       "element": 183,
       "position": 10,
       "multiplier": 1,
       "is_captain": false,
-      "is_vice_captain": false,
+      "is_vice_captain": true,
       "element_type": 4
     },
     {
-      "element": 270,
+      "element": 356,
       "position": 11,
       "multiplier": 1,
       "is_captain": false,
@@ -100,28 +100,28 @@
       "element_type": 1
     },
     {
-      "element": 116,
+      "element": 100,
       "position": 13,
       "multiplier": 0,
       "is_captain": false,
       "is_vice_captain": false,
-      "element_type": 3
+      "element_type": 4
     },
     {
-      "element": 1,
+      "element": 116,
       "position": 14,
       "multiplier": 0,
       "is_captain": false,
       "is_vice_captain": false,
-      "element_type": 2
+      "element_type": 3
     },
     {
-      "element": 178,
+      "element": 113,
       "position": 15,
       "multiplier": 0,
       "is_captain": false,
       "is_vice_captain": false,
-      "element_type": 3
+      "element_type": 2
     }
   ]
 }
