@@ -110,7 +110,7 @@ function normalizeBootstrap(raw) {
     ]),
   );
 
-  const players = (raw.elements ?? []).map((p) => ({
+  const players = (raw.elements ?? raw.players ?? []).map((p) => ({
     id: p.id,
     first_name: p.first_name,
     second_name: p.second_name,
