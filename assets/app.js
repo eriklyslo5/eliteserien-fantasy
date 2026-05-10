@@ -495,11 +495,20 @@ function renderBudget() {
   const gw = state.gameweek;
   const chip = chipFor(gw);
   const budget = budgetForGw(gw);
-  const remaining = budget - cost;
+  // Prefer the imported bank (matches "I banken" on fantasy.tv2.no). When no
+  // import is available, fall back to "remaining vs base budget" – useful for
+  // planning a fresh squad from scratch.
+  const importedBank = state.myTeam?.bank;
+  const showBank = importedBank != null;
+  const remaining = showBank ? importedBank : budget - cost;
   qs("#team-cost").textContent = fmtPrice(cost);
   qs("#team-remaining").textContent = fmtPrice(remaining);
+  qs("#team-remaining-label").textContent = showBank ? "I banken" : "Igjen";
   qs("#team-count").textContent = `${squad.length}/${SQUAD_SIZE}`;
-  qs("#budget-panel").classList.toggle("over", remaining < 0);
+  // "Over budget" warning: with imported bank we'd need bank < 0 (impossible)
+  // or squad cost > squadCost(at-import) + bank. Keep simple: only flag when
+  // planning a fresh squad and the synthetic remaining goes negative.
+  qs("#budget-panel").classList.toggle("over", !showBank && remaining < 0);
   qs("#budget-panel").classList.toggle("rik-onkel", chip === "rik_onkel");
 
   const hasSnapshot = gw != null && !!state.squadsByGw[gw];
