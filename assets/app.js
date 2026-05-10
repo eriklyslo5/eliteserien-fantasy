@@ -711,13 +711,15 @@ function renderPlayerList() {
 }
 
 function ownTotalValue() {
-  // Prefer the API-fetched total_value (lagverdi + bank) since "value" reflects
-  // purchase prices, which can drift from current squadCost as players change price.
-  if (state.myTeam?.total_value != null) return state.myTeam.total_value;
-  if (state.myTeam?.value != null) return state.myTeam.value + (state.myTeam.bank ?? 0);
-  // Fall back to current squad cost (no bank info available).
+  // TV2 shows "Troppens verdi" as the sum of current player prices, not the
+  // API's `value` snapshot (which freezes at the previous event's deadline and
+  // drifts as prices change). Use the live squad cost + bank so the figure
+  // here matches what the user sees on fantasy.tv2.no.
   const cost = squadCost();
-  return cost > 0 ? cost : null;
+  const bank = state.myTeam?.bank ?? 0;
+  if (cost > 0) return cost + bank;
+  if (state.myTeam?.total_value != null) return state.myTeam.total_value;
+  return null;
 }
 
 function percentileOf(sortedAsc, value) {
