@@ -312,23 +312,38 @@ async function requireOk(res) {
 }
 
 const TV2_HOSTS = ["https://fantasy.tv2.no", "https://fantasy.eliteserien.no"];
+// Public CORS proxy used when running on github.io / file:// where neither the
+// dev-server /proxy nor direct calls to fantasy.tv2.no work due to CORS.
+const PUBLIC_CORS_PROXY = "https://api.codetabs.com/v1/proxy?quest=";
 
 async function apiFetch(path) {
   let lastStatus = null;
+  // 1. Try the local dev-server proxy first when running via `npm start`.
+  try {
+    const res = await fetch(`/proxy${path}`, { signal: AbortSignal.timeout(8000) });
+    if (res.ok) return res.json();
+    lastStatus = res.status;
+  } catch (_) {}
+  // 2. Try direct calls to TV2 hosts (works from same-origin contexts).
   for (const host of TV2_HOSTS) {
     for (const variant of [path, path.endsWith("/") ? path.slice(0, -1) : path + "/"]) {
       try {
-        const res = await fetch(`${host}${variant}`, { signal: AbortSignal.timeout(10000) });
+        const res = await fetch(`${host}${variant}`, { signal: AbortSignal.timeout(8000) });
         if (res.ok) return res.json();
         lastStatus = res.status;
       } catch (_) {}
     }
   }
-  try {
-    const res = await fetch(`/proxy${path}`);
-    if (res.ok) return res.json();
-    lastStatus = res.status;
-  } catch (_) {}
+  // 3. Fall back to a public CORS proxy. Slower (~1-2s) but works on
+  //    GitHub Pages where the dev proxy isn't available.
+  for (const host of TV2_HOSTS) {
+    try {
+      const target = encodeURIComponent(`${host}${path.endsWith("/") ? path : path + "/"}`);
+      const res = await fetch(`${PUBLIC_CORS_PROXY}${target}`, { signal: AbortSignal.timeout(15000) });
+      if (res.ok) return res.json();
+      lastStatus = res.status;
+    } catch (_) {}
+  }
   throw new Error(`HTTP ${lastStatus ?? "?"}`);
 }
 
