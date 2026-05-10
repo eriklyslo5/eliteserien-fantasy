@@ -74,12 +74,34 @@ if (!picks) {
   process.exit(1);
 }
 
+// Also pull history to capture lagverdi (value) and bank for the comparison UI.
+let value = null;
+let bank = null;
+for (const host of HOSTS) {
+  try {
+    const hist = await fetchJson(`${host}/api/entry/${teamId}/history/`);
+    const cur = hist.current ?? [];
+    if (cur.length) {
+      const last = cur[cur.length - 1];
+      value = last.value;
+      bank = last.bank;
+    }
+    break;
+  } catch (e) {
+    console.warn(`history from ${host}:`, e.message);
+  }
+}
+
 await mkdir(DATA_DIR, { recursive: true });
 const out = {
   team_id: teamId,
   gameweek: usedGw,
   fetched_at: new Date().toISOString(),
+  value,
+  bank,
+  total_value: value != null && bank != null ? value + bank : null,
   picks: picks.picks ?? [],
 };
 await writeFile(resolve(DATA_DIR, "my-team.json"), JSON.stringify(out, null, 2));
-console.log(`Saved ${out.picks.length} picks for team ${teamId} (gw${usedGw})`);
+const fmt = (t) => t == null ? "?" : (t / 10).toFixed(1) + "m";
+console.log(`Saved ${out.picks.length} picks for team ${teamId} (gw${usedGw}). Value ${fmt(value)} + bank ${fmt(bank)} = ${fmt(out.total_value)}`);

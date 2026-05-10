@@ -34,6 +34,7 @@ const PROXY_ALLOW = [
   /^\/api\/entry\/\d+\/event\/\d+\/picks\/?$/,
   /^\/api\/entry\/\d+\/history\/?$/,
   /^\/api\/element-summary\/\d+\/?$/,
+  /^\/api\/leagues-classic\/\d+\/standings\/?$/,
 ];
 
 const UPSTREAMS = ["https://fantasy.tv2.no", "https://fantasy.eliteserien.no"];

@@ -1,7 +1,10 @@
 {
   "team_id": 25667,
   "gameweek": 8,
-  "fetched_at": "2026-05-10T18:32:09.534Z",
+  "fetched_at": "2026-05-10T19:27:22.280Z",
+  "value": 1023,
+  "bank": 16,
+  "total_value": 1039,
   "picks": [
     {
       "element": 160,

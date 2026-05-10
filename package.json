@@ -8,6 +8,8 @@
     "start": "node --experimental-default-type=module scripts/serve.mjs",
     "serve": "node scripts/serve.mjs",
     "fetch": "node scripts/fetch-data.mjs",
+    "fetch-team": "node scripts/fetch-team.mjs",
+    "fetch-top500": "node scripts/fetch-top500.mjs",
     "sample-fixtures": "node scripts/generate-sample-fixtures.mjs"
   },
   "engines": {

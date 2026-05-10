@@ -162,13 +162,16 @@ function saveStored() {
 // ---------- data loading ----------
 
 async function loadData() {
-  const [boot, fix, meta, myTeam] = await Promise.all([
+  const [boot, fix, meta, myTeam, top500] = await Promise.all([
     fetch("data/bootstrap.json").then((r) => r.json()),
     fetch("data/fixtures.json").then((r) => r.json()),
     fetch("data/meta.json").then((r) => r.json()).catch(() => null),
     fetch("data/my-team.json").then((r) => r.json()).catch(() => null),
+    fetch("data/top500.json").then((r) => r.json()).catch(() => null),
   ]);
   applyData(boot, fix, meta);
+  state.myTeam = myTeam;
+  state.top500 = top500;
   if (myTeam?.team_id && state.teamId == null) {
     state.teamId = myTeam.team_id;
   }
@@ -707,11 +710,76 @@ function renderPlayerList() {
   qs("#players-source").textContent = src;
 }
 
+function ownTotalValue() {
+  // Prefer the API-fetched total_value (lagverdi + bank) since "value" reflects
+  // purchase prices, which can drift from current squadCost as players change price.
+  if (state.myTeam?.total_value != null) return state.myTeam.total_value;
+  if (state.myTeam?.value != null) return state.myTeam.value + (state.myTeam.bank ?? 0);
+  // Fall back to current squad cost (no bank info available).
+  const cost = squadCost();
+  return cost > 0 ? cost : null;
+}
+
+function percentileOf(sortedAsc, value) {
+  // Returns the user's percentile rank within the sorted array (0-100).
+  let lo = 0, hi = sortedAsc.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (sortedAsc[mid] <= value) lo = mid + 1;
+    else hi = mid;
+  }
+  return Math.round((lo / sortedAsc.length) * 100);
+}
+
+function renderTop500() {
+  const panel = qs("#top500-panel");
+  if (!panel) return;
+  const t500 = state.top500;
+  if (!t500?.entries?.length || !t500.stats) {
+    panel.hidden = true;
+    return;
+  }
+  panel.hidden = false;
+  const stats = t500.stats.total_value;
+  const fmt = (t) => (t / 10).toFixed(1) + "m";
+  const mine = ownTotalValue();
+  qs("#t500-mine").textContent = mine != null ? fmt(mine) : "–";
+  qs("#t500-avg").textContent = fmt(stats.avg);
+  qs("#t500-median").textContent = fmt(stats.median);
+  qs("#t500-min").textContent = fmt(stats.min);
+  qs("#t500-max").textContent = fmt(stats.max);
+
+  const sortedTotals = t500.entries.map((e) => e.total_value).sort((a, b) => a - b);
+  const pct = mine != null ? percentileOf(sortedTotals, mine) : null;
+  qs("#t500-pct").textContent = pct != null ? `${pct}%` : "–";
+
+  const range = stats.max - stats.min;
+  const fill = qs("#t500-bar-fill");
+  const marker = qs("#t500-bar-marker");
+  if (range > 0 && mine != null) {
+    const clamped = Math.max(stats.min, Math.min(stats.max, mine));
+    const pos = ((clamped - stats.min) / range) * 100;
+    fill.style.width = pos + "%";
+    marker.style.left = pos + "%";
+    marker.hidden = false;
+  } else {
+    fill.style.width = "0";
+    marker.hidden = true;
+  }
+  qs("#t500-axis-min").textContent = fmt(stats.min);
+  qs("#t500-axis-mid").textContent = `median ${fmt(stats.median)}`;
+  qs("#t500-axis-max").textContent = fmt(stats.max);
+
+  const when = t500.fetched_at ? new Date(t500.fetched_at).toLocaleString("no-NO") : "";
+  qs("#top500-meta").textContent = `${t500.count} lag${t500.event ? ` · runde ${t500.event}` : ""}${when ? ` · oppdatert ${when}` : ""}`;
+}
+
 function renderAll() {
   renderBudget();
   renderPitch();
   renderFixturesSummary();
   renderPlayerList();
+  renderTop500();
 }
 
 // ---------- events ----------

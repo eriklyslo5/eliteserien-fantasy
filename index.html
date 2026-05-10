@@ -89,6 +89,32 @@
           <h3>Kampoversikt – <span id="fixtures-gw-label">Runde</span></h3>
           <div id="fixtures-grid" class="fixtures-grid"></div>
         </div>
+
+        <div class="top500-panel" id="top500-panel" hidden>
+          <div class="top500-head">
+            <h3>Lagverdi vs Top 500</h3>
+            <span class="muted" id="top500-meta"></span>
+          </div>
+          <div class="top500-grid">
+            <div class="t500-cell mine"><span class="label">Ditt lag</span><span id="t500-mine">–</span></div>
+            <div class="t500-cell"><span class="label">Top 500 snitt</span><span id="t500-avg">–</span></div>
+            <div class="t500-cell"><span class="label">Median</span><span id="t500-median">–</span></div>
+            <div class="t500-cell"><span class="label">Min</span><span id="t500-min">–</span></div>
+            <div class="t500-cell"><span class="label">Maks</span><span id="t500-max">–</span></div>
+            <div class="t500-cell percentile"><span class="label">Percentil</span><span id="t500-pct">–</span></div>
+          </div>
+          <div class="top500-bar">
+            <div class="t500-bar-track">
+              <div class="t500-bar-fill" id="t500-bar-fill"></div>
+              <div class="t500-bar-marker" id="t500-bar-marker" title="Ditt lag"></div>
+            </div>
+            <div class="t500-bar-axis">
+              <span id="t500-axis-min">–</span>
+              <span id="t500-axis-mid">median</span>
+              <span id="t500-axis-max">–</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <aside class="players-column">
