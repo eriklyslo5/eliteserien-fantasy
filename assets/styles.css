@@ -482,6 +482,29 @@ a { color: var(--accent); }
 .fdr-4 { background: #ff9d6c; color: #3a1400; }
 .fdr-5 { background: #ff6b6b; color: #3a0000; }
 .fdr-null { background: #556; color: #e8ecff; }
+.fx-blank {
+  background: #2a2f4a;
+  color: #6c7396;
+  border: 1px dashed #4a5380;
+}
+
+.fixture.fixture-blank {
+  opacity: 0.55;
+  border-style: dashed;
+}
+.fixture.fixture-blank .fx-teams { text-decoration: line-through; }
+.blank-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  background: var(--surface-3);
+  color: var(--warn);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  text-decoration: none;
+}
 
 .empty-state {
   margin: 20px auto;

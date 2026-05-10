@@ -1,0 +1,8 @@
+{
+  "note": "Manuell overstyring – kamper vi ikke tror vil bli spilt. Spillere fra disse lagene markeres med en blank pille i den runden.",
+  "blanks": [
+    { "event": 11, "team": 2, "team_name": "Bodø/Glimt" },
+    { "event": 11, "team": 3, "team_name": "Brann" },
+    { "event": 11, "team": 15, "team_name": "Viking" }
+  ]
+}

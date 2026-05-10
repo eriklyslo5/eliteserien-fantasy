@@ -164,15 +164,22 @@ function saveStored() {
 // ---------- data loading ----------
 
 async function loadData() {
-  const [boot, fix, meta, myTeam, top500] = await Promise.all([
+  const [boot, fix, meta, myTeam, top500, blanks] = await Promise.all([
     fetch("data/bootstrap.json").then((r) => r.json()),
     fetch("data/fixtures.json").then((r) => r.json()),
     fetch("data/meta.json").then((r) => r.json()).catch(() => null),
     fetch("data/my-team.json").then((r) => r.json()).catch(() => null),
     fetch("data/top500.json").then((r) => r.json()).catch(() => null),
+    fetch("data/blanks.json").then((r) => r.json()).catch(() => null),
   ]);
   applyData(boot, fix, meta);
   state.top500 = top500;
+  // Build a quick-lookup map of teams flagged as not playing in a given event.
+  state.blanks = new Map();
+  for (const b of blanks?.blanks ?? []) {
+    if (!state.blanks.has(b.event)) state.blanks.set(b.event, new Set());
+    state.blanks.get(b.event).add(b.team);
+  }
   // Only let my-team.json overwrite state.myTeam when the user hasn't set a
   // manual baseline – otherwise we'd clobber their typed-in bank on every load.
   if (state.myTeam?.source !== "manual") {
@@ -460,10 +467,19 @@ function computeTeamFdr() {
   return tiers;
 }
 
+function isTeamBlank(teamId, eventId) {
+  return state.blanks?.get(eventId)?.has(teamId) ?? false;
+}
+
 function fixtureLabel(fixture, teamId) {
   const oppId = fixture.team_h === teamId ? fixture.team_a : fixture.team_h;
   const opp = state.teams.get(oppId);
   const home = fixture.team_h === teamId;
+  // If either team is flagged as not playing this round, mark the pill as
+  // blank so the UI shows it's a non-game.
+  if (isTeamBlank(teamId, fixture.event) || isTeamBlank(oppId, fixture.event)) {
+    return { text: "—", home, difficulty: null, blank: true, opp_short: opp?.short_name ?? "?" };
+  }
   const apiDiff = (home ? fixture.team_h_difficulty : fixture.team_a_difficulty) ?? null;
   let difficulty = apiDiff;
   if (difficulty == null) {
@@ -622,7 +638,11 @@ function playerSlotHtml(player, role) {
   const fxHtml = gwGroups.map((fixtures) => {
     const pills = fixtures.map((f) => {
       const lbl = fixtureLabel(f, player.team);
-      return `<span class="fx ${fdrClass(lbl.difficulty)} ${lbl.home ? "h" : "a"}" title="Runde ${f.event} – ${lbl.home ? "Hjemme" : "Borte"}">${lbl.text}</span>`;
+      const cls = lbl.blank ? "fx-blank" : fdrClass(lbl.difficulty);
+      const title = lbl.blank
+        ? `Runde ${f.event} – Ingen kamp (${escapeHtml(lbl.opp_short)})`
+        : `Runde ${f.event} – ${lbl.home ? "Hjemme" : "Borte"}`;
+      return `<span class="fx ${cls} ${lbl.home ? "h" : "a"}" title="${title}">${lbl.text}</span>`;
     }).join("");
     return fixtures.length > 1 ? `<span class="fx-dgw">${pills}</span>` : pills;
   }).join("");
@@ -709,6 +729,7 @@ function renderFixturesSummary() {
     .map((f) => {
       const h = state.teams.get(f.team_h);
       const a = state.teams.get(f.team_a);
+      const blank = isTeamBlank(f.team_h, f.event) || isTeamBlank(f.team_a, f.event);
       const kick = f.kickoff_time
         ? new Date(f.kickoff_time).toLocaleString("no-NO", {
             weekday: "short",
@@ -718,8 +739,8 @@ function renderFixturesSummary() {
             minute: "2-digit",
           })
         : "";
-      return `<div class="fixture">
-        <span class="fx-teams">${escapeHtml(h?.short_name ?? "?")} – ${escapeHtml(a?.short_name ?? "?")}</span>
+      return `<div class="fixture${blank ? " fixture-blank" : ""}">
+        <span class="fx-teams">${escapeHtml(h?.short_name ?? "?")} – ${escapeHtml(a?.short_name ?? "?")}${blank ? ' <span class="blank-tag">BLANK</span>' : ""}</span>
         <span class="fx-kick">${escapeHtml(kick)}</span>
       </div>`;
     })
