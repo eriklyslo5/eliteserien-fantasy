@@ -88,6 +88,11 @@ a { color: var(--accent); }
 .budget span:not(.label) { font-weight: 700; font-size: 15px; }
 .budget.over span#team-remaining { color: var(--bad); }
 .budget.transfers-over span#team-transfers { color: var(--bad); }
+.budget.rik-onkel {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(55, 226, 158, 0.35);
+}
+.budget.rik-onkel span#team-transfers { color: var(--accent); }
 
 .live-controls { display: flex; gap: 8px; align-items: center; }
 .import-team { display: flex; gap: 4px; }

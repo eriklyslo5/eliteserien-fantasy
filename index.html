@@ -34,7 +34,8 @@
         <div class="live-controls">
           <button id="refresh-live" class="ghost-btn" title="Hent ferske priser og kampoppsett fra fantasy.tv2.no">↻ Oppdater priser</button>
           <div class="import-team">
-            <a href="https://github.com/eriklyslo5/eliteserien-fantasy/actions/workflows/import-team.yml" target="_blank" rel="noopener" class="ghost-btn" title="Importer laget via GitHub Actions">⬇ Importer lag</a>
+            <input id="import-team-id" type="number" placeholder="Lag-ID" min="1" />
+            <button id="import-team" class="ghost-btn" title="Hent laget ditt fra fantasy.tv2.no">⬇ Importer</button>
           </div>
         </div>
       </div>
@@ -66,6 +67,13 @@
           <label>
             Frie bytter (base)
             <input id="base-ft" type="number" min="0" max="5" value="1" />
+          </label>
+          <label>
+            Chip
+            <select id="chip-select" title="Aktiver chip for valgt runde">
+              <option value="">Ingen</option>
+              <option value="rik_onkel">Rik Onkel (+100m)</option>
+            </select>
           </label>
           <button id="clear-team" class="ghost-btn">Tøm laget</button>
         </div>

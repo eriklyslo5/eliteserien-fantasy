@@ -17,6 +17,9 @@ const FORMATIONS = {
   "5-4-1": { DEF: 5, MID: 4, FWD: 1 },
 };
 
+const CHIP_BUDGET_BONUS = { rik_onkel: 1000 }; // tenths of millions
+const CHIP_LABELS = { rik_onkel: "Rik Onkel" };
+
 const state = {
   bootstrap: null,
   fixtures: [],
@@ -26,13 +29,24 @@ const state = {
   fixturesByTeam: new Map(),
   fixturesByEvent: new Map(),
   squadsByGw: {},        // { [gwId]: [playerId, ...] }
+  chipsByGw: {},         // { [gwId]: "rik_onkel" }
   baseFreeTransfers: 1,  // free transfers available at the earliest GW with data
+  teamId: null,          // last imported TV2 team ID
   swapId: null,
   formation: "4-4-2",
   horizon: 5,
   gameweek: null,
   filters: { search: "", position: "", team: "", sort: "now_cost_desc", minOwnership: 0 },
 };
+
+function chipFor(gw) {
+  return state.chipsByGw[gw] ?? null;
+}
+
+function budgetForGw(gw) {
+  const chip = chipFor(gw);
+  return BUDGET_TENTHS + (CHIP_BUDGET_BONUS[chip] ?? 0);
+}
 
 // ---------- squad accessors ----------
 
@@ -71,11 +85,13 @@ function baselineGw() {
 }
 
 function priorGwWithData(gw) {
-  const gws = sortedGws().filter((g) => g < gw);
+  // Skip rounds where Rik Onkel was used – the squad reverts after that round.
+  const gws = sortedGws().filter((g) => g < gw && chipFor(g) !== "rik_onkel");
   return gws.length ? gws[gws.length - 1] : null;
 }
 
 function transfersUsed(gw) {
+  if (chipFor(gw) === "rik_onkel") return 0; // unlimited free transfers during chip
   const prev = priorGwWithData(gw);
   if (prev == null || !state.squadsByGw[gw]) return 0;
   const prevSet = new Set(state.squadsByGw[prev]);
@@ -107,7 +123,9 @@ function loadStored() {
     if (raw) {
       const s = JSON.parse(raw);
       if (s.squadsByGw && typeof s.squadsByGw === "object") state.squadsByGw = s.squadsByGw;
+      if (s.chipsByGw && typeof s.chipsByGw === "object") state.chipsByGw = s.chipsByGw;
       if (typeof s.baseFreeTransfers === "number") state.baseFreeTransfers = s.baseFreeTransfers;
+      if (typeof s.teamId === "number") state.teamId = s.teamId;
       if (typeof s.formation === "string" && FORMATIONS[s.formation]) state.formation = s.formation;
       if (typeof s.horizon === "number") state.horizon = s.horizon;
       if (typeof s.gameweek === "number") state.gameweek = s.gameweek;
@@ -132,7 +150,9 @@ function loadStored() {
 function saveStored() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify({
     squadsByGw: state.squadsByGw,
+    chipsByGw: state.chipsByGw,
     baseFreeTransfers: state.baseFreeTransfers,
+    teamId: state.teamId,
     formation: state.formation,
     horizon: state.horizon,
     gameweek: state.gameweek,
@@ -149,6 +169,9 @@ async function loadData() {
     fetch("data/my-team.json").then((r) => r.json()).catch(() => null),
   ]);
   applyData(boot, fix, meta);
+  if (myTeam?.team_id && state.teamId == null) {
+    state.teamId = myTeam.team_id;
+  }
   if (myTeam?.picks?.length && Object.keys(state.squadsByGw).length === 0) {
     const ids = myTeam.picks.map((p) => p.element).filter((id) => state.players.has(id));
     const importGw = myTeam.gameweek ?? state.gameweek;
@@ -313,8 +336,10 @@ async function importTeam(teamId) {
     if (!teamId || teamId < 1) throw new Error("Ugyldig lag-ID");
     const events = state.bootstrap?.events ?? [];
     if (events.length === 0) throw new Error("Mangler runde-info. Last data først.");
+    const currentId = events.find((e) => e.is_current)?.id;
     const finished = events.filter((e) => e.finished).map((e) => e.id).sort((a, b) => b - a);
-    const candidates = [...new Set(finished.concat([events.find((e) => e.is_current)?.id, events[0].id].filter(Boolean)))];
+    // Try current GW first, then finished GWs from most recent to oldest, then GW1 as last resort.
+    const candidates = [...new Set([currentId, ...finished, events[0]?.id].filter(Boolean))];
     let picks = null;
     let usedGw = null;
     let lastErr = null;
@@ -464,24 +489,39 @@ function renderTeamFilter() {
 function renderBudget() {
   const squad = getSquad();
   const cost = squad.reduce((sum, id) => sum + (state.players.get(id)?.now_cost ?? 0), 0);
-  const remaining = BUDGET_TENTHS - cost;
+  const gw = state.gameweek;
+  const chip = chipFor(gw);
+  const budget = budgetForGw(gw);
+  const remaining = budget - cost;
   qs("#team-cost").textContent = fmtPrice(cost);
   qs("#team-remaining").textContent = fmtPrice(remaining);
   qs("#team-count").textContent = `${squad.length}/${SQUAD_SIZE}`;
   qs("#budget-panel").classList.toggle("over", remaining < 0);
+  qs("#budget-panel").classList.toggle("rik-onkel", chip === "rik_onkel");
 
-  const gw = state.gameweek;
   const hasSnapshot = gw != null && !!state.squadsByGw[gw];
   const used = hasSnapshot ? transfersUsed(gw) : 0;
   const avail = gw != null ? freeTransfersAvailable(gw) : state.baseFreeTransfers;
   const isBaseline = gw != null && gw === baselineGw();
-  qs("#team-transfers").textContent = isBaseline ? `${avail} (base)` : `${used}/${avail}`;
-  qs("#budget-panel").classList.toggle("transfers-over", !isBaseline && used > avail);
+  if (chip === "rik_onkel") {
+    qs("#team-transfers").textContent = "Rik Onkel ∞";
+  } else {
+    qs("#team-transfers").textContent = isBaseline ? `${avail} (base)` : `${used}/${avail}`;
+  }
+  qs("#budget-panel").classList.toggle("transfers-over", chip !== "rik_onkel" && !isBaseline && used > avail);
 
   // Keep base-ft input in sync
   const ftInput = qs("#base-ft");
   if (ftInput && ftInput !== document.activeElement) {
     ftInput.value = String(state.baseFreeTransfers);
+  }
+  // Keep chip select in sync with current GW
+  const chipSel = qs("#chip-select");
+  if (chipSel) chipSel.value = chip ?? "";
+  // Keep team-id input in sync if not focused
+  const idInput = qs("#import-team-id");
+  if (idInput && idInput !== document.activeElement && state.teamId != null && !idInput.value) {
+    idInput.value = String(state.teamId);
   }
 }
 
@@ -726,6 +766,28 @@ function bind() {
     if (!confirm("Tømme laget for denne runden?")) return;
     setSquad([]);
     renderAll();
+  });
+  qs("#chip-select").addEventListener("change", (e) => {
+    const gw = state.gameweek;
+    if (gw == null) return;
+    const v = e.target.value;
+    if (v) state.chipsByGw[gw] = v;
+    else delete state.chipsByGw[gw];
+    saveStored();
+    renderAll();
+  });
+  qs("#import-team").addEventListener("click", () => {
+    const id = Number(qs("#import-team-id").value);
+    if (!id || id < 1) {
+      toast("Skriv inn en gyldig lag-ID", true);
+      return;
+    }
+    state.teamId = id;
+    saveStored();
+    importTeam(id);
+  });
+  qs("#import-team-id").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") qs("#import-team").click();
   });
   qs("#base-ft").addEventListener("change", (e) => {
     const v = parseInt(e.target.value, 10);
