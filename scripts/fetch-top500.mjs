@@ -64,20 +64,35 @@ async function fetchStandings(maxEntries) {
   return all.slice(0, maxEntries);
 }
 
+// "Rich Uncle" / Rik Onkel-style chips that temporarily inflate budget.
+// pdbus is the API name for the +100m budget chip. Exclude any team that
+// used such a chip in the latest scored event.
+const BUDGET_CHIPS = new Set(["pdbus", "rikonkel", "rik_onkel"]);
+// Bank > 3.0m indicates a team mid-transfer between deadlines — their snapshot
+// is unstable and would skew stats. Exclude them.
+const BANK_OUTLIER_TENTHS = 30;
+
 async function fetchLatestValueBank(entryId) {
   const data = await fetchJson(`${HOST}/api/entry/${entryId}/history/`);
   const cur = data?.current ?? [];
   if (cur.length === 0) return null;
   const last = cur[cur.length - 1];
-  return { event: last.event, value: last.value, bank: last.bank };
+  const chips = data?.chips ?? [];
+  const chipThisEvent = chips.find((c) => c.event === last.event)?.name ?? null;
+  return {
+    event: last.event,
+    value: last.value,
+    bank: last.bank,
+    chip_this_event: chipThisEvent,
+  };
 }
 
 function summarize(entries) {
+  if (!entries.length) return null;
   const totals = entries.map((e) => e.total_value).sort((a, b) => a - b);
   const values = entries.map((e) => e.value).sort((a, b) => a - b);
   const banks = entries.map((e) => e.bank).sort((a, b) => a - b);
   const n = totals.length;
-  if (!n) return null;
   const pct = (arr, p) => arr[Math.min(arr.length - 1, Math.floor((arr.length * p) / 100))];
   const sum = (arr) => arr.reduce((s, v) => s + v, 0);
   return {
@@ -115,6 +130,8 @@ async function main() {
       const v = await fetchLatestValueBank(s.entry);
       if (v) {
         lastEvent = v.event;
+        const usedBudgetChip = v.chip_this_event && BUDGET_CHIPS.has(v.chip_this_event);
+        const bankOutlier = v.bank > BANK_OUTLIER_TENTHS;
         entries.push({
           rank: s.rank,
           entry: s.entry,
@@ -125,6 +142,11 @@ async function main() {
           value: v.value,
           bank: v.bank,
           total_value: v.value + v.bank,
+          chip_this_event: v.chip_this_event,
+          // True when the snapshot is unreliable for "lagverdi" comparison:
+          // either an active +budget chip or mid-transfer with cash piled up.
+          excluded: usedBudgetChip || bankOutlier,
+          excluded_reason: usedBudgetChip ? "budget_chip" : (bankOutlier ? "bank_outlier" : null),
         });
       } else {
         failed++;
@@ -139,22 +161,27 @@ async function main() {
     await sleep(REQUEST_DELAY_MS);
   }
 
+  const cleanEntries = entries.filter((e) => !e.excluded);
+  const excludedCount = entries.length - cleanEntries.length;
   const out = {
     fetched_at: new Date().toISOString(),
     league_id: OVERALL_LEAGUE_ID,
     event: lastEvent,
     requested: limit,
     count: entries.length,
+    clean_count: cleanEntries.length,
+    excluded: excludedCount,
     failed,
-    stats: summarize(entries),
+    stats: summarize(cleanEntries),
+    raw_stats: summarize(entries),
     entries,
   };
   await mkdir(DATA_DIR, { recursive: true });
   await writeFile(resolve(DATA_DIR, "top500.json"), JSON.stringify(out, null, 2) + "\n", "utf8");
-  console.log(`\nDone. ${entries.length} saved (${failed} failed).`);
+  console.log(`\nDone. ${entries.length} fetched (${failed} failed). ${cleanEntries.length} after excluding ${excludedCount} outliers (chip/mid-transfer).`);
   if (out.stats) {
     const fmt = (t) => (t / 10).toFixed(1) + "m";
-    console.log(`Total value (value + bank):`);
+    console.log(`Total lagverdi (value + bank), clean:`);
     console.log(`  min ${fmt(out.stats.total_value.min)}  median ${fmt(out.stats.total_value.median)}  avg ${fmt(out.stats.total_value.avg)}  max ${fmt(out.stats.total_value.max)}`);
   }
 }

@@ -1,11 +1,38 @@
 {
-  "fetched_at": "2026-05-10T19:29:01.330Z",
+  "fetched_at": "2026-05-10T19:38:41.793Z",
   "league_id": 329,
   "event": 8,
   "requested": 500,
   "count": 500,
+  "clean_count": 464,
+  "excluded": 36,
   "failed": 0,
   "stats": {
+    "count": 464,
+    "total_value": {
+      "min": 1004,
+      "max": 1053,
+      "avg": 1024,
+      "median": 1022,
+      "p10": 1014,
+      "p25": 1017,
+      "p75": 1029,
+      "p90": 1038
+    },
+    "value": {
+      "min": 1003,
+      "max": 1030,
+      "avg": 1016,
+      "median": 1016
+    },
+    "bank": {
+      "min": 0,
+      "max": 30,
+      "avg": 8,
+      "median": 5
+    }
+  },
+  "raw_stats": {
     "count": 500,
     "total_value": {
       "min": 1004,
@@ -40,7 +67,10 @@
       "event": 8,
       "value": 1015,
       "bank": 7,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 2,
@@ -51,7 +81,10 @@
       "event": 8,
       "value": 1020,
       "bank": 2,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 3,
@@ -62,7 +95,10 @@
       "event": 8,
       "value": 1013,
       "bank": 1,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 4,
@@ -73,7 +109,10 @@
       "event": 8,
       "value": 1009,
       "bank": 7,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 5,
@@ -84,7 +123,10 @@
       "event": 8,
       "value": 1025,
       "bank": 4,
-      "total_value": 1029
+      "total_value": 1029,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 6,
@@ -95,7 +137,10 @@
       "event": 8,
       "value": 1007,
       "bank": 16,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 7,
@@ -106,7 +151,10 @@
       "event": 8,
       "value": 1021,
       "bank": 30,
-      "total_value": 1051
+      "total_value": 1051,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 8,
@@ -117,7 +165,10 @@
       "event": 8,
       "value": 1015,
       "bank": 36,
-      "total_value": 1051
+      "total_value": 1051,
+      "chip_this_event": "rich",
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 9,
@@ -128,7 +179,10 @@
       "event": 8,
       "value": 1018,
       "bank": 28,
-      "total_value": 1046
+      "total_value": 1046,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 10,
@@ -139,7 +193,10 @@
       "event": 8,
       "value": 1020,
       "bank": 1,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 11,
@@ -150,7 +207,10 @@
       "event": 8,
       "value": 1016,
       "bank": 2,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 12,
@@ -161,7 +221,10 @@
       "event": 8,
       "value": 1019,
       "bank": 28,
-      "total_value": 1047
+      "total_value": 1047,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 13,
@@ -172,7 +235,10 @@
       "event": 8,
       "value": 1024,
       "bank": 28,
-      "total_value": 1052
+      "total_value": 1052,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 14,
@@ -183,7 +249,10 @@
       "event": 8,
       "value": 1020,
       "bank": 16,
-      "total_value": 1036
+      "total_value": 1036,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 15,
@@ -194,7 +263,10 @@
       "event": 8,
       "value": 1009,
       "bank": 3,
-      "total_value": 1012
+      "total_value": 1012,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 16,
@@ -205,7 +277,10 @@
       "event": 8,
       "value": 1024,
       "bank": 2,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 16,
@@ -216,7 +291,10 @@
       "event": 8,
       "value": 1020,
       "bank": 0,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 18,
@@ -227,7 +305,10 @@
       "event": 8,
       "value": 1020,
       "bank": 5,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 19,
@@ -238,7 +319,10 @@
       "event": 8,
       "value": 1018,
       "bank": 0,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 19,
@@ -249,7 +333,10 @@
       "event": 8,
       "value": 1016,
       "bank": 22,
-      "total_value": 1038
+      "total_value": 1038,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 19,
@@ -260,7 +347,10 @@
       "event": 8,
       "value": 1010,
       "bank": 6,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 22,
@@ -271,7 +361,10 @@
       "event": 8,
       "value": 1022,
       "bank": 0,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 23,
@@ -282,7 +375,10 @@
       "event": 8,
       "value": 1021,
       "bank": 4,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 24,
@@ -293,7 +389,10 @@
       "event": 8,
       "value": 1020,
       "bank": 29,
-      "total_value": 1049
+      "total_value": 1049,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 24,
@@ -304,7 +403,10 @@
       "event": 8,
       "value": 1018,
       "bank": 10,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 26,
@@ -315,7 +417,10 @@
       "event": 8,
       "value": 1017,
       "bank": 18,
-      "total_value": 1035
+      "total_value": 1035,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 27,
@@ -326,7 +431,10 @@
       "event": 8,
       "value": 1022,
       "bank": 13,
-      "total_value": 1035
+      "total_value": 1035,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 28,
@@ -337,7 +445,10 @@
       "event": 8,
       "value": 1016,
       "bank": 16,
-      "total_value": 1032
+      "total_value": 1032,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 29,
@@ -348,7 +459,10 @@
       "event": 8,
       "value": 1017,
       "bank": 7,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 29,
@@ -359,7 +473,10 @@
       "event": 8,
       "value": 1011,
       "bank": 7,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 31,
@@ -370,7 +487,10 @@
       "event": 8,
       "value": 1011,
       "bank": 0,
-      "total_value": 1011
+      "total_value": 1011,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 31,
@@ -381,7 +501,10 @@
       "event": 8,
       "value": 1004,
       "bank": 20,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 33,
@@ -392,7 +515,10 @@
       "event": 8,
       "value": 1019,
       "bank": 24,
-      "total_value": 1043
+      "total_value": 1043,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 34,
@@ -403,7 +529,10 @@
       "event": 8,
       "value": 1020,
       "bank": 10,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 35,
@@ -414,7 +543,10 @@
       "event": 8,
       "value": 1012,
       "bank": 28,
-      "total_value": 1040
+      "total_value": 1040,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 36,
@@ -425,7 +557,10 @@
       "event": 8,
       "value": 1019,
       "bank": 7,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 37,
@@ -436,7 +571,10 @@
       "event": 8,
       "value": 1021,
       "bank": 27,
-      "total_value": 1048
+      "total_value": 1048,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 37,
@@ -447,7 +585,10 @@
       "event": 8,
       "value": 1015,
       "bank": 28,
-      "total_value": 1043
+      "total_value": 1043,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 37,
@@ -458,7 +599,10 @@
       "event": 8,
       "value": 1017,
       "bank": 21,
-      "total_value": 1038
+      "total_value": 1038,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 37,
@@ -469,7 +613,10 @@
       "event": 8,
       "value": 1020,
       "bank": 7,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 41,
@@ -480,7 +627,10 @@
       "event": 8,
       "value": 1021,
       "bank": 11,
-      "total_value": 1032
+      "total_value": 1032,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 41,
@@ -491,7 +641,10 @@
       "event": 8,
       "value": 1013,
       "bank": 0,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 43,
@@ -502,7 +655,10 @@
       "event": 8,
       "value": 1021,
       "bank": 6,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 44,
@@ -513,7 +669,10 @@
       "event": 8,
       "value": 1011,
       "bank": 3,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 45,
@@ -524,7 +683,10 @@
       "event": 8,
       "value": 1017,
       "bank": 9,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 45,
@@ -535,7 +697,10 @@
       "event": 8,
       "value": 1020,
       "bank": 13,
-      "total_value": 1033
+      "total_value": 1033,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 47,
@@ -546,7 +711,10 @@
       "event": 8,
       "value": 1016,
       "bank": 28,
-      "total_value": 1044
+      "total_value": 1044,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 47,
@@ -557,7 +725,10 @@
       "event": 8,
       "value": 1015,
       "bank": 19,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 49,
@@ -568,7 +739,10 @@
       "event": 8,
       "value": 1016,
       "bank": 0,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 49,
@@ -579,7 +753,10 @@
       "event": 8,
       "value": 1018,
       "bank": 0,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 49,
@@ -590,7 +767,10 @@
       "event": 8,
       "value": 1016,
       "bank": 3,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 52,
@@ -601,7 +781,10 @@
       "event": 8,
       "value": 1015,
       "bank": 0,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 52,
@@ -612,7 +795,10 @@
       "event": 8,
       "value": 1023,
       "bank": 30,
-      "total_value": 1053
+      "total_value": 1053,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 54,
@@ -623,7 +809,10 @@
       "event": 8,
       "value": 1023,
       "bank": 4,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 54,
@@ -634,7 +823,10 @@
       "event": 8,
       "value": 1009,
       "bank": 0,
-      "total_value": 1009
+      "total_value": 1009,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 56,
@@ -645,7 +837,10 @@
       "event": 8,
       "value": 1016,
       "bank": 8,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 56,
@@ -656,7 +851,10 @@
       "event": 8,
       "value": 1014,
       "bank": 0,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 56,
@@ -667,7 +865,10 @@
       "event": 8,
       "value": 1013,
       "bank": 3,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 56,
@@ -678,7 +879,10 @@
       "event": 8,
       "value": 1010,
       "bank": 4,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 60,
@@ -689,7 +893,10 @@
       "event": 8,
       "value": 1016,
       "bank": 2,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 61,
@@ -700,7 +907,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 62,
@@ -711,7 +921,10 @@
       "event": 8,
       "value": 1016,
       "bank": 0,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 63,
@@ -722,7 +935,10 @@
       "event": 8,
       "value": 1017,
       "bank": 14,
-      "total_value": 1031
+      "total_value": 1031,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 64,
@@ -733,7 +949,10 @@
       "event": 8,
       "value": 1028,
       "bank": 4,
-      "total_value": 1032
+      "total_value": 1032,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 65,
@@ -744,7 +963,10 @@
       "event": 8,
       "value": 1021,
       "bank": 7,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 66,
@@ -755,7 +977,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 67,
@@ -766,7 +991,10 @@
       "event": 8,
       "value": 1020,
       "bank": 0,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 67,
@@ -777,7 +1005,10 @@
       "event": 8,
       "value": 1016,
       "bank": 28,
-      "total_value": 1044
+      "total_value": 1044,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 67,
@@ -788,7 +1019,10 @@
       "event": 8,
       "value": 1016,
       "bank": 5,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 70,
@@ -799,7 +1033,10 @@
       "event": 8,
       "value": 1011,
       "bank": 2,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": "wildcard",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 71,
@@ -810,7 +1047,10 @@
       "event": 8,
       "value": 1019,
       "bank": 6,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 72,
@@ -821,7 +1061,10 @@
       "event": 8,
       "value": 1024,
       "bank": 1,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 72,
@@ -832,7 +1075,10 @@
       "event": 8,
       "value": 1020,
       "bank": 17,
-      "total_value": 1037
+      "total_value": 1037,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 72,
@@ -843,7 +1089,10 @@
       "event": 8,
       "value": 1007,
       "bank": 0,
-      "total_value": 1007
+      "total_value": 1007,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 75,
@@ -854,7 +1103,10 @@
       "event": 8,
       "value": 1021,
       "bank": 3,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 76,
@@ -865,7 +1117,10 @@
       "event": 8,
       "value": 1014,
       "bank": 3,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 77,
@@ -876,7 +1131,10 @@
       "event": 8,
       "value": 1009,
       "bank": 5,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 78,
@@ -887,7 +1145,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 79,
@@ -898,7 +1159,10 @@
       "event": 8,
       "value": 1014,
       "bank": 6,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 79,
@@ -909,7 +1173,10 @@
       "event": 8,
       "value": 1018,
       "bank": 0,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 81,
@@ -920,7 +1187,10 @@
       "event": 8,
       "value": 1017,
       "bank": 1,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 81,
@@ -931,7 +1201,10 @@
       "event": 8,
       "value": 1017,
       "bank": 0,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 81,
@@ -942,7 +1215,10 @@
       "event": 8,
       "value": 1017,
       "bank": 3,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 84,
@@ -953,7 +1229,10 @@
       "event": 8,
       "value": 1014,
       "bank": 10,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 85,
@@ -964,7 +1243,10 @@
       "event": 8,
       "value": 1013,
       "bank": 0,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 85,
@@ -975,7 +1257,10 @@
       "event": 8,
       "value": 1011,
       "bank": 16,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 87,
@@ -986,7 +1271,10 @@
       "event": 8,
       "value": 1011,
       "bank": 8,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 88,
@@ -997,7 +1285,10 @@
       "event": 8,
       "value": 1014,
       "bank": 2,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 89,
@@ -1008,7 +1299,10 @@
       "event": 8,
       "value": 1015,
       "bank": 0,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 90,
@@ -1019,7 +1313,10 @@
       "event": 8,
       "value": 1016,
       "bank": 9,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 91,
@@ -1030,7 +1327,10 @@
       "event": 8,
       "value": 1017,
       "bank": 23,
-      "total_value": 1040
+      "total_value": 1040,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 91,
@@ -1041,7 +1341,10 @@
       "event": 8,
       "value": 1015,
       "bank": 1,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 91,
@@ -1052,7 +1355,10 @@
       "event": 8,
       "value": 1011,
       "bank": 25,
-      "total_value": 1036
+      "total_value": 1036,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 94,
@@ -1063,7 +1369,10 @@
       "event": 8,
       "value": 1010,
       "bank": 51,
-      "total_value": 1061
+      "total_value": 1061,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 94,
@@ -1074,7 +1383,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 94,
@@ -1085,7 +1397,10 @@
       "event": 8,
       "value": 1017,
       "bank": 1,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 97,
@@ -1096,7 +1411,10 @@
       "event": 8,
       "value": 1013,
       "bank": 12,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 98,
@@ -1107,7 +1425,10 @@
       "event": 8,
       "value": 1019,
       "bank": 1,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 98,
@@ -1118,7 +1439,10 @@
       "event": 8,
       "value": 1021,
       "bank": 28,
-      "total_value": 1049
+      "total_value": 1049,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 100,
@@ -1129,7 +1453,10 @@
       "event": 8,
       "value": 1021,
       "bank": 1,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 100,
@@ -1140,7 +1467,10 @@
       "event": 8,
       "value": 1014,
       "bank": 3,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 100,
@@ -1151,7 +1481,10 @@
       "event": 8,
       "value": 1013,
       "bank": 15,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 100,
@@ -1162,7 +1495,10 @@
       "event": 8,
       "value": 1017,
       "bank": 0,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 100,
@@ -1173,7 +1509,10 @@
       "event": 8,
       "value": 1017,
       "bank": 34,
-      "total_value": 1051
+      "total_value": 1051,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 105,
@@ -1184,7 +1523,10 @@
       "event": 8,
       "value": 1020,
       "bank": 1,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 105,
@@ -1195,7 +1537,10 @@
       "event": 8,
       "value": 1009,
       "bank": 5,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 107,
@@ -1206,7 +1551,10 @@
       "event": 8,
       "value": 1010,
       "bank": 9,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 108,
@@ -1217,7 +1565,10 @@
       "event": 8,
       "value": 1019,
       "bank": 4,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 108,
@@ -1228,7 +1579,10 @@
       "event": 8,
       "value": 1021,
       "bank": 26,
-      "total_value": 1047
+      "total_value": 1047,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 110,
@@ -1239,7 +1593,10 @@
       "event": 8,
       "value": 1016,
       "bank": 2,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 111,
@@ -1250,7 +1607,10 @@
       "event": 8,
       "value": 1008,
       "bank": 12,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 111,
@@ -1261,7 +1621,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 111,
@@ -1272,7 +1635,10 @@
       "event": 8,
       "value": 1014,
       "bank": 0,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 114,
@@ -1283,7 +1649,10 @@
       "event": 8,
       "value": 1030,
       "bank": 12,
-      "total_value": 1042
+      "total_value": 1042,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 115,
@@ -1294,7 +1663,10 @@
       "event": 8,
       "value": 1012,
       "bank": 22,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 116,
@@ -1305,7 +1677,10 @@
       "event": 8,
       "value": 1018,
       "bank": 27,
-      "total_value": 1045
+      "total_value": 1045,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 116,
@@ -1316,7 +1691,10 @@
       "event": 8,
       "value": 1014,
       "bank": 0,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 116,
@@ -1327,7 +1705,10 @@
       "event": 8,
       "value": 1017,
       "bank": 10,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 119,
@@ -1338,7 +1719,10 @@
       "event": 8,
       "value": 1018,
       "bank": 4,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 119,
@@ -1349,7 +1733,10 @@
       "event": 8,
       "value": 1016,
       "bank": 0,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 119,
@@ -1360,7 +1747,10 @@
       "event": 8,
       "value": 1019,
       "bank": 4,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 119,
@@ -1371,7 +1761,10 @@
       "event": 8,
       "value": 1019,
       "bank": 0,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 119,
@@ -1382,7 +1775,10 @@
       "event": 8,
       "value": 1018,
       "bank": 10,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 119,
@@ -1393,7 +1789,10 @@
       "event": 8,
       "value": 1017,
       "bank": 10,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 125,
@@ -1404,7 +1803,10 @@
       "event": 8,
       "value": 1023,
       "bank": 4,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 125,
@@ -1415,7 +1817,10 @@
       "event": 8,
       "value": 1012,
       "bank": 9,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 125,
@@ -1426,7 +1831,10 @@
       "event": 8,
       "value": 1018,
       "bank": 6,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 128,
@@ -1437,7 +1845,10 @@
       "event": 8,
       "value": 1013,
       "bank": 9,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 128,
@@ -1448,7 +1859,10 @@
       "event": 8,
       "value": 1015,
       "bank": 26,
-      "total_value": 1041
+      "total_value": 1041,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 128,
@@ -1459,7 +1873,10 @@
       "event": 8,
       "value": 1015,
       "bank": 9,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 131,
@@ -1470,7 +1887,10 @@
       "event": 8,
       "value": 1015,
       "bank": 0,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 131,
@@ -1481,7 +1901,10 @@
       "event": 8,
       "value": 1009,
       "bank": 0,
-      "total_value": 1009
+      "total_value": 1009,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 133,
@@ -1492,7 +1915,10 @@
       "event": 8,
       "value": 1022,
       "bank": 16,
-      "total_value": 1038
+      "total_value": 1038,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 133,
@@ -1503,7 +1929,10 @@
       "event": 8,
       "value": 1018,
       "bank": 1,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 133,
@@ -1514,7 +1943,10 @@
       "event": 8,
       "value": 1011,
       "bank": 3,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 133,
@@ -1525,7 +1957,10 @@
       "event": 8,
       "value": 1014,
       "bank": 1,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 137,
@@ -1536,7 +1971,10 @@
       "event": 8,
       "value": 1020,
       "bank": 1,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 137,
@@ -1547,7 +1985,10 @@
       "event": 8,
       "value": 1015,
       "bank": 0,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 137,
@@ -1558,7 +1999,10 @@
       "event": 8,
       "value": 1016,
       "bank": 2,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 137,
@@ -1569,7 +2013,10 @@
       "event": 8,
       "value": 1007,
       "bank": 2,
-      "total_value": 1009
+      "total_value": 1009,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 137,
@@ -1580,7 +2027,10 @@
       "event": 8,
       "value": 1018,
       "bank": 30,
-      "total_value": 1048
+      "total_value": 1048,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 142,
@@ -1591,7 +2041,10 @@
       "event": 8,
       "value": 1019,
       "bank": 9,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 142,
@@ -1602,7 +2055,10 @@
       "event": 8,
       "value": 1010,
       "bank": 7,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 144,
@@ -1613,7 +2069,10 @@
       "event": 8,
       "value": 1017,
       "bank": 1,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 144,
@@ -1624,7 +2083,10 @@
       "event": 8,
       "value": 1012,
       "bank": 19,
-      "total_value": 1031
+      "total_value": 1031,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 146,
@@ -1635,7 +2097,10 @@
       "event": 8,
       "value": 1023,
       "bank": 7,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 147,
@@ -1646,7 +2111,10 @@
       "event": 8,
       "value": 1023,
       "bank": 0,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 147,
@@ -1657,7 +2125,10 @@
       "event": 8,
       "value": 1022,
       "bank": 12,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 149,
@@ -1668,7 +2139,10 @@
       "event": 8,
       "value": 1018,
       "bank": 15,
-      "total_value": 1033
+      "total_value": 1033,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 150,
@@ -1679,7 +2153,10 @@
       "event": 8,
       "value": 1005,
       "bank": 1,
-      "total_value": 1006
+      "total_value": 1006,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 150,
@@ -1690,7 +2167,10 @@
       "event": 8,
       "value": 1014,
       "bank": 6,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 152,
@@ -1701,7 +2181,10 @@
       "event": 8,
       "value": 1014,
       "bank": 14,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 152,
@@ -1712,7 +2195,10 @@
       "event": 8,
       "value": 1021,
       "bank": 4,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 152,
@@ -1723,7 +2209,10 @@
       "event": 8,
       "value": 1018,
       "bank": 27,
-      "total_value": 1045
+      "total_value": 1045,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 152,
@@ -1734,7 +2223,10 @@
       "event": 8,
       "value": 1018,
       "bank": 0,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 152,
@@ -1745,7 +2237,10 @@
       "event": 8,
       "value": 1011,
       "bank": 1,
-      "total_value": 1012
+      "total_value": 1012,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 152,
@@ -1756,7 +2251,10 @@
       "event": 8,
       "value": 1018,
       "bank": 2,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 152,
@@ -1767,7 +2265,10 @@
       "event": 8,
       "value": 1017,
       "bank": 0,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 159,
@@ -1778,7 +2279,10 @@
       "event": 8,
       "value": 1025,
       "bank": 0,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 159,
@@ -1789,7 +2293,10 @@
       "event": 8,
       "value": 1020,
       "bank": 32,
-      "total_value": 1052
+      "total_value": 1052,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 161,
@@ -1800,7 +2307,10 @@
       "event": 8,
       "value": 1021,
       "bank": 4,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 161,
@@ -1811,7 +2321,10 @@
       "event": 8,
       "value": 1012,
       "bank": 10,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 163,
@@ -1822,7 +2335,10 @@
       "event": 8,
       "value": 1016,
       "bank": 5,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 163,
@@ -1833,7 +2349,10 @@
       "event": 8,
       "value": 1019,
       "bank": 13,
-      "total_value": 1032
+      "total_value": 1032,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 163,
@@ -1844,7 +2363,10 @@
       "event": 8,
       "value": 1021,
       "bank": 11,
-      "total_value": 1032
+      "total_value": 1032,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 163,
@@ -1855,7 +2377,10 @@
       "event": 8,
       "value": 1013,
       "bank": 1,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 163,
@@ -1866,7 +2391,10 @@
       "event": 8,
       "value": 1014,
       "bank": 9,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 168,
@@ -1877,7 +2405,10 @@
       "event": 8,
       "value": 1018,
       "bank": 5,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 168,
@@ -1888,7 +2419,10 @@
       "event": 8,
       "value": 1017,
       "bank": 13,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 168,
@@ -1899,7 +2433,10 @@
       "event": 8,
       "value": 1016,
       "bank": 26,
-      "total_value": 1042
+      "total_value": 1042,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 168,
@@ -1910,7 +2447,10 @@
       "event": 8,
       "value": 1015,
       "bank": 2,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 172,
@@ -1921,7 +2461,10 @@
       "event": 8,
       "value": 1017,
       "bank": 5,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 172,
@@ -1932,7 +2475,10 @@
       "event": 8,
       "value": 1017,
       "bank": 4,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 174,
@@ -1943,7 +2489,10 @@
       "event": 8,
       "value": 1016,
       "bank": 12,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 175,
@@ -1954,7 +2503,10 @@
       "event": 8,
       "value": 1009,
       "bank": 34,
-      "total_value": 1043
+      "total_value": 1043,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 176,
@@ -1965,7 +2517,10 @@
       "event": 8,
       "value": 1015,
       "bank": 52,
-      "total_value": 1067
+      "total_value": 1067,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 176,
@@ -1976,7 +2531,10 @@
       "event": 8,
       "value": 1020,
       "bank": 14,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 176,
@@ -1987,7 +2545,10 @@
       "event": 8,
       "value": 1015,
       "bank": 15,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 179,
@@ -1998,7 +2559,10 @@
       "event": 8,
       "value": 1020,
       "bank": 5,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 179,
@@ -2009,7 +2573,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 179,
@@ -2020,7 +2587,10 @@
       "event": 8,
       "value": 1023,
       "bank": 12,
-      "total_value": 1035
+      "total_value": 1035,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 179,
@@ -2031,7 +2601,10 @@
       "event": 8,
       "value": 1015,
       "bank": 1,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 179,
@@ -2042,7 +2615,10 @@
       "event": 8,
       "value": 1015,
       "bank": 12,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 179,
@@ -2053,7 +2629,10 @@
       "event": 8,
       "value": 1018,
       "bank": 6,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 185,
@@ -2064,7 +2643,10 @@
       "event": 8,
       "value": 1018,
       "bank": 2,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 186,
@@ -2075,7 +2657,10 @@
       "event": 8,
       "value": 1021,
       "bank": 6,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 187,
@@ -2086,7 +2671,10 @@
       "event": 8,
       "value": 1012,
       "bank": 1,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 187,
@@ -2097,7 +2685,10 @@
       "event": 8,
       "value": 1018,
       "bank": 0,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 189,
@@ -2108,7 +2699,10 @@
       "event": 8,
       "value": 1018,
       "bank": 9,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 189,
@@ -2119,7 +2713,10 @@
       "event": 8,
       "value": 1015,
       "bank": 7,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 189,
@@ -2130,7 +2727,10 @@
       "event": 8,
       "value": 1008,
       "bank": 1,
-      "total_value": 1009
+      "total_value": 1009,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 192,
@@ -2141,7 +2741,10 @@
       "event": 8,
       "value": 1014,
       "bank": 4,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 192,
@@ -2152,7 +2755,10 @@
       "event": 8,
       "value": 1023,
       "bank": 11,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 192,
@@ -2163,7 +2769,10 @@
       "event": 8,
       "value": 1013,
       "bank": 0,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 192,
@@ -2174,7 +2783,10 @@
       "event": 8,
       "value": 1019,
       "bank": 40,
-      "total_value": 1059
+      "total_value": 1059,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 192,
@@ -2185,7 +2797,10 @@
       "event": 8,
       "value": 1014,
       "bank": 4,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 192,
@@ -2196,7 +2811,10 @@
       "event": 8,
       "value": 1019,
       "bank": 5,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 198,
@@ -2207,7 +2825,10 @@
       "event": 8,
       "value": 1014,
       "bank": 11,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 198,
@@ -2218,7 +2839,10 @@
       "event": 8,
       "value": 1018,
       "bank": 47,
-      "total_value": 1065
+      "total_value": 1065,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 198,
@@ -2229,7 +2853,10 @@
       "event": 8,
       "value": 1015,
       "bank": 13,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 198,
@@ -2240,7 +2867,10 @@
       "event": 8,
       "value": 1018,
       "bank": 6,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 198,
@@ -2251,7 +2881,10 @@
       "event": 8,
       "value": 1009,
       "bank": 4,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 203,
@@ -2262,7 +2895,10 @@
       "event": 8,
       "value": 1006,
       "bank": 6,
-      "total_value": 1012
+      "total_value": 1012,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 204,
@@ -2273,7 +2909,10 @@
       "event": 8,
       "value": 1011,
       "bank": 10,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 205,
@@ -2284,7 +2923,10 @@
       "event": 8,
       "value": 1015,
       "bank": 4,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 205,
@@ -2295,7 +2937,10 @@
       "event": 8,
       "value": 1019,
       "bank": 34,
-      "total_value": 1053
+      "total_value": 1053,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 205,
@@ -2306,7 +2951,10 @@
       "event": 8,
       "value": 1019,
       "bank": 0,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 205,
@@ -2317,7 +2965,10 @@
       "event": 8,
       "value": 1014,
       "bank": 5,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 205,
@@ -2328,7 +2979,10 @@
       "event": 8,
       "value": 1018,
       "bank": 12,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 205,
@@ -2339,7 +2993,10 @@
       "event": 8,
       "value": 1017,
       "bank": 0,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 205,
@@ -2350,7 +3007,10 @@
       "event": 8,
       "value": 1018,
       "bank": 3,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 212,
@@ -2361,7 +3021,10 @@
       "event": 8,
       "value": 1023,
       "bank": 16,
-      "total_value": 1039
+      "total_value": 1039,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 213,
@@ -2372,7 +3035,10 @@
       "event": 8,
       "value": 1018,
       "bank": 2,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 214,
@@ -2383,7 +3049,10 @@
       "event": 8,
       "value": 1005,
       "bank": 5,
-      "total_value": 1010
+      "total_value": 1010,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 215,
@@ -2394,7 +3063,10 @@
       "event": 8,
       "value": 1014,
       "bank": 28,
-      "total_value": 1042
+      "total_value": 1042,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 215,
@@ -2405,7 +3077,10 @@
       "event": 8,
       "value": 1020,
       "bank": 17,
-      "total_value": 1037
+      "total_value": 1037,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 215,
@@ -2416,7 +3091,10 @@
       "event": 8,
       "value": 1018,
       "bank": 0,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 215,
@@ -2427,7 +3105,10 @@
       "event": 8,
       "value": 1017,
       "bank": 29,
-      "total_value": 1046
+      "total_value": 1046,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 219,
@@ -2438,7 +3119,10 @@
       "event": 8,
       "value": 1016,
       "bank": 0,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 219,
@@ -2449,7 +3133,10 @@
       "event": 8,
       "value": 1023,
       "bank": 0,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 219,
@@ -2460,7 +3147,10 @@
       "event": 8,
       "value": 1013,
       "bank": 14,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 219,
@@ -2471,7 +3161,10 @@
       "event": 8,
       "value": 1013,
       "bank": 25,
-      "total_value": 1038
+      "total_value": 1038,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 223,
@@ -2482,7 +3175,10 @@
       "event": 8,
       "value": 1018,
       "bank": 2,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 223,
@@ -2493,7 +3189,10 @@
       "event": 8,
       "value": 1014,
       "bank": 2,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 223,
@@ -2504,7 +3203,10 @@
       "event": 8,
       "value": 1014,
       "bank": 2,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 223,
@@ -2515,7 +3217,10 @@
       "event": 8,
       "value": 1017,
       "bank": 3,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 223,
@@ -2526,7 +3231,10 @@
       "event": 8,
       "value": 1016,
       "bank": 18,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 223,
@@ -2537,7 +3245,10 @@
       "event": 8,
       "value": 1018,
       "bank": 10,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 229,
@@ -2548,7 +3259,10 @@
       "event": 8,
       "value": 1020,
       "bank": 45,
-      "total_value": 1065
+      "total_value": 1065,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 229,
@@ -2559,7 +3273,10 @@
       "event": 8,
       "value": 1015,
       "bank": 2,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 231,
@@ -2570,7 +3287,10 @@
       "event": 8,
       "value": 1018,
       "bank": 15,
-      "total_value": 1033
+      "total_value": 1033,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 231,
@@ -2581,7 +3301,10 @@
       "event": 8,
       "value": 1015,
       "bank": 11,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 231,
@@ -2592,7 +3315,10 @@
       "event": 8,
       "value": 1022,
       "bank": 12,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 234,
@@ -2603,7 +3329,10 @@
       "event": 8,
       "value": 1018,
       "bank": 9,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 235,
@@ -2614,7 +3343,10 @@
       "event": 8,
       "value": 1020,
       "bank": 3,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 235,
@@ -2625,7 +3357,10 @@
       "event": 8,
       "value": 1013,
       "bank": 0,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 237,
@@ -2636,7 +3371,10 @@
       "event": 8,
       "value": 1016,
       "bank": 29,
-      "total_value": 1045
+      "total_value": 1045,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 237,
@@ -2647,7 +3385,10 @@
       "event": 8,
       "value": 1020,
       "bank": 3,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 239,
@@ -2658,7 +3399,10 @@
       "event": 8,
       "value": 1017,
       "bank": 5,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 239,
@@ -2669,7 +3413,10 @@
       "event": 8,
       "value": 1011,
       "bank": 31,
-      "total_value": 1042
+      "total_value": 1042,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 239,
@@ -2680,7 +3427,10 @@
       "event": 8,
       "value": 1017,
       "bank": 11,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 239,
@@ -2691,7 +3441,10 @@
       "event": 8,
       "value": 1019,
       "bank": 36,
-      "total_value": 1055
+      "total_value": 1055,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 243,
@@ -2702,7 +3455,10 @@
       "event": 8,
       "value": 1019,
       "bank": 9,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 243,
@@ -2713,7 +3469,10 @@
       "event": 8,
       "value": 1017,
       "bank": 12,
-      "total_value": 1029
+      "total_value": 1029,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 245,
@@ -2724,7 +3483,10 @@
       "event": 8,
       "value": 1015,
       "bank": 3,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 245,
@@ -2735,7 +3497,10 @@
       "event": 8,
       "value": 1011,
       "bank": 3,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 245,
@@ -2746,7 +3511,10 @@
       "event": 8,
       "value": 1013,
       "bank": 0,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 248,
@@ -2757,7 +3525,10 @@
       "event": 8,
       "value": 1022,
       "bank": 0,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 249,
@@ -2768,7 +3539,10 @@
       "event": 8,
       "value": 1014,
       "bank": 9,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 250,
@@ -2779,7 +3553,10 @@
       "event": 8,
       "value": 1019,
       "bank": 0,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 250,
@@ -2790,7 +3567,10 @@
       "event": 8,
       "value": 1020,
       "bank": 7,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 252,
@@ -2801,7 +3581,10 @@
       "event": 8,
       "value": 1018,
       "bank": 1,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 252,
@@ -2812,7 +3595,10 @@
       "event": 8,
       "value": 1017,
       "bank": 1,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 252,
@@ -2823,7 +3609,10 @@
       "event": 8,
       "value": 1022,
       "bank": 2,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 255,
@@ -2834,7 +3623,10 @@
       "event": 8,
       "value": 1009,
       "bank": 3,
-      "total_value": 1012
+      "total_value": 1012,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 256,
@@ -2845,7 +3637,10 @@
       "event": 8,
       "value": 1020,
       "bank": 29,
-      "total_value": 1049
+      "total_value": 1049,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 256,
@@ -2856,7 +3651,10 @@
       "event": 8,
       "value": 1013,
       "bank": 2,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 256,
@@ -2867,7 +3665,10 @@
       "event": 8,
       "value": 1012,
       "bank": 28,
-      "total_value": 1040
+      "total_value": 1040,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 256,
@@ -2878,7 +3679,10 @@
       "event": 8,
       "value": 1020,
       "bank": 16,
-      "total_value": 1036
+      "total_value": 1036,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 260,
@@ -2889,7 +3693,10 @@
       "event": 8,
       "value": 1016,
       "bank": 2,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 261,
@@ -2900,7 +3707,10 @@
       "event": 8,
       "value": 1020,
       "bank": 9,
-      "total_value": 1029
+      "total_value": 1029,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 261,
@@ -2911,7 +3721,10 @@
       "event": 8,
       "value": 1010,
       "bank": 35,
-      "total_value": 1045
+      "total_value": 1045,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 263,
@@ -2922,7 +3735,10 @@
       "event": 8,
       "value": 1005,
       "bank": 30,
-      "total_value": 1035
+      "total_value": 1035,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 264,
@@ -2933,7 +3749,10 @@
       "event": 8,
       "value": 1017,
       "bank": 0,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 264,
@@ -2944,7 +3763,10 @@
       "event": 8,
       "value": 1016,
       "bank": 9,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 266,
@@ -2955,7 +3777,10 @@
       "event": 8,
       "value": 1016,
       "bank": 17,
-      "total_value": 1033
+      "total_value": 1033,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 266,
@@ -2966,7 +3791,10 @@
       "event": 8,
       "value": 1014,
       "bank": 0,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 266,
@@ -2977,7 +3805,10 @@
       "event": 8,
       "value": 1011,
       "bank": 2,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 266,
@@ -2988,7 +3819,10 @@
       "event": 8,
       "value": 1019,
       "bank": 11,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 266,
@@ -2999,7 +3833,10 @@
       "event": 8,
       "value": 1010,
       "bank": 2,
-      "total_value": 1012
+      "total_value": 1012,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 271,
@@ -3010,7 +3847,10 @@
       "event": 8,
       "value": 1014,
       "bank": 35,
-      "total_value": 1049
+      "total_value": 1049,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 271,
@@ -3021,7 +3861,10 @@
       "event": 8,
       "value": 1016,
       "bank": 11,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 271,
@@ -3032,7 +3875,10 @@
       "event": 8,
       "value": 1006,
       "bank": 2,
-      "total_value": 1008
+      "total_value": 1008,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 271,
@@ -3043,7 +3889,10 @@
       "event": 8,
       "value": 1013,
       "bank": 28,
-      "total_value": 1041
+      "total_value": 1041,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 271,
@@ -3054,7 +3903,10 @@
       "event": 8,
       "value": 1018,
       "bank": 1,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 271,
@@ -3065,7 +3917,10 @@
       "event": 8,
       "value": 1016,
       "bank": 7,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 271,
@@ -3076,7 +3931,10 @@
       "event": 8,
       "value": 1016,
       "bank": 2,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 271,
@@ -3087,7 +3945,10 @@
       "event": 8,
       "value": 1016,
       "bank": 26,
-      "total_value": 1042
+      "total_value": 1042,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 271,
@@ -3098,7 +3959,10 @@
       "event": 8,
       "value": 1019,
       "bank": 7,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 271,
@@ -3109,7 +3973,10 @@
       "event": 8,
       "value": 1016,
       "bank": 3,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 281,
@@ -3120,7 +3987,10 @@
       "event": 8,
       "value": 1014,
       "bank": 3,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 281,
@@ -3131,7 +4001,10 @@
       "event": 8,
       "value": 1014,
       "bank": 18,
-      "total_value": 1032
+      "total_value": 1032,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 281,
@@ -3142,7 +4015,10 @@
       "event": 8,
       "value": 1006,
       "bank": 17,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 284,
@@ -3153,7 +4029,10 @@
       "event": 8,
       "value": 1017,
       "bank": 12,
-      "total_value": 1029
+      "total_value": 1029,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 285,
@@ -3164,7 +4043,10 @@
       "event": 8,
       "value": 1008,
       "bank": 8,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 286,
@@ -3175,7 +4057,10 @@
       "event": 8,
       "value": 1012,
       "bank": 28,
-      "total_value": 1040
+      "total_value": 1040,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 287,
@@ -3186,7 +4071,10 @@
       "event": 8,
       "value": 1020,
       "bank": 15,
-      "total_value": 1035
+      "total_value": 1035,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 287,
@@ -3197,7 +4085,10 @@
       "event": 8,
       "value": 1008,
       "bank": 8,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 287,
@@ -3208,7 +4099,10 @@
       "event": 8,
       "value": 1020,
       "bank": 0,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 287,
@@ -3219,7 +4113,10 @@
       "event": 8,
       "value": 1015,
       "bank": 32,
-      "total_value": 1047
+      "total_value": 1047,
+      "chip_this_event": "rich",
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 287,
@@ -3230,7 +4127,10 @@
       "event": 8,
       "value": 1020,
       "bank": 1,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 292,
@@ -3241,7 +4141,10 @@
       "event": 8,
       "value": 1016,
       "bank": 3,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 292,
@@ -3252,7 +4155,10 @@
       "event": 8,
       "value": 1017,
       "bank": 1,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 292,
@@ -3263,7 +4169,10 @@
       "event": 8,
       "value": 1012,
       "bank": 31,
-      "total_value": 1043
+      "total_value": 1043,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 292,
@@ -3274,7 +4183,10 @@
       "event": 8,
       "value": 1011,
       "bank": 26,
-      "total_value": 1037
+      "total_value": 1037,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 292,
@@ -3285,7 +4197,10 @@
       "event": 8,
       "value": 1019,
       "bank": 40,
-      "total_value": 1059
+      "total_value": 1059,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 292,
@@ -3296,7 +4211,10 @@
       "event": 8,
       "value": 1014,
       "bank": 14,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 292,
@@ -3307,7 +4225,10 @@
       "event": 8,
       "value": 1016,
       "bank": 8,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 299,
@@ -3318,7 +4239,10 @@
       "event": 8,
       "value": 1023,
       "bank": 29,
-      "total_value": 1052
+      "total_value": 1052,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 299,
@@ -3329,7 +4253,10 @@
       "event": 8,
       "value": 1015,
       "bank": 5,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 299,
@@ -3340,7 +4267,10 @@
       "event": 8,
       "value": 1017,
       "bank": 65,
-      "total_value": 1082
+      "total_value": 1082,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 302,
@@ -3351,7 +4281,10 @@
       "event": 8,
       "value": 1018,
       "bank": 10,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 303,
@@ -3362,7 +4295,10 @@
       "event": 8,
       "value": 1017,
       "bank": 26,
-      "total_value": 1043
+      "total_value": 1043,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 304,
@@ -3373,7 +4309,10 @@
       "event": 8,
       "value": 1023,
       "bank": 15,
-      "total_value": 1038
+      "total_value": 1038,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 305,
@@ -3384,7 +4323,10 @@
       "event": 8,
       "value": 1014,
       "bank": 13,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 306,
@@ -3395,7 +4337,10 @@
       "event": 8,
       "value": 1017,
       "bank": 1,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 306,
@@ -3406,7 +4351,10 @@
       "event": 8,
       "value": 1019,
       "bank": 2,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 306,
@@ -3417,7 +4365,10 @@
       "event": 8,
       "value": 1019,
       "bank": 13,
-      "total_value": 1032
+      "total_value": 1032,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 306,
@@ -3428,7 +4379,10 @@
       "event": 8,
       "value": 1014,
       "bank": 6,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 310,
@@ -3439,7 +4393,10 @@
       "event": 8,
       "value": 1018,
       "bank": 0,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 310,
@@ -3450,7 +4407,10 @@
       "event": 8,
       "value": 1021,
       "bank": 30,
-      "total_value": 1051
+      "total_value": 1051,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 310,
@@ -3461,7 +4421,10 @@
       "event": 8,
       "value": 1020,
       "bank": 34,
-      "total_value": 1054
+      "total_value": 1054,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 310,
@@ -3472,7 +4435,10 @@
       "event": 8,
       "value": 1020,
       "bank": 0,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 310,
@@ -3483,7 +4449,10 @@
       "event": 8,
       "value": 1020,
       "bank": 0,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3494,7 +4463,10 @@
       "event": 8,
       "value": 1018,
       "bank": 1,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3505,7 +4477,10 @@
       "event": 8,
       "value": 1017,
       "bank": 0,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3516,7 +4491,10 @@
       "event": 8,
       "value": 1019,
       "bank": 5,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3527,7 +4505,10 @@
       "event": 8,
       "value": 1019,
       "bank": 14,
-      "total_value": 1033
+      "total_value": 1033,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3538,7 +4519,10 @@
       "event": 8,
       "value": 1014,
       "bank": 2,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3549,7 +4533,10 @@
       "event": 8,
       "value": 1017,
       "bank": 7,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3560,7 +4547,10 @@
       "event": 8,
       "value": 1009,
       "bank": 1,
-      "total_value": 1010
+      "total_value": 1010,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3571,7 +4561,10 @@
       "event": 8,
       "value": 1015,
       "bank": 2,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3582,7 +4575,10 @@
       "event": 8,
       "value": 1016,
       "bank": 40,
-      "total_value": 1056
+      "total_value": 1056,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 315,
@@ -3593,7 +4589,10 @@
       "event": 8,
       "value": 1022,
       "bank": 0,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 315,
@@ -3604,7 +4603,10 @@
       "event": 8,
       "value": 1018,
       "bank": 2,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 326,
@@ -3615,7 +4617,10 @@
       "event": 8,
       "value": 1013,
       "bank": 7,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 327,
@@ -3626,7 +4631,10 @@
       "event": 8,
       "value": 1013,
       "bank": 22,
-      "total_value": 1035
+      "total_value": 1035,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 328,
@@ -3637,7 +4645,10 @@
       "event": 8,
       "value": 1015,
       "bank": 45,
-      "total_value": 1060
+      "total_value": 1060,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 329,
@@ -3648,7 +4659,10 @@
       "event": 8,
       "value": 1015,
       "bank": 5,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 330,
@@ -3659,7 +4673,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 330,
@@ -3670,7 +4687,10 @@
       "event": 8,
       "value": 1013,
       "bank": 12,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 332,
@@ -3681,7 +4701,10 @@
       "event": 8,
       "value": 1012,
       "bank": 7,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 332,
@@ -3692,7 +4715,10 @@
       "event": 8,
       "value": 1018,
       "bank": 4,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 332,
@@ -3703,7 +4729,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 332,
@@ -3714,7 +4743,10 @@
       "event": 8,
       "value": 1020,
       "bank": 7,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 332,
@@ -3725,7 +4757,10 @@
       "event": 8,
       "value": 1014,
       "bank": 30,
-      "total_value": 1044
+      "total_value": 1044,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 332,
@@ -3736,7 +4771,10 @@
       "event": 8,
       "value": 1021,
       "bank": 17,
-      "total_value": 1038
+      "total_value": 1038,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 338,
@@ -3747,7 +4785,10 @@
       "event": 8,
       "value": 1016,
       "bank": 2,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 338,
@@ -3758,7 +4799,10 @@
       "event": 8,
       "value": 1021,
       "bank": 16,
-      "total_value": 1037
+      "total_value": 1037,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 338,
@@ -3769,7 +4813,10 @@
       "event": 8,
       "value": 1014,
       "bank": 14,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 338,
@@ -3780,7 +4827,10 @@
       "event": 8,
       "value": 1019,
       "bank": 0,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 338,
@@ -3791,7 +4841,10 @@
       "event": 8,
       "value": 1011,
       "bank": 25,
-      "total_value": 1036
+      "total_value": 1036,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 343,
@@ -3802,7 +4855,10 @@
       "event": 8,
       "value": 1020,
       "bank": 2,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 343,
@@ -3813,7 +4869,10 @@
       "event": 8,
       "value": 1018,
       "bank": 0,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 343,
@@ -3824,7 +4883,10 @@
       "event": 8,
       "value": 1018,
       "bank": 18,
-      "total_value": 1036
+      "total_value": 1036,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 343,
@@ -3835,7 +4897,10 @@
       "event": 8,
       "value": 1017,
       "bank": 2,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 343,
@@ -3846,7 +4911,10 @@
       "event": 8,
       "value": 1015,
       "bank": 48,
-      "total_value": 1063
+      "total_value": 1063,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 343,
@@ -3857,7 +4925,10 @@
       "event": 8,
       "value": 1018,
       "bank": 27,
-      "total_value": 1045
+      "total_value": 1045,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 343,
@@ -3868,7 +4939,10 @@
       "event": 8,
       "value": 1007,
       "bank": 3,
-      "total_value": 1010
+      "total_value": 1010,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 350,
@@ -3879,7 +4953,10 @@
       "event": 8,
       "value": 1013,
       "bank": 18,
-      "total_value": 1031
+      "total_value": 1031,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 350,
@@ -3890,7 +4967,10 @@
       "event": 8,
       "value": 1016,
       "bank": 18,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 350,
@@ -3901,7 +4981,10 @@
       "event": 8,
       "value": 1014,
       "bank": 17,
-      "total_value": 1031
+      "total_value": 1031,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 350,
@@ -3912,7 +4995,10 @@
       "event": 8,
       "value": 1009,
       "bank": 2,
-      "total_value": 1011
+      "total_value": 1011,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 354,
@@ -3923,7 +5009,10 @@
       "event": 8,
       "value": 1017,
       "bank": 4,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 355,
@@ -3934,7 +5023,10 @@
       "event": 8,
       "value": 1015,
       "bank": 5,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 355,
@@ -3945,7 +5037,10 @@
       "event": 8,
       "value": 1020,
       "bank": 51,
-      "total_value": 1071
+      "total_value": 1071,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 355,
@@ -3956,7 +5051,10 @@
       "event": 8,
       "value": 1018,
       "bank": 10,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 355,
@@ -3967,7 +5065,10 @@
       "event": 8,
       "value": 1011,
       "bank": 11,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 359,
@@ -3978,7 +5079,10 @@
       "event": 8,
       "value": 1015,
       "bank": 7,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 359,
@@ -3989,7 +5093,10 @@
       "event": 8,
       "value": 1020,
       "bank": 5,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 359,
@@ -4000,7 +5107,10 @@
       "event": 8,
       "value": 1013,
       "bank": 24,
-      "total_value": 1037
+      "total_value": 1037,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 362,
@@ -4011,7 +5121,10 @@
       "event": 8,
       "value": 1011,
       "bank": 6,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 363,
@@ -4022,7 +5135,10 @@
       "event": 8,
       "value": 1014,
       "bank": 26,
-      "total_value": 1040
+      "total_value": 1040,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 364,
@@ -4033,7 +5149,10 @@
       "event": 8,
       "value": 1021,
       "bank": 13,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 365,
@@ -4044,7 +5163,10 @@
       "event": 8,
       "value": 1021,
       "bank": 1,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 365,
@@ -4055,7 +5177,10 @@
       "event": 8,
       "value": 1014,
       "bank": 14,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 367,
@@ -4066,7 +5191,10 @@
       "event": 8,
       "value": 1010,
       "bank": 48,
-      "total_value": 1058
+      "total_value": 1058,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 367,
@@ -4077,7 +5205,10 @@
       "event": 8,
       "value": 1019,
       "bank": 21,
-      "total_value": 1040
+      "total_value": 1040,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 367,
@@ -4088,7 +5219,10 @@
       "event": 8,
       "value": 1017,
       "bank": 26,
-      "total_value": 1043
+      "total_value": 1043,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 370,
@@ -4099,7 +5233,10 @@
       "event": 8,
       "value": 1010,
       "bank": 3,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 370,
@@ -4110,7 +5247,10 @@
       "event": 8,
       "value": 1012,
       "bank": 19,
-      "total_value": 1031
+      "total_value": 1031,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 370,
@@ -4121,7 +5261,10 @@
       "event": 8,
       "value": 1019,
       "bank": 18,
-      "total_value": 1037
+      "total_value": 1037,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 370,
@@ -4132,7 +5275,10 @@
       "event": 8,
       "value": 1018,
       "bank": 30,
-      "total_value": 1048
+      "total_value": 1048,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 370,
@@ -4143,7 +5289,10 @@
       "event": 8,
       "value": 1017,
       "bank": 2,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 370,
@@ -4154,7 +5303,10 @@
       "event": 8,
       "value": 1013,
       "bank": 0,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 370,
@@ -4165,7 +5317,10 @@
       "event": 8,
       "value": 1015,
       "bank": 3,
-      "total_value": 1018
+      "total_value": 1018,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 370,
@@ -4176,7 +5331,10 @@
       "event": 8,
       "value": 1017,
       "bank": 5,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 378,
@@ -4187,7 +5345,10 @@
       "event": 8,
       "value": 1019,
       "bank": 16,
-      "total_value": 1035
+      "total_value": 1035,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 378,
@@ -4198,7 +5359,10 @@
       "event": 8,
       "value": 1007,
       "bank": 0,
-      "total_value": 1007
+      "total_value": 1007,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 378,
@@ -4209,7 +5373,10 @@
       "event": 8,
       "value": 1014,
       "bank": 6,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 378,
@@ -4220,7 +5387,10 @@
       "event": 8,
       "value": 1016,
       "bank": 4,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 382,
@@ -4231,7 +5401,10 @@
       "event": 8,
       "value": 1019,
       "bank": 41,
-      "total_value": 1060
+      "total_value": 1060,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 383,
@@ -4242,7 +5415,10 @@
       "event": 8,
       "value": 1012,
       "bank": 1,
-      "total_value": 1013
+      "total_value": 1013,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 384,
@@ -4253,7 +5429,10 @@
       "event": 8,
       "value": 1019,
       "bank": 3,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 384,
@@ -4264,7 +5443,10 @@
       "event": 8,
       "value": 1017,
       "bank": 12,
-      "total_value": 1029
+      "total_value": 1029,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 384,
@@ -4275,7 +5457,10 @@
       "event": 8,
       "value": 1015,
       "bank": 32,
-      "total_value": 1047
+      "total_value": 1047,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 387,
@@ -4286,7 +5471,10 @@
       "event": 8,
       "value": 1012,
       "bank": 31,
-      "total_value": 1043
+      "total_value": 1043,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 387,
@@ -4297,7 +5485,10 @@
       "event": 8,
       "value": 1020,
       "bank": 0,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 387,
@@ -4308,7 +5499,10 @@
       "event": 8,
       "value": 1022,
       "bank": 0,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 387,
@@ -4319,7 +5513,10 @@
       "event": 8,
       "value": 1014,
       "bank": 34,
-      "total_value": 1048
+      "total_value": 1048,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 387,
@@ -4330,7 +5527,10 @@
       "event": 8,
       "value": 1011,
       "bank": 9,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 387,
@@ -4341,7 +5541,10 @@
       "event": 8,
       "value": 1021,
       "bank": 5,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 387,
@@ -4352,7 +5555,10 @@
       "event": 8,
       "value": 1010,
       "bank": 23,
-      "total_value": 1033
+      "total_value": 1033,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 387,
@@ -4363,7 +5569,10 @@
       "event": 8,
       "value": 1017,
       "bank": 26,
-      "total_value": 1043
+      "total_value": 1043,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 395,
@@ -4374,7 +5583,10 @@
       "event": 8,
       "value": 1021,
       "bank": 2,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 395,
@@ -4385,7 +5597,10 @@
       "event": 8,
       "value": 1019,
       "bank": 15,
-      "total_value": 1034
+      "total_value": 1034,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 395,
@@ -4396,7 +5611,10 @@
       "event": 8,
       "value": 1009,
       "bank": 5,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 398,
@@ -4407,7 +5625,10 @@
       "event": 8,
       "value": 1014,
       "bank": 9,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 398,
@@ -4418,7 +5639,10 @@
       "event": 8,
       "value": 1014,
       "bank": 9,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 400,
@@ -4429,7 +5653,10 @@
       "event": 8,
       "value": 1007,
       "bank": 49,
-      "total_value": 1056
+      "total_value": 1056,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 401,
@@ -4440,7 +5667,10 @@
       "event": 8,
       "value": 1012,
       "bank": 2,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 402,
@@ -4451,7 +5681,10 @@
       "event": 8,
       "value": 1015,
       "bank": 0,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 402,
@@ -4462,7 +5695,10 @@
       "event": 8,
       "value": 1014,
       "bank": 3,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 402,
@@ -4473,7 +5709,10 @@
       "event": 8,
       "value": 1006,
       "bank": 5,
-      "total_value": 1011
+      "total_value": 1011,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 405,
@@ -4484,7 +5723,10 @@
       "event": 8,
       "value": 1015,
       "bank": 10,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 405,
@@ -4495,7 +5737,10 @@
       "event": 8,
       "value": 1017,
       "bank": 7,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 407,
@@ -4506,7 +5751,10 @@
       "event": 8,
       "value": 1013,
       "bank": 10,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 407,
@@ -4517,7 +5765,10 @@
       "event": 8,
       "value": 1016,
       "bank": 0,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 409,
@@ -4528,7 +5779,10 @@
       "event": 8,
       "value": 1019,
       "bank": 7,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 409,
@@ -4539,7 +5793,10 @@
       "event": 8,
       "value": 1021,
       "bank": 3,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 409,
@@ -4550,7 +5807,10 @@
       "event": 8,
       "value": 1020,
       "bank": 10,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 409,
@@ -4561,7 +5821,10 @@
       "event": 8,
       "value": 1019,
       "bank": 45,
-      "total_value": 1064
+      "total_value": 1064,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 409,
@@ -4572,7 +5835,10 @@
       "event": 8,
       "value": 1014,
       "bank": 36,
-      "total_value": 1050
+      "total_value": 1050,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 409,
@@ -4583,7 +5849,10 @@
       "event": 8,
       "value": 1014,
       "bank": 0,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 415,
@@ -4594,7 +5863,10 @@
       "event": 8,
       "value": 1013,
       "bank": 6,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 415,
@@ -4605,7 +5877,10 @@
       "event": 8,
       "value": 1016,
       "bank": 0,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 415,
@@ -4616,7 +5891,10 @@
       "event": 8,
       "value": 1016,
       "bank": 3,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 418,
@@ -4627,7 +5905,10 @@
       "event": 8,
       "value": 1020,
       "bank": 42,
-      "total_value": 1062
+      "total_value": 1062,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 418,
@@ -4638,7 +5919,10 @@
       "event": 8,
       "value": 1023,
       "bank": 32,
-      "total_value": 1055
+      "total_value": 1055,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 418,
@@ -4649,7 +5933,10 @@
       "event": 8,
       "value": 1011,
       "bank": 27,
-      "total_value": 1038
+      "total_value": 1038,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 421,
@@ -4660,7 +5947,10 @@
       "event": 8,
       "value": 1019,
       "bank": 7,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 421,
@@ -4671,7 +5961,10 @@
       "event": 8,
       "value": 1020,
       "bank": 22,
-      "total_value": 1042
+      "total_value": 1042,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 423,
@@ -4682,7 +5975,10 @@
       "event": 8,
       "value": 1016,
       "bank": 14,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 424,
@@ -4693,7 +5989,10 @@
       "event": 8,
       "value": 1015,
       "bank": 6,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 424,
@@ -4704,7 +6003,10 @@
       "event": 8,
       "value": 1018,
       "bank": 12,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 424,
@@ -4715,7 +6017,10 @@
       "event": 8,
       "value": 1009,
       "bank": 0,
-      "total_value": 1009
+      "total_value": 1009,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 424,
@@ -4726,7 +6031,10 @@
       "event": 8,
       "value": 1014,
       "bank": 1,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 424,
@@ -4737,7 +6045,10 @@
       "event": 8,
       "value": 1017,
       "bank": 4,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 424,
@@ -4748,7 +6059,10 @@
       "event": 8,
       "value": 1003,
       "bank": 4,
-      "total_value": 1007
+      "total_value": 1007,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4759,7 +6073,10 @@
       "event": 8,
       "value": 1017,
       "bank": 2,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4770,7 +6087,10 @@
       "event": 8,
       "value": 1016,
       "bank": 7,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4781,7 +6101,10 @@
       "event": 8,
       "value": 1017,
       "bank": 0,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4792,7 +6115,10 @@
       "event": 8,
       "value": 1005,
       "bank": 7,
-      "total_value": 1012
+      "total_value": 1012,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4803,7 +6129,10 @@
       "event": 8,
       "value": 1022,
       "bank": 26,
-      "total_value": 1048
+      "total_value": 1048,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4814,7 +6143,10 @@
       "event": 8,
       "value": 1016,
       "bank": 10,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4825,7 +6157,10 @@
       "event": 8,
       "value": 1019,
       "bank": 8,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4836,7 +6171,10 @@
       "event": 8,
       "value": 1019,
       "bank": 2,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4847,7 +6185,10 @@
       "event": 8,
       "value": 1017,
       "bank": 7,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4858,7 +6199,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 430,
@@ -4869,7 +6213,10 @@
       "event": 8,
       "value": 1017,
       "bank": 26,
-      "total_value": 1043
+      "total_value": 1043,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 441,
@@ -4880,7 +6227,10 @@
       "event": 8,
       "value": 1005,
       "bank": 0,
-      "total_value": 1005
+      "total_value": 1005,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 441,
@@ -4891,7 +6241,10 @@
       "event": 8,
       "value": 1016,
       "bank": 0,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 441,
@@ -4902,7 +6255,10 @@
       "event": 8,
       "value": 1019,
       "bank": 30,
-      "total_value": 1049
+      "total_value": 1049,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 444,
@@ -4913,7 +6269,10 @@
       "event": 8,
       "value": 1019,
       "bank": 2,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 444,
@@ -4924,7 +6283,10 @@
       "event": 8,
       "value": 1017,
       "bank": 2,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 446,
@@ -4935,7 +6297,10 @@
       "event": 8,
       "value": 1004,
       "bank": 0,
-      "total_value": 1004
+      "total_value": 1004,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 447,
@@ -4946,7 +6311,10 @@
       "event": 8,
       "value": 1008,
       "bank": 0,
-      "total_value": 1008
+      "total_value": 1008,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 448,
@@ -4957,7 +6325,10 @@
       "event": 8,
       "value": 1021,
       "bank": 3,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 449,
@@ -4968,7 +6339,10 @@
       "event": 8,
       "value": 1015,
       "bank": 6,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 449,
@@ -4979,7 +6353,10 @@
       "event": 8,
       "value": 1010,
       "bank": 5,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 451,
@@ -4990,7 +6367,10 @@
       "event": 8,
       "value": 1018,
       "bank": 4,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 451,
@@ -5001,7 +6381,10 @@
       "event": 8,
       "value": 1017,
       "bank": 25,
-      "total_value": 1042
+      "total_value": 1042,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 451,
@@ -5012,7 +6395,10 @@
       "event": 8,
       "value": 1019,
       "bank": 3,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 451,
@@ -5023,7 +6409,10 @@
       "event": 8,
       "value": 1015,
       "bank": 14,
-      "total_value": 1029
+      "total_value": 1029,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5034,7 +6423,10 @@
       "event": 8,
       "value": 1014,
       "bank": 7,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5045,7 +6437,10 @@
       "event": 8,
       "value": 1022,
       "bank": 0,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5056,7 +6451,10 @@
       "event": 8,
       "value": 1019,
       "bank": 13,
-      "total_value": 1032
+      "total_value": 1032,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5067,7 +6465,10 @@
       "event": 8,
       "value": 1016,
       "bank": 1,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5078,7 +6479,10 @@
       "event": 8,
       "value": 1017,
       "bank": 8,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5089,7 +6493,10 @@
       "event": 8,
       "value": 1016,
       "bank": 15,
-      "total_value": 1031
+      "total_value": 1031,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5100,7 +6507,10 @@
       "event": 8,
       "value": 1011,
       "bank": 5,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5111,7 +6521,10 @@
       "event": 8,
       "value": 1016,
       "bank": 42,
-      "total_value": 1058
+      "total_value": 1058,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 455,
@@ -5122,7 +6535,10 @@
       "event": 8,
       "value": 1019,
       "bank": 1,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5133,7 +6549,10 @@
       "event": 8,
       "value": 1016,
       "bank": 11,
-      "total_value": 1027
+      "total_value": 1027,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 455,
@@ -5144,7 +6563,10 @@
       "event": 8,
       "value": 1016,
       "bank": 19,
-      "total_value": 1035
+      "total_value": 1035,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 466,
@@ -5155,7 +6577,10 @@
       "event": 8,
       "value": 1009,
       "bank": 1,
-      "total_value": 1010
+      "total_value": 1010,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 466,
@@ -5166,7 +6591,10 @@
       "event": 8,
       "value": 1013,
       "bank": 4,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 466,
@@ -5177,7 +6605,10 @@
       "event": 8,
       "value": 1024,
       "bank": 1,
-      "total_value": 1025
+      "total_value": 1025,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 466,
@@ -5188,7 +6619,10 @@
       "event": 8,
       "value": 1006,
       "bank": 6,
-      "total_value": 1012
+      "total_value": 1012,
+      "chip_this_event": "wildcard",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 466,
@@ -5199,7 +6633,10 @@
       "event": 8,
       "value": 1009,
       "bank": 6,
-      "total_value": 1015
+      "total_value": 1015,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 466,
@@ -5210,7 +6647,10 @@
       "event": 8,
       "value": 1015,
       "bank": 2,
-      "total_value": 1017
+      "total_value": 1017,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 472,
@@ -5221,7 +6661,10 @@
       "event": 8,
       "value": 1019,
       "bank": 0,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 472,
@@ -5232,7 +6675,10 @@
       "event": 8,
       "value": 1016,
       "bank": 0,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 472,
@@ -5243,7 +6689,10 @@
       "event": 8,
       "value": 1016,
       "bank": 22,
-      "total_value": 1038
+      "total_value": 1038,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 475,
@@ -5254,7 +6703,10 @@
       "event": 8,
       "value": 1014,
       "bank": 8,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 475,
@@ -5265,7 +6717,10 @@
       "event": 8,
       "value": 1019,
       "bank": 3,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 477,
@@ -5276,7 +6731,10 @@
       "event": 8,
       "value": 1006,
       "bank": 3,
-      "total_value": 1009
+      "total_value": 1009,
+      "chip_this_event": "wildcard",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 477,
@@ -5287,7 +6745,10 @@
       "event": 8,
       "value": 1019,
       "bank": 1,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 477,
@@ -5298,7 +6759,10 @@
       "event": 8,
       "value": 1011,
       "bank": 40,
-      "total_value": 1051
+      "total_value": 1051,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 480,
@@ -5309,7 +6773,10 @@
       "event": 8,
       "value": 1019,
       "bank": 0,
-      "total_value": 1019
+      "total_value": 1019,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 480,
@@ -5320,7 +6787,10 @@
       "event": 8,
       "value": 1016,
       "bank": 0,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 480,
@@ -5331,7 +6801,10 @@
       "event": 8,
       "value": 1022,
       "bank": 38,
-      "total_value": 1060
+      "total_value": 1060,
+      "chip_this_event": null,
+      "excluded": true,
+      "excluded_reason": "bank_outlier"
     },
     {
       "rank": 480,
@@ -5342,7 +6815,10 @@
       "event": 8,
       "value": 1014,
       "bank": 2,
-      "total_value": 1016
+      "total_value": 1016,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 480,
@@ -5353,7 +6829,10 @@
       "event": 8,
       "value": 1017,
       "bank": 5,
-      "total_value": 1022
+      "total_value": 1022,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 485,
@@ -5364,7 +6843,10 @@
       "event": 8,
       "value": 1022,
       "bank": 6,
-      "total_value": 1028
+      "total_value": 1028,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 485,
@@ -5375,7 +6857,10 @@
       "event": 8,
       "value": 1009,
       "bank": 5,
-      "total_value": 1014
+      "total_value": 1014,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 485,
@@ -5386,7 +6871,10 @@
       "event": 8,
       "value": 1019,
       "bank": 2,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 485,
@@ -5397,7 +6885,10 @@
       "event": 8,
       "value": 1017,
       "bank": 3,
-      "total_value": 1020
+      "total_value": 1020,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 485,
@@ -5408,7 +6899,10 @@
       "event": 8,
       "value": 1013,
       "bank": 8,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 485,
@@ -5419,7 +6913,10 @@
       "event": 8,
       "value": 1019,
       "bank": 7,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 491,
@@ -5430,7 +6927,10 @@
       "event": 8,
       "value": 1013,
       "bank": 8,
-      "total_value": 1021
+      "total_value": 1021,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 491,
@@ -5441,7 +6941,10 @@
       "event": 8,
       "value": 1015,
       "bank": 15,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 493,
@@ -5452,7 +6955,10 @@
       "event": 8,
       "value": 1012,
       "bank": 0,
-      "total_value": 1012
+      "total_value": 1012,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 493,
@@ -5463,7 +6969,10 @@
       "event": 8,
       "value": 1015,
       "bank": 9,
-      "total_value": 1024
+      "total_value": 1024,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 493,
@@ -5474,7 +6983,10 @@
       "event": 8,
       "value": 1020,
       "bank": 10,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 496,
@@ -5485,7 +6997,10 @@
       "event": 8,
       "value": 1009,
       "bank": 2,
-      "total_value": 1011
+      "total_value": 1011,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 497,
@@ -5496,7 +7011,10 @@
       "event": 8,
       "value": 1009,
       "bank": 0,
-      "total_value": 1009
+      "total_value": 1009,
+      "chip_this_event": "rich",
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 498,
@@ -5507,7 +7025,10 @@
       "event": 8,
       "value": 1017,
       "bank": 13,
-      "total_value": 1030
+      "total_value": 1030,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 498,
@@ -5518,7 +7039,10 @@
       "event": 8,
       "value": 1018,
       "bank": 5,
-      "total_value": 1023
+      "total_value": 1023,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     },
     {
       "rank": 498,
@@ -5529,7 +7053,10 @@
       "event": 8,
       "value": 1011,
       "bank": 15,
-      "total_value": 1026
+      "total_value": 1026,
+      "chip_this_event": null,
+      "excluded": false,
+      "excluded_reason": null
     }
   ]
 }

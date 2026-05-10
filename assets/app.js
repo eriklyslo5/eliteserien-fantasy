@@ -749,8 +749,10 @@ function renderTop500() {
   qs("#t500-min").textContent = fmt(stats.min);
   qs("#t500-max").textContent = fmt(stats.max);
 
-  const sortedTotals = t500.entries.map((e) => e.total_value).sort((a, b) => a - b);
-  const pct = mine != null ? percentileOf(sortedTotals, mine) : null;
+  // Use the same cleaned set the stats were computed from for percentile.
+  const cleanEntries = t500.entries.filter((e) => !e.excluded);
+  const sortedTotals = cleanEntries.map((e) => e.total_value).sort((a, b) => a - b);
+  const pct = mine != null && sortedTotals.length ? percentileOf(sortedTotals, mine) : null;
   qs("#t500-pct").textContent = pct != null ? `${pct}%` : "–";
 
   const range = stats.max - stats.min;
@@ -771,7 +773,9 @@ function renderTop500() {
   qs("#t500-axis-max").textContent = fmt(stats.max);
 
   const when = t500.fetched_at ? new Date(t500.fetched_at).toLocaleString("no-NO") : "";
-  qs("#top500-meta").textContent = `${t500.count} lag${t500.event ? ` · runde ${t500.event}` : ""}${when ? ` · oppdatert ${when}` : ""}`;
+  const cleanCount = t500.clean_count ?? cleanEntries.length;
+  const excludedNote = t500.excluded ? ` (${t500.excluded} ekskludert: chip/mid-bytte)` : "";
+  qs("#top500-meta").textContent = `${cleanCount} av ${t500.count} lag${excludedNote}${t500.event ? ` · runde ${t500.event}` : ""}${when ? ` · oppdatert ${when}` : ""}`;
 }
 
 function renderAll() {
