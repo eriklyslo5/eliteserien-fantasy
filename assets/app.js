@@ -126,6 +126,7 @@ function loadStored() {
       if (s.chipsByGw && typeof s.chipsByGw === "object") state.chipsByGw = s.chipsByGw;
       if (typeof s.baseFreeTransfers === "number") state.baseFreeTransfers = s.baseFreeTransfers;
       if (typeof s.teamId === "number") state.teamId = s.teamId;
+      if (s.myTeam && typeof s.myTeam === "object") state.myTeam = s.myTeam;
       if (typeof s.formation === "string" && FORMATIONS[s.formation]) state.formation = s.formation;
       if (typeof s.horizon === "number") state.horizon = s.horizon;
       if (typeof s.gameweek === "number") state.gameweek = s.gameweek;
@@ -153,6 +154,7 @@ function saveStored() {
     chipsByGw: state.chipsByGw,
     baseFreeTransfers: state.baseFreeTransfers,
     teamId: state.teamId,
+    myTeam: state.myTeam,
     formation: state.formation,
     horizon: state.horizon,
     gameweek: state.gameweek,
@@ -170,8 +172,12 @@ async function loadData() {
     fetch("data/top500.json").then((r) => r.json()).catch(() => null),
   ]);
   applyData(boot, fix, meta);
-  state.myTeam = myTeam;
   state.top500 = top500;
+  // Only let my-team.json overwrite state.myTeam when the user hasn't set a
+  // manual baseline – otherwise we'd clobber their typed-in bank on every load.
+  if (state.myTeam?.source !== "manual") {
+    state.myTeam = myTeam;
+  }
   if (myTeam?.team_id && state.teamId == null) {
     state.teamId = myTeam.team_id;
   }
@@ -502,6 +508,39 @@ function renderTeamFilter() {
   sel.innerHTML =
     '<option value="">Alle klubber</option>' +
     teams.map((t) => `<option value="${t.id}">${t.name}</option>`).join("");
+}
+
+function setManualBaseline() {
+  const squad = getSquad();
+  if (squad.length === 0) {
+    toast("Velg laget først", true);
+    return;
+  }
+  const cost = squad.reduce((sum, id) => sum + (state.players.get(id)?.now_cost ?? 0), 0);
+  const currentBank = state.myTeam?.bank ?? 0;
+  const input = window.prompt(
+    `Lagverdi: ${(cost / 10).toFixed(1)}m\n\nHvor mye har du i banken (m)?`,
+    (currentBank / 10).toFixed(1),
+  );
+  if (input == null) return;
+  const bank = Math.round(parseFloat(input.replace(",", ".")) * 10);
+  if (!Number.isFinite(bank) || bank < 0) {
+    toast("Ugyldig beløp", true);
+    return;
+  }
+  state.myTeam = {
+    team_id: state.teamId ?? state.myTeam?.team_id ?? null,
+    gameweek: state.gameweek,
+    fetched_at: new Date().toISOString(),
+    value: cost,
+    bank,
+    total_value: cost + bank,
+    picks: squad.map((id) => ({ element: id })),
+    source: "manual",
+  };
+  saveStored();
+  renderAll();
+  toast(`Utgangspunkt lagret: ${(cost / 10).toFixed(1)}m + ${(bank / 10).toFixed(1)}m bank`);
 }
 
 function importedSquadCostAtCurrentPrices() {
@@ -881,6 +920,7 @@ function bind() {
     setSquad([]);
     renderAll();
   });
+  qs("#set-baseline").addEventListener("click", () => setManualBaseline());
   qs("#chip-select").addEventListener("change", (e) => {
     const gw = state.gameweek;
     if (gw == null) return;
