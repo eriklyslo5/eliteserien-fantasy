@@ -504,26 +504,40 @@ function renderTeamFilter() {
     teams.map((t) => `<option value="${t.id}">${t.name}</option>`).join("");
 }
 
+function importedSquadCostAtCurrentPrices() {
+  const picks = state.myTeam?.picks;
+  if (!picks?.length) return null;
+  let cost = 0;
+  for (const p of picks) {
+    const player = state.players.get(p.element);
+    if (player?.now_cost == null) return null; // can't compute reliably
+    cost += player.now_cost;
+  }
+  return cost;
+}
+
 function renderBudget() {
   const squad = getSquad();
   const cost = squad.reduce((sum, id) => sum + (state.players.get(id)?.now_cost ?? 0), 0);
   const gw = state.gameweek;
   const chip = chipFor(gw);
   const budget = budgetForGw(gw);
-  // Prefer the imported bank (matches "I banken" on fantasy.tv2.no). When no
-  // import is available, fall back to "remaining vs base budget" – useful for
-  // planning a fresh squad from scratch.
+  // Bank is dynamic: it reflects the cash you'd have left after the current
+  // squad selection. Baseline wealth = imported squad cost (at current prices)
+  // + imported bank — that conserves total wealth as you swap players, so a
+  // 5m → 7m swap drains 2m from the bank, just like fantasy.tv2.no.
   const importedBank = state.myTeam?.bank;
-  const showBank = importedBank != null;
-  const remaining = showBank ? importedBank : budget - cost;
+  const baseSquadCost = importedSquadCostAtCurrentPrices();
+  const haveBaseline = importedBank != null && baseSquadCost != null;
+  const chipBonus = chip === "rik_onkel" ? CHIP_BUDGET_BONUS.rik_onkel : 0;
+  const remaining = haveBaseline
+    ? (baseSquadCost + importedBank + chipBonus) - cost
+    : budget - cost;
   qs("#team-cost").textContent = fmtPrice(cost);
   qs("#team-remaining").textContent = fmtPrice(remaining);
-  qs("#team-remaining-label").textContent = showBank ? "I banken" : "Igjen";
+  qs("#team-remaining-label").textContent = haveBaseline ? "I banken" : "Igjen";
   qs("#team-count").textContent = `${squad.length}/${SQUAD_SIZE}`;
-  // "Over budget" warning: with imported bank we'd need bank < 0 (impossible)
-  // or squad cost > squadCost(at-import) + bank. Keep simple: only flag when
-  // planning a fresh squad and the synthetic remaining goes negative.
-  qs("#budget-panel").classList.toggle("over", !showBank && remaining < 0);
+  qs("#budget-panel").classList.toggle("over", remaining < 0);
   qs("#budget-panel").classList.toggle("rik-onkel", chip === "rik_onkel");
 
   const hasSnapshot = gw != null && !!state.squadsByGw[gw];
