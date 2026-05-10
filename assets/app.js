@@ -742,7 +742,8 @@ function renderTop500() {
     return;
   }
   panel.hidden = false;
-  const stats = t500.stats.total_value;
+  // New schema uses `lagverdi`; fall back to `total_value` for older data files.
+  const stats = t500.stats.lagverdi ?? t500.stats.total_value;
   const fmt = (t) => (t / 10).toFixed(1) + "m";
   const mine = ownTotalValue();
   qs("#t500-mine").textContent = mine != null ? fmt(mine) : "–";
@@ -753,7 +754,8 @@ function renderTop500() {
 
   // Use the same cleaned set the stats were computed from for percentile.
   const cleanEntries = t500.entries.filter((e) => !e.excluded);
-  const sortedTotals = cleanEntries.map((e) => e.total_value).sort((a, b) => a - b);
+  const valueOf = (e) => e.lagverdi ?? e.total_value;
+  const sortedTotals = cleanEntries.map(valueOf).sort((a, b) => a - b);
   const pct = mine != null && sortedTotals.length ? percentileOf(sortedTotals, mine) : null;
   qs("#t500-pct").textContent = pct != null ? `${pct}%` : "–";
 

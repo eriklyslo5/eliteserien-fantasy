@@ -1,9 +1,16 @@
 #!/usr/bin/env node
-// Scrape lagverdi (value + bank) for the top N teams in TV 2 Eliteserien Fantasy.
+// Scrape lagverdi for the top N teams in TV 2 Eliteserien Fantasy.
+//
+// Lagverdi is computed as: sum of current player prices (now_cost) for the
+// squad they used in the latest finished gameweek, plus money in bank.
+// This matches what fantasy.tv2.no shows under "Troppens verdi" + "I banken",
+// rather than the API's history.value snapshot which freezes at the previous
+// deadline and drifts as prices change.
+//
 // Usage:  node scripts/fetch-top500.mjs [limit=500]
 // Writes: data/top500.json
 
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, readFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
@@ -14,7 +21,7 @@ const DATA_DIR = resolve(__dirname, "..", "data");
 const HOST = "https://fantasy.tv2.no";
 const OVERALL_LEAGUE_ID = 329; // "Totalt" – global league everyone is in
 const PAGE_SIZE = 50;
-const REQUEST_DELAY_MS = 120;
+const REQUEST_DELAY_MS = 100;
 
 const HEADERS = {
   "User-Agent":
@@ -50,6 +57,18 @@ async function fetchJson(url) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+async function loadPriceMap() {
+  // Use the locally cached bootstrap.json so we share the exact prices the UI
+  // uses. fetch-data.mjs is responsible for keeping it fresh.
+  const raw = await readFile(resolve(DATA_DIR, "bootstrap.json"), "utf8");
+  const boot = JSON.parse(raw);
+  const map = new Map();
+  for (const p of boot.players ?? []) {
+    if (p.id != null && typeof p.now_cost === "number") map.set(p.id, p.now_cost);
+  }
+  return map;
+}
+
 async function fetchStandings(maxEntries) {
   const pages = Math.ceil(maxEntries / PAGE_SIZE);
   const all = [];
@@ -64,15 +83,16 @@ async function fetchStandings(maxEntries) {
   return all.slice(0, maxEntries);
 }
 
-// "Rich Uncle" / Rik Onkel-style chips that temporarily inflate budget.
-// pdbus is the API name for the +100m budget chip. Exclude any team that
-// used such a chip in the latest scored event.
+// Chips that temporarily inflate budget (Rik Onkel-equivalent). Any team using
+// one in the latest scored event is flagged because their value/bank reflect
+// the chip-boosted state, not their real lagverdi.
 const BUDGET_CHIPS = new Set(["pdbus", "rikonkel", "rik_onkel"]);
-// Bank > 3.0m indicates a team mid-transfer between deadlines — their snapshot
-// is unstable and would skew stats. Exclude them.
+// Bank > 3.0m signals the team is mid-transfer between deadlines: they sold a
+// player but haven't bought a replacement, so the (still-stored GW8) picks
+// double-count with the cash. Drop them from stats.
 const BANK_OUTLIER_TENTHS = 30;
 
-async function fetchLatestValueBank(entryId) {
+async function fetchHistory(entryId) {
   const data = await fetchJson(`${HOST}/api/entry/${entryId}/history/`);
   const cur = data?.current ?? [];
   if (cur.length === 0) return null;
@@ -81,32 +101,48 @@ async function fetchLatestValueBank(entryId) {
   const chipThisEvent = chips.find((c) => c.event === last.event)?.name ?? null;
   return {
     event: last.event,
-    value: last.value,
+    api_value: last.value,
     bank: last.bank,
     chip_this_event: chipThisEvent,
   };
 }
 
+async function fetchPicks(entryId, eventId) {
+  const data = await fetchJson(`${HOST}/api/entry/${entryId}/event/${eventId}/picks/`);
+  return (data?.picks ?? []).map((p) => p.element);
+}
+
+function squadCostFromPicks(pickIds, priceMap) {
+  let cost = 0;
+  let missing = 0;
+  for (const id of pickIds) {
+    const p = priceMap.get(id);
+    if (typeof p === "number") cost += p;
+    else missing++;
+  }
+  return { cost, missing };
+}
+
 function summarize(entries) {
   if (!entries.length) return null;
-  const totals = entries.map((e) => e.total_value).sort((a, b) => a - b);
-  const values = entries.map((e) => e.value).sort((a, b) => a - b);
+  const totals = entries.map((e) => e.lagverdi).sort((a, b) => a - b);
+  const squadCosts = entries.map((e) => e.squad_cost).sort((a, b) => a - b);
   const banks = entries.map((e) => e.bank).sort((a, b) => a - b);
   const n = totals.length;
   const pct = (arr, p) => arr[Math.min(arr.length - 1, Math.floor((arr.length * p) / 100))];
   const sum = (arr) => arr.reduce((s, v) => s + v, 0);
   return {
     count: n,
-    total_value: {
+    lagverdi: {
       min: totals[0], max: totals[n - 1],
       avg: Math.round(sum(totals) / n),
       median: pct(totals, 50),
       p10: pct(totals, 10), p25: pct(totals, 25), p75: pct(totals, 75), p90: pct(totals, 90),
     },
-    value: {
-      min: values[0], max: values[n - 1],
-      avg: Math.round(sum(values) / n),
-      median: pct(values, 50),
+    squad_cost: {
+      min: squadCosts[0], max: squadCosts[n - 1],
+      avg: Math.round(sum(squadCosts) / n),
+      median: pct(squadCosts, 50),
     },
     bank: {
       min: banks[0], max: banks[n - 1],
@@ -117,6 +153,10 @@ function summarize(entries) {
 }
 
 async function main() {
+  console.log(`Loading current player prices from data/bootstrap.json …`);
+  const priceMap = await loadPriceMap();
+  console.log(`  ${priceMap.size} players loaded`);
+
   console.log(`Fetching top ${limit} from league ${OVERALL_LEAGUE_ID} ("Totalt") …`);
   const standings = await fetchStandings(limit);
   console.log(`  got ${standings.length} entries`);
@@ -127,30 +167,42 @@ async function main() {
   for (let i = 0; i < standings.length; i++) {
     const s = standings[i];
     try {
-      const v = await fetchLatestValueBank(s.entry);
-      if (v) {
-        lastEvent = v.event;
-        const usedBudgetChip = v.chip_this_event && BUDGET_CHIPS.has(v.chip_this_event);
-        const bankOutlier = v.bank > BANK_OUTLIER_TENTHS;
-        entries.push({
-          rank: s.rank,
-          entry: s.entry,
-          entry_name: s.entry_name,
-          player_name: s.player_name,
-          total_points: s.total ?? null,
-          event: v.event,
-          value: v.value,
-          bank: v.bank,
-          total_value: v.value + v.bank,
-          chip_this_event: v.chip_this_event,
-          // True when the snapshot is unreliable for "lagverdi" comparison:
-          // either an active +budget chip or mid-transfer with cash piled up.
-          excluded: usedBudgetChip || bankOutlier,
-          excluded_reason: usedBudgetChip ? "budget_chip" : (bankOutlier ? "bank_outlier" : null),
-        });
-      } else {
+      const h = await fetchHistory(s.entry);
+      if (!h) {
         failed++;
+        continue;
       }
+      lastEvent = h.event;
+      await sleep(REQUEST_DELAY_MS);
+      const pickIds = await fetchPicks(s.entry, h.event);
+      const { cost: squadCost, missing } = squadCostFromPicks(pickIds, priceMap);
+      const usedBudgetChip = h.chip_this_event && BUDGET_CHIPS.has(h.chip_this_event);
+      // Picks list should always be 15 players; missing prices means the
+      // bootstrap is stale (e.g. a transferred-in player not in our snapshot).
+      const incompletePicks = pickIds.length !== 15 || missing > 0;
+      const bankOutlier = h.bank > BANK_OUTLIER_TENTHS;
+      const reason = usedBudgetChip
+        ? "budget_chip"
+        : incompletePicks
+          ? "incomplete_picks"
+          : bankOutlier
+            ? "bank_outlier"
+            : null;
+      entries.push({
+        rank: s.rank,
+        entry: s.entry,
+        entry_name: s.entry_name,
+        player_name: s.player_name,
+        total_points: s.total ?? null,
+        event: h.event,
+        squad_cost: squadCost,
+        bank: h.bank,
+        lagverdi: squadCost + h.bank,
+        api_value: h.api_value,
+        chip_this_event: h.chip_this_event,
+        excluded: reason !== null,
+        excluded_reason: reason,
+      });
     } catch (err) {
       failed++;
       if (failed < 5) console.warn(`  entry ${s.entry}: ${err.message}`);
@@ -172,17 +224,18 @@ async function main() {
     clean_count: cleanEntries.length,
     excluded: excludedCount,
     failed,
+    method: "current squad cost (now_cost sum) + bank",
     stats: summarize(cleanEntries),
     raw_stats: summarize(entries),
     entries,
   };
   await mkdir(DATA_DIR, { recursive: true });
   await writeFile(resolve(DATA_DIR, "top500.json"), JSON.stringify(out, null, 2) + "\n", "utf8");
-  console.log(`\nDone. ${entries.length} fetched (${failed} failed). ${cleanEntries.length} after excluding ${excludedCount} outliers (chip/mid-transfer).`);
+  console.log(`\nDone. ${entries.length} fetched (${failed} failed). ${cleanEntries.length} after excluding ${excludedCount}.`);
   if (out.stats) {
     const fmt = (t) => (t / 10).toFixed(1) + "m";
-    console.log(`Total lagverdi (value + bank), clean:`);
-    console.log(`  min ${fmt(out.stats.total_value.min)}  median ${fmt(out.stats.total_value.median)}  avg ${fmt(out.stats.total_value.avg)}  max ${fmt(out.stats.total_value.max)}`);
+    console.log(`Lagverdi (squadCost + bank, current prices), clean:`);
+    console.log(`  min ${fmt(out.stats.lagverdi.min)}  median ${fmt(out.stats.lagverdi.median)}  avg ${fmt(out.stats.lagverdi.avg)}  max ${fmt(out.stats.lagverdi.max)}`);
   }
 }
 
