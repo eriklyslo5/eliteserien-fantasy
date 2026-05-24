@@ -1056,18 +1056,6 @@
     "team_a_score": null
   },
   {
-    "id": 86,
-    "event": 11,
-    "kickoff_time": "2026-05-30T14:00:00Z",
-    "team_h": 8,
-    "team_a": 15,
-    "team_h_difficulty": null,
-    "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
-  },
-  {
     "id": 90,
     "event": 11,
     "kickoff_time": "2026-05-30T14:00:00Z",
@@ -1265,6 +1253,18 @@
     "kickoff_time": "2026-07-18T14:00:00Z",
     "team_h": 15,
     "team_a": 11,
+    "team_h_difficulty": null,
+    "team_a_difficulty": null,
+    "finished": false,
+    "team_h_score": null,
+    "team_a_score": null
+  },
+  {
+    "id": 86,
+    "event": 13,
+    "kickoff_time": "2026-07-22T17:00:00Z",
+    "team_h": 8,
+    "team_a": 15,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
     "finished": false,
