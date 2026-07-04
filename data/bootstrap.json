@@ -595,7 +595,7 @@
       "now_cost": 83,
       "total_points": 61,
       "form": "0.0",
-      "selected_by_percent": "14.8",
+      "selected_by_percent": "14.9",
       "status": "a",
       "news": "",
       "chance_of_playing_next_round": null,
@@ -681,9 +681,9 @@
       "total_points": 2,
       "form": "0.0",
       "selected_by_percent": "0.9",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1754358.jpg"
     },
     {
@@ -852,7 +852,7 @@
       "form": "0.0",
       "selected_by_percent": "8.5",
       "status": "d",
-      "news": "Lår - 75 % sjanse for å spille",
+      "news": "Lår - 50 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "306458.jpg"
     },
@@ -954,7 +954,7 @@
       "form": "0.0",
       "selected_by_percent": "2.0",
       "status": "d",
-      "news": "Lår - 75 % sjanse for å spille",
+      "news": "Lår - 50 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "1552945.jpg"
     },
@@ -1039,7 +1039,7 @@
       "form": "0.0",
       "selected_by_percent": "0.4",
       "status": "d",
-      "news": "Kne - 75 % sjanse for å spille",
+      "news": "Kne - 50 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "2030843.jpg"
     },
@@ -1056,7 +1056,7 @@
       "form": "0.0",
       "selected_by_percent": "8.3",
       "status": "d",
-      "news": "Smell - 75 % sjanse for å spille",
+      "news": "Smell - 50 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "2032537.jpg"
     },
@@ -1090,7 +1090,7 @@
       "form": "0.0",
       "selected_by_percent": "2.6",
       "status": "d",
-      "news": "Ankel - 75 % sjanse for å spille",
+      "news": "Ankel - 50 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "2050502.jpg"
     },
@@ -1106,9 +1106,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.2",
-      "status": "d",
-      "news": "Kne - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "2050406.jpg"
     },
     {
@@ -1582,9 +1582,9 @@
       "total_points": 22,
       "form": "0.0",
       "selected_by_percent": "0.4",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "2056398.jpg"
     },
     {
@@ -1650,9 +1650,9 @@
       "total_points": 17,
       "form": "0.0",
       "selected_by_percent": "3.8",
-      "status": "d",
-      "news": "Legg - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "2017745.jpg"
     },
     {
@@ -1684,9 +1684,9 @@
       "total_points": 2,
       "form": "0.0",
       "selected_by_percent": "0.9",
-      "status": "d",
-      "news": "Lyske - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1926490.jpg"
     },
     {
@@ -2058,9 +2058,9 @@
       "total_points": 15,
       "form": "0.0",
       "selected_by_percent": "0.3",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "u",
+      "news": "Lån avsluttet",
+      "chance_of_playing_next_round": 0,
       "photo": "1970431.jpg"
     },
     {
@@ -2194,9 +2194,9 @@
       "total_points": 18,
       "form": "0.0",
       "selected_by_percent": "0.9",
-      "status": "d",
-      "news": "Fot - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1654120.jpg"
     },
     {
@@ -2228,9 +2228,9 @@
       "total_points": 5,
       "form": "0.0",
       "selected_by_percent": "10.9",
-      "status": "d",
-      "news": "Smell - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "44085.jpg"
     },
     {
@@ -2296,9 +2296,9 @@
       "total_points": 35,
       "form": "0.0",
       "selected_by_percent": "2.8",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "status": "u",
+      "news": "Overgang til Häcken",
+      "chance_of_playing_next_round": 0,
       "photo": "191505.jpg"
     },
     {
@@ -2330,9 +2330,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.1",
-      "status": "d",
-      "news": "Smell - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "42914.jpg"
     },
     {
@@ -2364,9 +2364,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.0",
-      "status": "d",
-      "news": "Smell - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1631352.jpg"
     },
     {
@@ -2550,7 +2550,7 @@
       "now_cost": 67,
       "total_points": 22,
       "form": "0.0",
-      "selected_by_percent": "4.7",
+      "selected_by_percent": "4.6",
       "status": "a",
       "news": "",
       "chance_of_playing_next_round": null,
@@ -2670,9 +2670,9 @@
       "total_points": 19,
       "form": "0.0",
       "selected_by_percent": "1.3",
-      "status": "d",
-      "news": "Lår - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "135222.jpg"
     },
     {
@@ -2891,9 +2891,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.0",
-      "status": "d",
-      "news": "Kne - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1884520.jpg"
     },
     {
@@ -3078,9 +3078,9 @@
       "total_points": 45,
       "form": "0.0",
       "selected_by_percent": "23.1",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1618145.jpg"
     },
     {
@@ -3129,9 +3129,9 @@
       "total_points": 25,
       "form": "0.0",
       "selected_by_percent": "1.8",
-      "status": "d",
-      "news": "Smell - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "214957.jpg"
     },
     {
@@ -3232,7 +3232,7 @@
       "form": "0.0",
       "selected_by_percent": "4.5",
       "status": "d",
-      "news": "Legg - 75 % sjanse for å spille",
+      "news": "Legg - 25 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "1540744.jpg"
     },
@@ -3265,9 +3265,9 @@
       "total_points": 4,
       "form": "0.0",
       "selected_by_percent": "0.1",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1838206.jpg"
     },
     {
@@ -3401,9 +3401,9 @@
       "total_points": 15,
       "form": "0.0",
       "selected_by_percent": "0.8",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "2033036.jpg"
     },
     {
@@ -3418,9 +3418,9 @@
       "total_points": 33,
       "form": "0.0",
       "selected_by_percent": "23.3",
-      "status": "d",
-      "news": "Legg - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "47482.jpg"
     },
     {
@@ -3503,9 +3503,9 @@
       "total_points": 8,
       "form": "0.0",
       "selected_by_percent": "0.4",
-      "status": "d",
-      "news": "Smell - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "49607.jpg"
     },
     {
@@ -3605,9 +3605,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.0",
-      "status": "i",
-      "news": "Annet - Ute på ubestemt tid",
-      "chance_of_playing_next_round": 0,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "2025801.jpg"
     },
     {
@@ -3690,9 +3690,9 @@
       "total_points": 24,
       "form": "0.0",
       "selected_by_percent": "3.3",
-      "status": "d",
-      "news": "Landslag - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "2036537.jpg"
     },
     {
@@ -4081,9 +4081,9 @@
       "total_points": 1,
       "form": "0.0",
       "selected_by_percent": "0.0",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "status": "d",
+      "news": "Smell - 75 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1840518.jpg"
     },
     {
@@ -4115,9 +4115,9 @@
       "total_points": 19,
       "form": "0.0",
       "selected_by_percent": "0.4",
-      "status": "d",
-      "news": "Legg - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "200083.jpg"
     },
     {
@@ -4183,9 +4183,9 @@
       "total_points": 10,
       "form": "0.0",
       "selected_by_percent": "2.1",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "status": "i",
+      "news": "Smell - Forventet tilbake 18. juli",
+      "chance_of_playing_next_round": 0,
       "photo": "320444.jpg"
     },
     {
@@ -4250,7 +4250,7 @@
       "now_cost": 49,
       "total_points": 30,
       "form": "0.0",
-      "selected_by_percent": "1.6",
+      "selected_by_percent": "1.7",
       "status": "a",
       "news": "",
       "chance_of_playing_next_round": null,
@@ -4302,9 +4302,9 @@
       "total_points": 7,
       "form": "0.0",
       "selected_by_percent": "2.1",
-      "status": "d",
-      "news": "Lår - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "163662.jpg"
     },
     {
@@ -4319,9 +4319,9 @@
       "total_points": 35,
       "form": "0.0",
       "selected_by_percent": "2.1",
-      "status": "d",
-      "news": "Lår - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "2060192.jpg"
     },
     {
@@ -4727,9 +4727,9 @@
       "total_points": 46,
       "form": "0.0",
       "selected_by_percent": "4.5",
-      "status": "d",
-      "news": "Smell - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1468007.jpg"
     },
     {
@@ -4795,9 +4795,9 @@
       "total_points": 10,
       "form": "0.0",
       "selected_by_percent": "1.7",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "u",
+      "news": "Kontrakt utløpt",
+      "chance_of_playing_next_round": 0,
       "photo": "2017593.jpg"
     },
     {
@@ -4829,9 +4829,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.1",
-      "status": "d",
-      "news": "Smell - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1634211.jpg"
     },
     {
@@ -4880,9 +4880,9 @@
       "total_points": 4,
       "form": "0.0",
       "selected_by_percent": "0.9",
-      "status": "d",
-      "news": "Lår - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "214441.jpg"
     },
     {
@@ -5033,9 +5033,9 @@
       "total_points": 26,
       "form": "0.0",
       "selected_by_percent": "0.4",
-      "status": "d",
-      "news": "Landslag - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1994959.jpg"
     },
     {
@@ -5135,9 +5135,9 @@
       "total_points": 17,
       "form": "0.0",
       "selected_by_percent": "0.4",
-      "status": "d",
-      "news": "Ankel - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "i",
+      "news": "Ankel - Ute på ubestemt tid",
+      "chance_of_playing_next_round": 0,
       "photo": "31810.jpg"
     },
     {
@@ -5254,9 +5254,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "12.7",
-      "status": "i",
-      "news": "Smell - Ute på ubestemt tid",
-      "chance_of_playing_next_round": 0,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1621400.jpg"
     },
     {
@@ -5271,9 +5271,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.9",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "u",
+      "news": "På utlån til Strømmen",
+      "chance_of_playing_next_round": 0,
       "photo": "1718858.jpg"
     },
     {
@@ -5356,9 +5356,9 @@
       "total_points": 7,
       "form": "0.0",
       "selected_by_percent": "0.3",
-      "status": "d",
-      "news": "Legg - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "i",
+      "news": "Legg - Forventet tilbake 20. september",
+      "chance_of_playing_next_round": 0,
       "photo": "1561912.jpg"
     },
     {
@@ -5611,9 +5611,9 @@
       "total_points": 46,
       "form": "0.0",
       "selected_by_percent": "3.2",
-      "status": "d",
-      "news": "Lyske - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "2057372.jpg"
     },
     {
@@ -5815,9 +5815,9 @@
       "total_points": 66,
       "form": "0.0",
       "selected_by_percent": "39.6",
-      "status": "d",
-      "news": "Legg - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1816761.jpg"
     },
     {
@@ -5883,9 +5883,9 @@
       "total_points": 34,
       "form": "0.0",
       "selected_by_percent": "2.7",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "status": "u",
+      "news": "Overgang til Al-Ahli Saudi FC",
+      "chance_of_playing_next_round": 0,
       "photo": "2037634.jpg"
     },
     {
@@ -5985,9 +5985,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.0",
-      "status": "d",
-      "news": "Fot - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1656521.jpg"
     },
     {
@@ -6036,9 +6036,9 @@
       "total_points": 1,
       "form": "0.0",
       "selected_by_percent": "0.1",
-      "status": "d",
-      "news": "Lyske - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "i",
+      "news": "Lyske - Forventet tilbake 20. september",
+      "chance_of_playing_next_round": 0,
       "photo": "2061107.jpg"
     },
     {
@@ -6070,9 +6070,9 @@
       "total_points": 34,
       "form": "0.0",
       "selected_by_percent": "4.7",
-      "status": "d",
-      "news": "Smell - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "97924.jpg"
     },
     {
@@ -6088,7 +6088,7 @@
       "form": "0.0",
       "selected_by_percent": "0.2",
       "status": "d",
-      "news": "Smell - 75 % sjanse for å spille",
+      "news": "Smell - 25 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "92383.jpg"
     },
@@ -6274,9 +6274,9 @@
       "total_points": 4,
       "form": "0.0",
       "selected_by_percent": "1.1",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "u",
+      "news": "Overgang til SK Sigma Olomouc",
+      "chance_of_playing_next_round": 0,
       "photo": "1964671.jpg"
     },
     {
@@ -6342,9 +6342,9 @@
       "total_points": 17,
       "form": "0.0",
       "selected_by_percent": "7.7",
-      "status": "d",
-      "news": "Landslag - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1886738.jpg"
     },
     {
@@ -6427,9 +6427,9 @@
       "total_points": 96,
       "form": "0.0",
       "selected_by_percent": "60.2",
-      "status": "d",
-      "news": "Lår - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "91490.jpg"
     },
     {
@@ -6462,7 +6462,7 @@
       "form": "0.0",
       "selected_by_percent": "0.1",
       "status": "d",
-      "news": "Kne - 75 % sjanse for å spille",
+      "news": "Kne - 25 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "1574784.jpg"
     },
@@ -6666,7 +6666,7 @@
       "form": "0.0",
       "selected_by_percent": "0.0",
       "status": "u",
-      "news": "På lån til FC Stockholm",
+      "news": "Overgang til Hobro",
       "chance_of_playing_next_round": 0,
       "photo": "4063225.jpg"
     },
@@ -6682,9 +6682,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.1",
-      "status": "u",
-      "news": "På lån i Ranheim",
-      "chance_of_playing_next_round": 0,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1831341.jpg"
     },
     {
@@ -6784,9 +6784,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.0",
-      "status": "d",
-      "news": "Kne - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1571045.jpg"
     },
     {
@@ -6971,9 +6971,9 @@
       "total_points": 28,
       "form": "0.0",
       "selected_by_percent": "11.2",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "u",
+      "news": "Lagt opp",
+      "chance_of_playing_next_round": 0,
       "photo": "1604032.jpg"
     },
     {
@@ -7158,9 +7158,9 @@
       "total_points": 13,
       "form": "0.0",
       "selected_by_percent": "0.1",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1992769.jpg"
     },
     {
@@ -7175,9 +7175,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.0",
-      "status": "i",
-      "news": "Smell - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 0,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "2025428.jpg"
     },
     {
@@ -7210,7 +7210,7 @@
       "form": "0.0",
       "selected_by_percent": "0.0",
       "status": "d",
-      "news": "Smell - 50 % sjanse for å spille",
+      "news": "Smell - 25 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "2017671.jpg"
     },
@@ -7312,7 +7312,7 @@
       "form": "0.0",
       "selected_by_percent": "0.1",
       "status": "d",
-      "news": "Lår - 50 % sjanse for å spille",
+      "news": "Lår - 75 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "2019017.jpg"
     },
@@ -7328,9 +7328,9 @@
       "total_points": 6,
       "form": "0.0",
       "selected_by_percent": "0.5",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "d",
+      "news": "Smell - 75 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1724753.jpg"
     },
     {
@@ -7396,9 +7396,9 @@
       "total_points": 13,
       "form": "0.0",
       "selected_by_percent": "0.1",
-      "status": "d",
-      "news": "Smell - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "306201.jpg"
     },
     {
@@ -7414,7 +7414,7 @@
       "form": "0.0",
       "selected_by_percent": "0.9",
       "status": "d",
-      "news": "Lår - 75 % sjanse for å spille",
+      "news": "Lår - 50 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
       "photo": "1974569.jpg"
     },
@@ -7464,9 +7464,9 @@
       "total_points": 15,
       "form": "0.0",
       "selected_by_percent": "0.9",
-      "status": "d",
-      "news": "Smell - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "2038349.jpg"
     },
     {
@@ -7583,9 +7583,9 @@
       "total_points": 12,
       "form": "0.0",
       "selected_by_percent": "0.0",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "d",
+      "news": "Nakke - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1987320.jpg"
     },
     {
@@ -7685,9 +7685,9 @@
       "total_points": 11,
       "form": "0.0",
       "selected_by_percent": "0.2",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1602929.jpg"
     },
     {
