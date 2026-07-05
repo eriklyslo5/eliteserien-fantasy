@@ -528,9 +528,9 @@
       "total_points": 11,
       "form": "0.0",
       "selected_by_percent": "0.2",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1534602.jpg"
     },
     {
@@ -579,9 +579,9 @@
       "total_points": 34,
       "form": "0.0",
       "selected_by_percent": "2.1",
-      "status": "d",
-      "news": "Smell - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1612262.jpg"
     },
     {
@@ -1446,9 +1446,9 @@
       "total_points": 12,
       "form": "0.0",
       "selected_by_percent": "5.5",
-      "status": "d",
-      "news": "Legg - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "294605.jpg"
     },
     {
@@ -1582,9 +1582,9 @@
       "total_points": 22,
       "form": "0.0",
       "selected_by_percent": "0.4",
-      "status": "d",
-      "news": "Smell - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "2056398.jpg"
     },
     {
@@ -2550,7 +2550,7 @@
       "now_cost": 67,
       "total_points": 22,
       "form": "0.0",
-      "selected_by_percent": "4.6",
+      "selected_by_percent": "4.7",
       "status": "a",
       "news": "",
       "chance_of_playing_next_round": null,
@@ -3349,7 +3349,7 @@
       "now_cost": 63,
       "total_points": 56,
       "form": "0.0",
-      "selected_by_percent": "15.6",
+      "selected_by_percent": "15.7",
       "status": "a",
       "news": "",
       "chance_of_playing_next_round": null,
@@ -4692,7 +4692,7 @@
       "now_cost": 58,
       "total_points": 28,
       "form": "0.0",
-      "selected_by_percent": "4.4",
+      "selected_by_percent": "4.3",
       "status": "a",
       "news": "",
       "chance_of_playing_next_round": null,
@@ -5747,9 +5747,9 @@
       "total_points": 49,
       "form": "0.0",
       "selected_by_percent": "6.5",
-      "status": "d",
-      "news": "Lår - 75 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1637738.jpg"
     },
     {
@@ -6154,7 +6154,7 @@
       "now_cost": 63,
       "total_points": 47,
       "form": "0.0",
-      "selected_by_percent": "29.8",
+      "selected_by_percent": "29.7",
       "status": "d",
       "news": "Landslag - 75 % sjanse for å spille",
       "chance_of_playing_next_round": 50,
@@ -6563,9 +6563,9 @@
       "total_points": 0,
       "form": "0.0",
       "selected_by_percent": "0.9",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": null,
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1640056.jpg"
     },
     {
@@ -6732,10 +6732,10 @@
       "now_cost": 72,
       "total_points": 24,
       "form": "0.0",
-      "selected_by_percent": "2.9",
-      "status": "a",
-      "news": "",
-      "chance_of_playing_next_round": 100,
+      "selected_by_percent": "2.8",
+      "status": "d",
+      "news": "Smell - 50 % sjanse for å spille",
+      "chance_of_playing_next_round": 50,
       "photo": "1802439.jpg"
     },
     {
@@ -6886,9 +6886,9 @@
       "total_points": 4,
       "form": "0.0",
       "selected_by_percent": "7.5",
-      "status": "d",
-      "news": "Lår - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "316758.jpg"
     },
     {
@@ -7685,9 +7685,9 @@
       "total_points": 11,
       "form": "0.0",
       "selected_by_percent": "0.2",
-      "status": "d",
-      "news": "Smell - 50 % sjanse for å spille",
-      "chance_of_playing_next_round": 50,
+      "status": "a",
+      "news": "",
+      "chance_of_playing_next_round": 100,
       "photo": "1602929.jpg"
     },
     {
