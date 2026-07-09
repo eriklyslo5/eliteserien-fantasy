@@ -1250,7 +1250,7 @@
   {
     "id": 109,
     "event": 13,
-    "kickoff_time": "2026-07-18T18:00:00Z",
+    "kickoff_time": "2026-07-18T16:00:00Z",
     "team_h": 15,
     "team_a": 11,
     "team_h_difficulty": null,
@@ -1728,6 +1728,18 @@
     "team_a_score": null
   },
   {
+    "id": 158,
+    "event": 19,
+    "kickoff_time": "2026-09-04T17:00:00Z",
+    "team_h": 1,
+    "team_a": 13,
+    "team_h_difficulty": null,
+    "team_a_difficulty": null,
+    "finished": false,
+    "team_h_score": null,
+    "team_a_score": null
+  },
+  {
     "id": 159,
     "event": 19,
     "kickoff_time": "2026-09-04T17:00:00Z",
@@ -1769,18 +1781,6 @@
     "kickoff_time": "2026-09-05T16:00:00Z",
     "team_h": 3,
     "team_a": 8,
-    "team_h_difficulty": null,
-    "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
-  },
-  {
-    "id": 158,
-    "event": 19,
-    "kickoff_time": "2026-09-06T15:00:00Z",
-    "team_h": 1,
-    "team_a": 13,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
     "finished": false,
