@@ -1632,30 +1632,6 @@
     "team_a_score": 0
   },
   {
-    "id": 151,
-    "event": 18,
-    "kickoff_time": "2026-08-29T14:00:00Z",
-    "team_h": 16,
-    "team_a": 9,
-    "team_h_difficulty": null,
-    "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
-  },
-  {
-    "id": 147,
-    "event": 18,
-    "kickoff_time": "2026-08-29T16:00:00Z",
-    "team_h": 15,
-    "team_a": 1,
-    "team_h_difficulty": null,
-    "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
-  },
-  {
     "id": 152,
     "event": 18,
     "kickoff_time": "2026-08-30T12:30:00Z",
@@ -1709,6 +1685,30 @@
     "kickoff_time": "2026-08-30T15:00:00Z",
     "team_h": 14,
     "team_a": 12,
+    "team_h_difficulty": null,
+    "team_a_difficulty": null,
+    "finished": false,
+    "team_h_score": null,
+    "team_a_score": null
+  },
+  {
+    "id": 151,
+    "event": 18,
+    "kickoff_time": "2026-08-30T15:00:00Z",
+    "team_h": 16,
+    "team_a": 9,
+    "team_h_difficulty": null,
+    "team_a_difficulty": null,
+    "finished": false,
+    "team_h_score": null,
+    "team_a_score": null
+  },
+  {
+    "id": 147,
+    "event": 18,
+    "kickoff_time": "2026-08-30T15:00:00Z",
+    "team_h": 15,
+    "team_a": 1,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
     "finished": false,
