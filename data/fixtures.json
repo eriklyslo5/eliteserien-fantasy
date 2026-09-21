@@ -1927,7 +1927,7 @@
     "team_a": 6,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
-    "finished": false,
+    "finished": true,
     "team_h_score": 1,
     "team_a_score": 3
   },
@@ -1939,7 +1939,7 @@
     "team_a": 10,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
-    "finished": false,
+    "finished": true,
     "team_h_score": 1,
     "team_a_score": 3
   },
@@ -1951,7 +1951,7 @@
     "team_a": 1,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
-    "finished": false,
+    "finished": true,
     "team_h_score": 1,
     "team_a_score": 2
   },
@@ -1963,9 +1963,9 @@
     "team_a": 4,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
+    "finished": true,
+    "team_h_score": 1,
+    "team_a_score": 1
   },
   {
     "id": 172,
@@ -1975,9 +1975,9 @@
     "team_a": 13,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
+    "finished": true,
+    "team_h_score": 3,
+    "team_a_score": 0
   },
   {
     "id": 174,
@@ -1987,9 +1987,9 @@
     "team_a": 5,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
+    "finished": true,
+    "team_h_score": 3,
+    "team_a_score": 2
   },
   {
     "id": 169,
@@ -1999,9 +1999,9 @@
     "team_a": 8,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
+    "finished": true,
+    "team_h_score": 3,
+    "team_a_score": 0
   },
   {
     "id": 175,
@@ -2011,9 +2011,9 @@
     "team_a": 2,
     "team_h_difficulty": null,
     "team_a_difficulty": null,
-    "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
+    "finished": true,
+    "team_h_score": 2,
+    "team_a_score": 1
   },
   {
     "id": 180,
