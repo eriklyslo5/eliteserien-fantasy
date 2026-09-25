@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-09-24T11:34:12.506Z",
+  "fetched_at": "2026-09-25T11:39:46.947Z",
   "bootstrap_source": "https://fantasy.tv2.no/api/bootstrap-static/",
-  "fixtures_source": "https://fantasy.eliteserien.no/api/fixtures/",
+  "fixtures_source": "https://fantasy.tv2.no/api/fixtures/",
   "is_sample": false
 }
