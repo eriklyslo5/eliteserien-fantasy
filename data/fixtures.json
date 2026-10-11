@@ -2036,8 +2036,8 @@
     "team_h_difficulty": null,
     "team_a_difficulty": null,
     "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
+    "team_h_score": 3,
+    "team_a_score": 1
   },
   {
     "id": 179,
@@ -2048,8 +2048,8 @@
     "team_h_difficulty": null,
     "team_a_difficulty": null,
     "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
+    "team_h_score": 1,
+    "team_a_score": 1
   },
   {
     "id": 178,
@@ -2060,8 +2060,8 @@
     "team_h_difficulty": null,
     "team_a_difficulty": null,
     "finished": false,
-    "team_h_score": null,
-    "team_a_score": null
+    "team_h_score": 0,
+    "team_a_score": 0
   },
   {
     "id": 182,
